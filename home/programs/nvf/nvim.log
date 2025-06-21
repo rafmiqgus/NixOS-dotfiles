@@ -1,0 +1,1584 @@
+
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/ftplugin.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/ftplugin.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/indent.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/indent.vim
+could not source "/home/rafael/.config/kdedefaults/nvim/sysinit.vim"
+could not source "/etc/xdg/nvim/sysinit.vim"
+could not source "/home/rafael/.local/share/flatpak/exports/etc/xdg/nvim/sysinit.vim"
+could not source "/var/lib/flatpak/exports/etc/xdg/nvim/sysinit.vim"
+could not source "/home/rafael/.nix-profile/etc/xdg/nvim/sysinit.vim"
+could not source "/nix/profile/etc/xdg/nvim/sysinit.vim"
+could not source "/home/rafael/.local/state/nix/profile/etc/xdg/nvim/sysinit.vim"
+could not source "/etc/profiles/per-user/rafael/etc/xdg/nvim/sysinit.vim"
+could not source "/nix/var/nix/profiles/default/etc/xdg/nvim/sysinit.vim"
+could not source "/run/current-system/sw/etc/xdg/nvim/sysinit.vim"
+could not source "$VIM/sysinit.vim"
+line 0: sourcing "/nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua"
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+line 1: sourcing "/nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/gruvbox/colors/gruvbox.lua"
+finished sourcing /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/gruvbox/colors/gruvbox.lua
+continuing in nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+not found in runtime path: "lua/lualine/components/.lua"
+not found in runtime path: "lua/lualine/components//init.lua"
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+--- Autocommands ---
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+--- Autocommands ---
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+not found in runtime path: "lua/lualine/components/.lua"
+not found in runtime path: "lua/lualine/components//init.lua"
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+--- Autocommands ---
+lualine  BufEnter
+    *         lua require'lualine.components.diff.git_diff'.update_diff_args()
+	Last set from /nix/store/7nhj4aqsqn1n01ilw33xi947g33vk0jv-lualine-nvim-0-unstable-15884cee63a8c205334ab13ab1c891cd4d27101a/lua/lualine/utils/utils.lua line 98
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+not found in runtime path: "lua/lualine/components/.lua"
+not found in runtime path: "lua/lualine/components//init.lua"
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+not found in runtime path: "lua/lualine/components/.lua"
+not found in runtime path: "lua/lualine/components//init.lua"
+line 0: sourcing "/nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/neocord/autoload/neocord.vim"
+finished sourcing /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/neocord/autoload/neocord.vim
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+line 0: sourcing "nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0"
+finished sourcing nvim_exec2() called at /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua:0
+continuing in /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+finished sourcing /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+continuing in VIMINIT
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/filetype.lua"
+line 0: sourcing "nvim_exec2() called at /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/filetype.lua:0"
+line 2: sourcing "/nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-fugitive/ftdetect/fugitive.vim"
+finished sourcing /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-fugitive/ftdetect/fugitive.vim
+continuing in nvim_exec2() called at /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/filetype.lua:0
+finished sourcing nvim_exec2() called at /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/filetype.lua:0
+continuing in /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/filetype.lua
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/filetype.lua
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/syntax/syntax.vim"
+line 20: sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/syntax/synload.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/syntax/synload.vim
+continuing in /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/syntax/syntax.vim
+Executing FileType Autocommands for "*"
+autocommand if !exists('b:ts_highlight') | 0verbose exe "set syntax=" . expand("<amatch>") | endif
+
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/syntax/syntax.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/gzip.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/gzip.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/matchit.vim"
+not found in 'packpath': "pack/*/start/matchit"
+line 3: sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+continuing in /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/matchit.vim
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/matchit.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/matchparen.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/matchparen.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/netrwPlugin.vim"
+not found in 'packpath': "pack/*/start/netrw"
+line 7: sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim
+continuing in /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/netrwPlugin.vim
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/netrwPlugin.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/rplugin.vim"
+  1: ~/.dotfiles/home/programs/nvf/vim/_defaults.lua
+  2: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/ftplugin.vim
+  3: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/indent.vim
+  4: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/init.lua
+  5: /nix/store/9vwwvmsz0468d0ih5anwy9lwq0xsr3ic-init.lua
+  6: /nix/store/1d5hy0xs2i0r442cml1bmxmycgxd60pq-gruvbox-0-unstable-c54db7f7e67832fbdd0ac14633f62c8a6997ddcf/colors/gruvbox.lua
+  7: /nix/store/1d5hy0xs2i0r442cml1bmxmycgxd60pq-gruvbox-0-unstable-c54db7f7e67832fbdd0ac14633f62c8a6997ddcf/lua/gruvbox.lua
+  8: /nix/store/2nfjir60a6xii7rk39k1594mhl4wr53l-lz-n-0-unstable-a10519ab5940a5364560043df9dc3db328e27f98/lua/lz/n/handler/event.lua
+  9: /nix/store/2nfjir60a6xii7rk39k1594mhl4wr53l-lz-n-0-unstable-a10519ab5940a5364560043df9dc3db328e27f98/lua/lz/n/handler/cmd.lua
+ 10: /nix/store/2nfjir60a6xii7rk39k1594mhl4wr53l-lz-n-0-unstable-a10519ab5940a5364560043df9dc3db328e27f98/lua/lz/n/handler/keys.lua
+ 11: /nix/store/2nfjir60a6xii7rk39k1594mhl4wr53l-lz-n-0-unstable-a10519ab5940a5364560043df9dc3db328e27f98/lua/lz/n/loader.lua
+ 12: /nix/store/ayydkvcpdlrcpq6lchv14mzpb205lyhb-leetcode-nvim-0-unstable-db7e1cd6b9191b34b4c1f2f96e4e3949cde9f951/lua/leetcode.lua
+ 13: /nix/store/bvlf1iccfzgfm87mssps3lz7872ic56p-nvim-autopairs-0-unstable-4d74e75913832866aa7de35e4202463ddf6efd1b/lua/nvim-autopairs.lua
+ 14: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/lsp.lua
+ 15: /nix/store/ip56n42i123824n2ax10ngimg6i0cdsf-nvim-lspconfig-0-unstable-641e567f975feab3815b47c7d29e6148e07afa77/lua/lspconfig/configs.lua
+ 16: /nix/store/y45frw88yai9diivjrrh9fvl1smr91r7-nvim-navbuddy-0-unstable-f22bac988f2dd073601d75ba39ea5636ab6e38cb/lua/nvim-navbuddy/init.lua
+ 17: /nix/store/skaygcvmx91w3i38b9cbn0x75pphyryp-ccc-nvim-0-unstable-af2cf5a963f401aad868c065222ee13d4bbc9050/lua/ccc/handler/lsp.lua
+ 18: /nix/store/skaygcvmx91w3i38b9cbn0x75pphyryp-ccc-nvim-0-unstable-af2cf5a963f401aad868c065222ee13d4bbc9050/lua/ccc/init.lua
+ 19: /nix/store/skaygcvmx91w3i38b9cbn0x75pphyryp-ccc-nvim-0-unstable-af2cf5a963f401aad868c065222ee13d4bbc9050/lua/ccc/highlighter.lua
+ 20: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/treesitter/query.lua
+ 21: /nix/store/dh0gs2hcx2rfgcyyynblh7q6vyhba5da-codewindow-nvim-0-unstable-dd7017617962943eb1d152fc58940f11c6775a4a/lua/codewindow/highlight.lua
+ 22: /nix/store/dh0gs2hcx2rfgcyyynblh7q6vyhba5da-codewindow-nvim-0-unstable-dd7017617962943eb1d152fc58940f11c6775a4a/lua/codewindow.lua
+ 23: /nix/store/xha4isfiv9b9507mv7g4jrvn32b2i840-nvim-colorizer-lua-0-unstable-517df88cf2afb36652830df2c655df2da416a0ae/lua/colorizer.lua
+ 24: /nix/store/xha4isfiv9b9507mv7g4jrvn32b2i840-nvim-colorizer-lua-0-unstable-517df88cf2afb36652830df2c655df2da416a0ae/lua/colorizer/usercmds.lua
+ 25: /nix/store/9z2c6za0ik5cbrikx23xcmg5z9zj8b1d-fastaction-nvim-0-unstable-2f2e8d7010a0e5e725957828476b4e1625eaf82c/lua/fastaction/init.lua
+ 26: /nix/store/35r5y9gyaldzfn6zh9n5ck0242kkqpjp-git-conflict-nvim-0-unstable-a1badcd070d176172940eb55d9d59029dad1c5a6/lua/git-conflict.lua
+ 27: /nix/store/in5lyr9kc63dp51r4jxiq2lw54hbjh53-gitsigns-nvim-0-unstable-9cd665f46ab7af2e49d140d328b8e72ea1cf511b/lua/gitsigns.lua
+ 28: /nix/store/in5lyr9kc63dp51r4jxiq2lw54hbjh53-gitsigns-nvim-0-unstable-9cd665f46ab7af2e49d140d328b8e72ea1cf511b/lua/gitsigns/highlight.lua
+ 29: /nix/store/1dcaa22nsiryi9mxhrms3ziihribnr2h-highlight-undo-nvim-0-unstable-a5e2e2d43f6d131bf526619baeeeec32397b0789/lua/highlight-undo.lua
+ 30: /nix/store/9d44krfb42591py9v05504qb5y18bxmf-hop-nvim-0-unstable-1a1eceafe54b5081eae4cb91c723abd1d450f34b/lua/hop/highlight.lua
+ 31: /nix/store/gp17q30m8crfcji1bzyx20ffi6c3snyw-indent-blankline-nvim-0-unstable-005b56001b2cb30bfa61b7986bc50657816ba4ba/lua/ibl/highlights.lua
+ 32: /nix/store/gp17q30m8crfcji1bzyx20ffi6c3snyw-indent-blankline-nvim-0-unstable-005b56001b2cb30bfa61b7986bc50657816ba4ba/lua/ibl/autocmds.lua
+ 33: /nix/store/sngqidhi2115r5s164z38838hv8lwrnw-nvim-lightbulb-0-unstable-aa3a8b0f4305b25cfe368f6c9be9923a7c9d0805/lua/nvim-lightbulb/config.lua
+ 34: /nix/store/i2plhs543mdrd49fi03apvr7zpsb1p5g-lsp-signature-nvim-0-unstable-a793d02b6a5e639fa9d3f2a89a839fa688ab2d0a/lua/lsp_signature/init.lua
+ 35: /nix/store/7nhj4aqsqn1n01ilw33xi947g33vk0jv-lualine-nvim-0-unstable-15884cee63a8c205334ab13ab1c891cd4d27101a/lua/lualine/highlight.lua
+ 36: /nix/store/7nhj4aqsqn1n01ilw33xi947g33vk0jv-lualine-nvim-0-unstable-15884cee63a8c205334ab13ab1c891cd4d27101a/lua/lualine.lua
+ 37: /nix/store/7nhj4aqsqn1n01ilw33xi947g33vk0jv-lualine-nvim-0-unstable-15884cee63a8c205334ab13ab1c891cd4d27101a/lua/lualine/utils/utils.lua
+ 38: /nix/store/7nhj4aqsqn1n01ilw33xi947g33vk0jv-lualine-nvim-0-unstable-15884cee63a8c205334ab13ab1c891cd4d27101a/lua/lualine/utils/nvim_opts.lua
+ 39: /nix/store/5zr0r2qp8n6vw2160n843nbawwmadkfy-neocord-0-unstable-41bacd44e9d36f5e36e0271672ac2c02f6fa355a/autoload/neocord.vim
+ 40: /nix/store/1f7f141ifiyqvqc8mssfl7z9isx42m1p-noice-nvim-0-unstable-0427460c2d7f673ad60eb02b35f5e9926cf67c59/lua/noice/init.lua
+ 41: /nix/store/ndja8cvz93lxg7i53846ba0q22zq1nkk-nvim-docs-view-0-unstable-f674ba57349849bce894efdd54096483c88e810b/lua/docs-view.lua
+ 42: /nix/store/jv6nwicc25ggm0fwgvxpwv23yi8c32gc-nvim-notify-0-unstable-b5825cf9ee881dd8e43309c93374ed5b87b7a896/lua/notify/config/highlights.lua
+ 43: /nix/store/jv6nwicc25ggm0fwgvxpwv23yi8c32gc-nvim-notify-0-unstable-b5825cf9ee881dd8e43309c93374ed5b87b7a896/lua/notify/init.lua
+ 44: /nix/store/8kipw7jm8767bkd4xa4f44rjb3zrqsn4-nvim-scrollbar-0-unstable-6994eb9f73d5fdc36ee2c8717940e8c853e51a49/lua/scrollbar/utils.lua
+ 45: /nix/store/8kipw7jm8767bkd4xa4f44rjb3zrqsn4-nvim-scrollbar-0-unstable-6994eb9f73d5fdc36ee2c8717940e8c853e51a49/lua/scrollbar/init.lua
+ 46: /nix/store/8kipw7jm8767bkd4xa4f44rjb3zrqsn4-nvim-scrollbar-0-unstable-6994eb9f73d5fdc36ee2c8717940e8c853e51a49/lua/scrollbar/handlers/cursor.lua
+ 47: /nix/store/8kipw7jm8767bkd4xa4f44rjb3zrqsn4-nvim-scrollbar-0-unstable-6994eb9f73d5fdc36ee2c8717940e8c853e51a49/lua/scrollbar/handlers/diagnostic.lua
+ 48: /nix/store/9ibqqfjh0ivm06z60ibb8m44fqv3yc13-nvim-web-devicons-0-unstable-50b5b06bff13a9b4eab946de7c7033649a6618a1/lua/nvim-web-devicons.lua
+ 49: /nix/store/qqihlq4a67w973r02541iviznd9hzz4n-nvim-bufferline-lua-0-unstable-655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3/lua/bufferline/groups.lua
+ 50: /nix/store/qqihlq4a67w973r02541iviznd9hzz4n-nvim-bufferline-lua-0-unstable-655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3/lua/bufferline/highlights.lua
+ 51: /nix/store/qqihlq4a67w973r02541iviznd9hzz4n-nvim-bufferline-lua-0-unstable-655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3/lua/bufferline.lua
+ 52: /nix/store/m9cb4h3wlays1xshabds1cwy4jabvbx6-smartcolumn-nvim-0-unstable-92f3773af80d674f1eb61e112dca79e2fa449fd1/lua/smartcolumn.lua
+ 53: /nix/store/bz4sk7jhag7h8wzv8n64mh4nhnqp8c0p-snacks-nvim-0-unstable-5eac729fa290248acfe10916d92a5ed5e5c0f9ed/lua/snacks/init.lua
+ 54: /nix/store/4y3phrzxwnh5j9y05cal1nb1d18mhc85-nvim-treesitter-context-0-unstable-6daca3ad780f045550b820f262002f35175a6c04/lua/treesitter-context.lua
+ 55: /nix/store/pxj1gbqa0b85667bga1cad2yhnfb5076-which-key-nvim-0-unstable-370ec46f710e058c9c1646273e6b225acf47cbed/lua/which-key/config.lua
+ 56: /nix/store/6d4329cw26x24h1mplwbmr0l0g35r0ci-precognition-nvim-0-unstable-80ac0a99064eba71894dd164e891cc5d7e05827e/lua/precognition/init.lua
+ 57: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/lsp/inlay_hint.lua
+ 58: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/filetype.lua
+ 59: /nix/store/njpvf71mlmr4mm0zsg6iix5srv83ixxc-vim-fugitive-0-unstable-4a745ea72fa93bb15dd077109afbb3d1809383f2/ftdetect/fugitive.vim
+ 60: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/syntax/syntax.vim
+ 61: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/syntax/synload.vim
+ 62: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/gzip.vim
+ 63: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/matchit.vim
+ 64: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+ 65: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/matchparen.vim
+ 66: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/netrwPlugin.vim
+ 67: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/pack/dist/opt/netrw/plugin/netrwPlugin.vim
+ 68: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/rplugin.vim
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/rplugin.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/shada.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/shada.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/spellfile.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/spellfile.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/tarPlugin.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/tarPlugin.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/tutor.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/tutor.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/zipPlugin.vim"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/zipPlugin.vim
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/editorconfig.lua"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/editorconfig.lua
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/man.lua"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/man.lua
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/osc52.lua"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/osc52.lua
+sourcing "/nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/tohtml.lua"
+finished sourcing /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/tohtml.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/bufdelete-nvim/plugin/bufdelete.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/bufdelete-nvim/plugin/bufdelete.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/ccc-nvim/plugin/ccc.vim"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/ccc-nvim/plugin/ccc.vim
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/dressing-nvim/plugin/dressing.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/dressing-nvim/plugin/dressing.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/fzf-lua/plugin/fzf-lua.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/fzf-lua/plugin/fzf-lua.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/hop-nvim/plugin/hop.vim"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/hop-nvim/plugin/hop.vim
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/hydra-nvim/plugin/hydra.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/hydra-nvim/plugin/hydra.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-colorizer-lua/plugin/colorizer.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-colorizer-lua/plugin/colorizer.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-lspconfig/plugin/lspconfig.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-lspconfig/plugin/lspconfig.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-treesitter/plugin/nvim-treesitter.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-treesitter/plugin/nvim-treesitter.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-treesitter-context/plugin/treesitter-context.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-treesitter-context/plugin/treesitter-context.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-web-devicons/plugin/nvim-web-devicons.vim"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/otter-nvim/plugin/otter.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/otter-nvim/plugin/otter.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/plenary-nvim/plugin/plenary.vim"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/plenary-nvim/plugin/plenary.vim
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/snacks-nvim/plugin/snacks.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/snacks-nvim/plugin/snacks.lua
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/vim-fugitive/plugin/fugitive.vim"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/vim-fugitive/plugin/fugitive.vim
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/vim-illuminate/plugin/illuminate.vim"
+line 52: sourcing "nvim_exec2() called at /nix/store/9z4x47dxss2hv2c727fc1jpaqwl8266d-vim-illuminate-0-unstable-f985f5a4fbc410c9e5367f6b5863a8fa502e516d/plugin/illuminate.vim:52"
+finished sourcing nvim_exec2() called at /nix/store/9z4x47dxss2hv2c727fc1jpaqwl8266d-vim-illuminate-0-unstable-f985f5a4fbc410c9e5367f6b5863a8fa502e516d/plugin/illuminate.vim:52
+continuing in /nix/store/9z4x47dxss2hv2c727fc1jpaqwl8266d-vim-illuminate-0-unstable-f985f5a4fbc410c9e5367f6b5863a8fa502e516d/plugin/illuminate.vim
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/vim-illuminate/plugin/illuminate.vim
+sourcing "/nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/which-key-nvim/plugin/which-key.lua"
+finished sourcing /nix/store/7iqmx5qxr9wnspxrqxz54sf7w75x3an7-start-configdir/pack/mnw/start/which-key-nvim/plugin/which-key.lua
+not found in 'packpath': "start/*"
+sourcing "/nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/after/plugin/commands.lua"
+finished sourcing /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/after/plugin/commands.lua
+Reading ShaDa file "/home/rafael/.local/state/nvf/shada/main.shada" info marks oldfiles
+Executing BufWinEnter Autocommands for "*"
+autocommand <Lua 209: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-autopairs/lua/nvim-autopairs.lua:62>
+
+Executing BufWinEnter Autocommands for "*"
+autocommand <Lua 242: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-colorizer-lua/lua/colorizer.lua:534>
+
+Executing BufWinEnter Autocommands for "*"
+autocommand <Lua 298: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:26>
+
+Executing BufWinEnter Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing BufWinEnter Autocommands for "*"
+autocommand autocmd SafeState * ++once call s:Highlight_Matching_Pair()
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 208: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-autopairs/lua/nvim-autopairs.lua:62>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 228: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/ccc-nvim/lua/ccc/init.lua:62>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 240: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/codewindow-nvim/lua/codewindow.lua:61>
+
+autocommand <Lua 290: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/highlight-undo-nvim/lua/highlight-undo.lua:122>
+
+Executing BufEnter Autocommands for "*"
+autocommand lua require'lualine.components.diff.git_diff'.update_diff_args()
+
+autocommand lua require'lualine.components.branch.git_branch'.find_git_dir()
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 343: /nix/store/9vwwvmsz0468d0ih5anwy9lwq0xsr3ic-init.lua:729>
+
+Executing BufEnter Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_buf_enter()
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 371: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-bufferline-lua/lua/bufferline.lua:141>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 379: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/smartcolumn-nvim/lua/smartcolumn.lua:50>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 384: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/init.lua:187>
+
+Executing BufEnter Autocommands for "*"
+autocommand sil call s:LocalBrowse(expand("<amatch>"))
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 399: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 68: vim/_defaults.lua:0>
+
+autocommand <Lua 69: vim/_defaults.lua:0>
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 196: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/leetcode-nvim/lua/leetcode.lua:135>
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 267: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/git-conflict-nvim/lua/git-conflict.lua:631>
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 295: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/init.lua:98>
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 351: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/noice-nvim/lua/noice/init.lua:18>
+
+autocommand <Lua 408: vim/_editor.lua:0>
+
+Executing VimEnter Autocommands for "*"
+autocommand sil call s:VimEnter(expand("<amatch>"))
+
+Executing VimEnter Autocommands for "*"
+autocommand <Lua 472: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:49>
+
+Executing UIEnter Autocommands for "*"
+autocommand <Lua 197: vim/_editor.lua:0>
+
+Executing UIEnter Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_ui_enter()
+
+Executing UIEnter Autocommands for "*"
+autocommand <Lua 383: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/init.lua:187>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Error detected while processing UIEnter Autocommands for "*":
+                                                             Error executing lua callback: ...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: module 'lazy.stats' not found:
+	no field package.preload['lazy.stats']
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/share/lua/5.1/lazy/stats.lua'
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/share/lua/5.1/lazy/stats/init.lua'
+	no file './lazy/stats.lua'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/share/luajit-2.1/lazy/stats.lua'
+	no file '/usr/local/share/lua/5.1/lazy/stats.lua'
+	no file '/usr/local/share/lua/5.1/lazy/stats/init.lua'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/share/lua/5.1/lazy/stats.lua'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/share/lua/5.1/lazy/stats/init.lua'
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/lib/lua/5.1/lazy/stats.so'
+	no file './lazy/stats.so'
+	no file '/usr/local/lib/lua/5.1/lazy/stats.so'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/lib/lua/5.1/lazy/stats.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/lib/lua/5.1/lazy.so'
+	no file './lazy.so'
+	no file '/usr/local/lib/lua/5.1/lazy.so'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/lib/lua/5.1/lazy.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'error'
+	...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: in function 'require'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:1070: in function <...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:1068>
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:488: in function 'resolve'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:494: in function 'resolve'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:706: in function 'update'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:228: in function 'open'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:1163: in function 'setup'
+	...-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/init.lua:169: in function 'load'
+	...-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/init.lua:188: in function <...-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/init.lua:187>
+Executing UIEnter Autocommands for "*"
+autocommand <Lua 449: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/osc52.lua:8>
+
+Executing SafeState Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 566: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/termcap.lua:36>
+
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+not found in runtime path: "autoload/lsp.vim"
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+not found in runtime path: "autoload/lsp.vim"
+Executing User Autocommands for "DeferredUIEnter"
+autocommand <Lua 174: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/lz-n/lua/lz/n/handler/event.lua:171>
+
+Executing OptionSet Autocommands for "runtimepath"
+autocommand <Lua 234: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/treesitter/query.lua:338>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+autocommand <Lua 179: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/lz-n/lua/lz/n/handler/event.lua:171>
+
+
+
+--- Terminal info --- {{{
+&term: xterm-kitty
+Description: KovIdTTY
+Aliases: xterm-kitty
+Boolean capabilities:
+  auto_left_margin          bw         = false
+  auto_right_margin         am         = true
+  no_esc_ctlc               xsb        = false
+  ceol_standout_glitch      xhp        = false
+  eat_newline_glitch        xenl       = true
+  erase_overstrike          eo         = false
+  generic_type              gn         = false
+  hard_copy                 hc         = false
+  has_meta_key              km         = true
+  has_status_line           hs         = true
+  insert_null_glitch        in         = false
+  memory_above              da         = false
+  memory_below              db         = false
+  move_insert_mode          mir        = true
+  move_standout_mode        msgr       = true
+  over_strike               os         = false
+  status_line_esc_ok        eslok      = false
+  dest_tabs_magic_smso      xt         = false
+  tilde_glitch              hz         = false
+  transparent_underline     ul         = false
+  xon_xoff                  xon        = false
+  needs_xon_xoff            nxon       = false
+  prtr_silent               mc5i       = true
+  hard_cursor               chts       = false
+  non_rev_rmcup             nrrmc      = false
+  no_pad_char               npc        = true
+  non_dest_scroll_region    ndscr      = false
+  can_change                ccc        = true
+  back_color_erase          bce        = false
+  hue_lightness_saturation  hls        = false
+  col_addr_glitch           xhpa       = false
+  cr_cancels_micro_mode     crxm       = false
+  has_print_wheel           daisy      = false
+  row_addr_glitch           xvpa       = false
+  semi_auto_right_margin    sam        = false
+  cpi_changes_res           cpix       = false
+  lpi_changes_res           lpix       = false
+  backspaces_with_bs        OTbs       = false
+  crt_no_scrolling          OTns       = false
+  no_correctly_working_cr   OTnc       = false
+  gnu_has_meta_key          OTMT       = false
+  linefeed_is_newline       OTNL       = false
+  has_hardware_tabs         OTpt       = false
+  return_does_clr_eol       OTxr       = false
+Numeric capabilities:
+  columns                   cols       = 80
+  init_tabs                 it         = 8
+  lines                     lines      = 24
+  lines_of_memory           lm         = -1
+  magic_cookie_glitch       xmc        = -1
+  padding_baud_rate         pb         = -1
+  virtual_terminal          vt         = -1
+  width_status_line         wsl        = -1
+  num_labels                nlab       = -1
+  label_height              lh         = -1
+  label_width               lw         = -1
+  max_attributes            ma         = -1
+  maximum_windows           wnum       = -1
+  max_colors                colors     = 256
+  max_pairs                 pairs      = 32767
+  no_color_video            ncv        = -1
+  buffer_capacity           bufsz      = -1
+  dot_vert_spacing          spinv      = -1
+  dot_horz_spacing          spinh      = -1
+  max_micro_address         maddr      = -1
+  max_micro_jump            mjump      = -1
+  micro_col_size            mcs        = -1
+  micro_line_size           mls        = -1
+  number_of_pins            npins      = -1
+  output_res_char           orc        = -1
+  output_res_line           orl        = -1
+  output_res_horz_inch      orhi       = -1
+  output_res_vert_inch      orvi       = -1
+  print_rate                cps        = -1
+  wide_char_size            widcs      = -1
+  buttons                   btns       = -1
+  bit_image_entwining       bitwin     = -1
+  bit_image_type            bitype     = -1
+  magic_cookie_glitch_ul    OTug       = -1
+  carriage_return_delay     OTdC       = -1
+  new_line_delay            OTdN       = -1
+  backspace_delay           OTdB       = -1
+  horizontal_tab_delay      OTdT       = -1
+  number_of_function_keys   OTkn       = -1
+String capabilities:
+  back_tab                  cbt        = ^[[Z
+  bell                      bel        = ^G
+  carriage_return           cr         = ^M
+  change_scroll_region      csr        = ^[[%i%p1%d;%p2%dr
+  clear_all_tabs            tbc        = ^[[3g
+  clear_screen              clear      = ^[[H^[[2J
+  clr_eol                   el         = ^[[K
+  clr_eos                   ed         = ^[[J
+  column_address            hpa        = ^[[%i%p1%dG
+  cursor_address            cup        = ^[[%i%p1%d;%p2%dH
+  cursor_down               cud1       = ^@
+  cursor_home               home       = ^[[H
+  cursor_invisible          civis      = ^[[?25l
+  cursor_left               cub1       = ^H
+  cursor_normal             cnorm      = ^[[?12h^[[?25h
+  cursor_right              cuf1       = ^[[C
+  cursor_up                 cuu1       = ^[[A
+  cursor_visible            cvvis      = ^[[?12;25h
+  delete_character          dch1       = ^[[P
+  delete_line               dl1        = ^[[M
+  dis_status_line           dsl        = ^[]2;^[\
+  enter_alt_charset_mode    smacs      = ^[(0
+  enter_bold_mode           bold       = ^[[1m
+  enter_ca_mode             smcup      = ^[[?1049h
+  enter_dim_mode            dim        = ^[[2m
+  enter_insert_mode         smir       = ^[[4h
+  enter_reverse_mode        rev        = ^[[7m
+  enter_standout_mode       smso       = ^[[7m
+  enter_underline_mode      smul       = ^[[4m
+  erase_chars               ech        = ^[[%p1%dX
+  exit_alt_charset_mode     rmacs      = ^[(B
+  exit_attribute_mode       sgr0       = ^[(B^[[m
+  exit_ca_mode              rmcup      = ^[[?1049l
+  exit_insert_mode          rmir       = ^[[4l
+  exit_standout_mode        rmso       = ^[[27m
+  exit_underline_mode       rmul       = ^[[24m
+  flash_screen              flash      = ^[[?5h$<100/>^[[?5l
+  from_status_line          fsl        = ^G
+  insert_line               il1        = ^[[L
+  key_backspace             kbs        = ^?
+  key_dc                    kdch1      = ^[[3~
+  key_down                  kcud1      = ^[OB
+  key_f1                    kf1        = ^[OP
+  key_f10                   kf10       = ^[[21~
+  key_f2                    kf2        = ^[OQ
+  key_f3                    kf3        = ^[OR
+  key_f4                    kf4        = ^[OS
+  key_f5                    kf5        = ^[[15~
+  key_f6                    kf6        = ^[[17~
+  key_f7                    kf7        = ^[[18~
+  key_f8                    kf8        = ^[[19~
+  key_f9                    kf9        = ^[[20~
+  key_home                  khome      = ^[OH
+  key_ic                    kich1      = ^[[2~
+  key_left                  kcub1      = ^[OD
+  key_npage                 knp        = ^[[6~
+  key_ppage                 kpp        = ^[[5~
+  key_right                 kcuf1      = ^[OC
+  key_sf                    kind       = ^[[1;2B
+  key_sr                    kri        = ^[[1;2A
+  key_up                    kcuu1      = ^[OA
+  keypad_local              rmkx       = ^[[?1l
+  keypad_xmit               smkx       = ^[[?1h
+  parm_dch                  dch        = ^[[%p1%dP
+  parm_delete_line          dl         = ^[[%p1%dM
+  parm_down_cursor          cud        = ^[[%p1%dB
+  parm_ich                  ich        = ^[[%p1%d@
+  parm_index                indn       = ^[[%p1%dS
+  parm_insert_line          il         = ^[[%p1%dL
+  parm_left_cursor          cub        = ^[[%p1%dD
+  parm_right_cursor         cuf        = ^[[%p1%dC
+  parm_rindex               rin        = ^[[%p1%dT
+  parm_up_cursor            cuu        = ^[[%p1%dA
+  repeat_char               rep        = %p1%c^[[%p2%{1}%-%db
+  reset_1string             rs1        = ^[]^[\^[c
+  restore_cursor            rc         = ^[8
+  row_address               vpa        = ^[[%i%p1%dd
+  save_cursor               sc         = ^[7
+  scroll_forward            ind        = ^@
+  scroll_reverse            ri         = ^[M
+  set_attributes            sgr        = %?%p9%t^[(0%e^[(B%;^[[0%?%p6%t;1%;%?%p2%t;4%;%?%p1%p3%|%t;7%;%?%p4%t;5%;%?%p7%t;8%;m
+  set_tab                   hts        = ^[H
+  tab                       ht         = 	
+  to_status_line            tsl        = ^[]2;
+  key_a1                    ka1        = 
+  key_a3                    ka3        = 
+  key_c1                    kc1        = 
+  key_c3                    kc3        = 
+  acs_chars                 acsc       = ++,,--..00``aaffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~
+  key_btab                  kcbt       = ^[[Z
+  enter_am_mode             smam       = ^[[?7h
+  exit_am_mode              rmam       = ^[[?7l
+  key_beg                   kbeg       = ^[OE
+  key_end                   kend       = ^[OF
+  key_help                  khlp       = 
+  key_undo                  kund       = 
+  key_sbeg                  kBEG       = ^[[1;2E
+  key_sdc                   kDC        = ^[[3;2~
+  key_send                  kEND       = ^[[1;2F
+  key_shome                 kHOM       = ^[[1;2H
+  key_sic                   kIC        = ^[[2;2~
+  key_sleft                 kLFT       = ^[[1;2D
+  key_snext                 kNXT       = ^[[6;2~
+  key_sprevious             kPRV       = ^[[5;2~
+  key_sright                kRIT       = ^[[1;2C
+  key_f11                   kf11       = ^[[23~
+  key_f12                   kf12       = ^[[24~
+  key_f13                   kf13       = ^[[1;2P
+  key_f14                   kf14       = ^[[1;2Q
+  key_f15                   kf15       = ^[[13;2~
+  key_f16                   kf16       = ^[[1;2S
+  key_f17                   kf17       = ^[[15;2~
+  key_f18                   kf18       = ^[[17;2~
+  key_f19                   kf19       = ^[[18;2~
+  key_f20                   kf20       = ^[[19;2~
+  key_f21                   kf21       = ^[[20;2~
+  key_f22                   kf22       = ^[[21;2~
+  key_f23                   kf23       = ^[[23;2~
+  key_f24                   kf24       = ^[[24;2~
+  key_f25                   kf25       = ^[[1;5P
+  key_f26                   kf26       = ^[[1;5Q
+  key_f27                   kf27       = ^[[13;5~
+  key_f28                   kf28       = ^[[1;5S
+  key_f29                   kf29       = ^[[15;5~
+  key_f30                   kf30       = ^[[17;5~
+  key_f31                   kf31       = ^[[18;5~
+  key_f32                   kf32       = ^[[19;5~
+  key_f33                   kf33       = ^[[20;5~
+  key_f34                   kf34       = ^[[21;5~
+  key_f35                   kf35       = ^[[23;5~
+  key_f36                   kf36       = ^[[24;5~
+  key_f37                   kf37       = ^[[1;6P
+  key_f38                   kf38       = ^[[1;6Q
+  key_f39                   kf39       = ^[[13;6~
+  key_f40                   kf40       = ^[[1;6S
+  key_f41                   kf41       = ^[[15;6~
+  key_f42                   kf42       = ^[[17;6~
+  key_f43                   kf43       = ^[[18;6~
+  key_f44                   kf44       = ^[[19;6~
+  key_f45                   kf45       = ^[[20;6~
+  key_f46                   kf46       = ^[[21;6~
+  key_f47                   kf47       = ^[[23;6~
+  key_f48                   kf48       = ^[[24;6~
+  key_f49                   kf49       = ^[[1;3P
+  key_f50                   kf50       = ^[[1;3Q
+  key_f51                   kf51       = ^[[13;3~
+  key_f52                   kf52       = ^[[1;3S
+  key_f53                   kf53       = ^[[15;3~
+  key_f54                   kf54       = ^[[17;3~
+  key_f55                   kf55       = ^[[18;3~
+  key_f56                   kf56       = ^[[19;3~
+  key_f57                   kf57       = ^[[20;3~
+  key_f58                   kf58       = ^[[21;3~
+  key_f59                   kf59       = ^[[23;3~
+  key_f60                   kf60       = ^[[24;3~
+  key_f61                   kf61       = ^[[1;4P
+  key_f62                   kf62       = ^[[1;4Q
+  key_f63                   kf63       = ^[[13;4~
+  clr_bol                   el1        = ^[[1K
+  user6                     u6         = ^[[%i%d;%dR
+  user7                     u7         = ^[[6n
+  user8                     u8         = ^[[?%[;0123456789]c
+  user9                     u9         = ^[[c
+  orig_pair                 op         = ^[[39;49m
+  orig_colors               oc         = ^[]104^G
+  initialize_color          initc      = ^[]4;%p1%d;rgb:%p2%{255}%*%{1000}%/%2.2X/%p3%{255}%*%{1000}%/%2.2X/%p4%{255}%*%{1000}%/%2.2X^[\
+  enter_italics_mode        sitm       = ^[[3m
+  exit_italics_mode         ritm       = ^[[23m
+  key_mouse                 kmous      = ^[[M
+  set_a_foreground          setaf      = ^[[%?%p1%{8}%<%t3%p1%d%e%p1%{16}%<%t9%p1%{8}%-%d%e38;5;%p1%d%;m
+  set_a_background          setab      = ^[[%?%p1%{8}%<%t4%p1%d%e%p1%{16}%<%t10%p1%{8}%-%d%e48;5;%p1%d%;m
+  set_tb_margin             smgtb      = ^[[%i%p1%d;%p2%dr
+Extended boolean capabilities:
+  Su                        = true
+  Tc                        = true
+  XF                        = true
+  fullkbd                   = true
+Extended string capabilities:
+  BD                        = ^[[?2004l
+  BE                        = ^[[?2004h
+  Cr                        = ^[]112^G
+  Cs                        = ^[]12;%p1%s^G
+  Ms                        = ^[]52;%p1%s;%p2%s^[\
+  PE                        = ^[[201~
+  PS                        = ^[[200~
+  RV                        = ^[[>c
+  Se                        = ^[[2 q
+  Setulc                    = ^[[58:2:%p1%{65536}%/%d:%p1%{256}%/%{255}%&%d:%p1%{255}%&%d%;m
+  Smulx                     = ^[[4:%p1%dm
+  Ss                        = ^[[%p1%d q
+  Sync                      = ^[P=%p1%ds^[\
+  XR                        = ^[[>0q
+  fd                        = ^[[?1004l
+  fe                        = ^[[?1004h
+  kBEG3                     = ^[[1;3E
+  kBEG4                     = ^[[1;4E
+  kBEG5                     = ^[[1;5E
+  kBEG6                     = ^[[1;6E
+  kBEG7                     = ^[[1;7E
+  kDC3                      = ^[[3;3~
+  kDC4                      = ^[[3;4~
+  kDC5                      = ^[[3;5~
+  kDC6                      = ^[[3;6~
+  kDC7                      = ^[[3;7~
+  kDN                       = ^[[1;2B
+  kDN3                      = ^[[1;3B
+  kDN4                      = ^[[1;4B
+  kDN5                      = ^[[1;5B
+  kDN6                      = ^[[1;6B
+  kDN7                      = ^[[1;7B
+  kEND3                     = ^[[1;3F
+  kEND4                     = ^[[1;4F
+  kEND5                     = ^[[1;5F
+  kEND6                     = ^[[1;6F
+  kEND7                     = ^[[1;7F
+  kHOM3                     = ^[[1;3H
+  kHOM4                     = ^[[1;4H
+  kHOM5                     = ^[[1;5H
+  kHOM6                     = ^[[1;6H
+  kHOM7                     = ^[[1;7H
+  kIC3                      = ^[[2;3~
+  kIC4                      = ^[[2;4~
+  kIC5                      = ^[[2;5~
+  kIC6                      = ^[[2;6~
+  kIC7                      = ^[[2;7~
+  kLFT3                     = ^[[1;3D
+  kLFT4                     = ^[[1;4D
+  kLFT5                     = ^[[1;5D
+  kLFT6                     = ^[[1;6D
+  kLFT7                     = ^[[1;7D
+  kNXT3                     = ^[[6;3~
+  kNXT4                     = ^[[6;4~
+  kNXT5                     = ^[[6;5~
+  kNXT6                     = ^[[6;6~
+  kNXT7                     = ^[[6;7~
+  kPRV3                     = ^[[5;3~
+  kPRV4                     = ^[[5;4~
+  kPRV5                     = ^[[5;5~
+  kPRV6                     = ^[[5;6~
+  kPRV7                     = ^[[5;7~
+  kRIT3                     = ^[[1;3C
+  kRIT4                     = ^[[1;4C
+  kRIT5                     = ^[[1;5C
+  kRIT6                     = ^[[1;6C
+  kRIT7                     = ^[[1;7C
+  kUP                       = ^[[1;2A
+  kUP3                      = ^[[1;3A
+  kUP4                      = ^[[1;4A
+  kUP5                      = ^[[1;5A
+  kUP6                      = ^[[1;6A
+  kUP7                      = ^[[1;7A
+  kxIN                      = ^[[I
+  kxOUT                     = ^[[O
+  rmxx                      = ^[[29m
+  setrgbb                   = ^[[48:2:%p1%d:%p2%d:%p3%dm
+  setrgbf                   = ^[[38:2:%p1%d:%p2%d:%p3%dm
+  smxx                      = ^[[9m
+  ext.resize_screen         = ^[[8;%p1%d;%p2%dt
+  ext.reset_scroll_region   = ^[[r
+  ext.enter_altfont_mode    = ^[[11m
+  ext.save_title            = ^[[22;0t
+  ext.restore_title         = ^[[23;0t
+  ext.set_title             = ^[]2;%p2%s^G
+  ext.enable_lr_margin      = ^[[?69h
+  ext.disable_lr_margin     = ^[[?69l
+  ext.enable_bpaste         = ^[[?2004h
+  ext.disable_bpaste        = ^[[?2004l
+  ext.enable_focus          = ^[[?1004h
+  ext.disable_focus         = ^[[?1004l
+  ext.enable_mouse          = ^[[?1002h^[[?1006h
+  ext.disable_mouse         = ^[[?1002l^[[?1006l
+  ext.enable_mouse_move     = ^[[?1003h
+  ext.disable_mouse_move    = ^[[?1003l
+  ext.set_underline_color   = ^[[58:2::%p1%d:%p2%d:%p3%dm
+  Sync                      = ^[[?2026%?%p1%{1}%-%tl%eh%;
+}}}
+
+Executing TermResponse Autocommands for "*"
+autocommand <Lua 566: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/termcap.lua:36>
+
+Executing BufNew Autocommands for "*"
+autocommand <Lua 577: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/which-key-nvim/lua/which-key/state.lua:135>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing FileType Autocommands for "*"
+autocommand call s:LoadFTPlugin()
+
+not found in runtime path: "ftplugin/noice[.]{vim,lua} ftplugin/noice_*.{vim,lua} ftplugin/noice/*.{vim,lua}"
+Executing FileType Autocommands for "*"
+autocommand call s:LoadIndent()
+
+not found in runtime path: "indent/noice[.]{vim,lua}"
+Executing FileType Autocommands for "*"
+autocommand <Lua 211: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-autopairs/lua/nvim-autopairs.lua:78>
+
+Executing FileType Autocommands for "*"
+autocommand <Lua 243: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-colorizer-lua/lua/colorizer.lua:534>
+
+Executing FileType Autocommands for "*"
+autocommand <Lua 293: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/highlight-undo-nvim/lua/highlight-undo.lua:151>
+
+Executing FileType Autocommands for "*"
+autocommand <Lua 301: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:26>
+
+Executing FileType Autocommands for "*"
+autocommand if !exists('b:ts_highlight') | 0verbose exe "set syntax=" . expand("<amatch>") | endif
+
+Executing FileType Autocommands for "*"
+autocommand <Lua 463: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter/lua/nvim-treesitter/configs.lua:132>
+
+not found in runtime path: "parser/noice.*"
+Executing FileType Autocommands for "*"
+autocommand <Lua 464: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter/lua/nvim-treesitter/configs.lua:132>
+
+Executing FileType Autocommands for "*"
+autocommand <Lua 465: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter/lua/nvim-treesitter/configs.lua:132>
+
+Executing FileType Autocommands for "*"
+autocommand <Lua 477: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:58>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing WinLeave Autocommands for "*"
+autocommand <Lua 313: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-lightbulb/lua/nvim-lightbulb/config.lua:262>
+
+Executing WinLeave Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_win_leave()
+
+Executing WinLeave Autocommands for "*"
+autocommand call s:Remove_Matches()
+
+Executing WinLeave Autocommands for "*"
+autocommand <Lua 396: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing WinEnter Autocommands for "*"
+autocommand <Lua 241: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/codewindow-nvim/lua/codewindow.lua:61>
+
+Executing WinEnter Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_win_enter()
+
+Executing WinEnter Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing WinEnter Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing WinEnter Autocommands for "*"
+autocommand <Lua 390: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing WinEnter Autocommands for "*"
+autocommand <Lua 559: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:267>
+
+Executing BufLeave Autocommands for "*"
+autocommand <Lua 292: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/highlight-undo-nvim/lua/highlight-undo.lua:135>
+
+Executing BufLeave Autocommands for "*"
+autocommand <Lua 432: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/precognition-nvim/lua/precognition/init.lua:331>
+
+Executing BufLeave Autocommands for "*"
+autocommand call s:Remove_Matches()
+
+Executing BufLeave Autocommands for "*"
+autocommand if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
+
+Executing BufLeave Autocommands for "*"
+autocommand <Lua 392: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 208: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-autopairs/lua/nvim-autopairs.lua:62>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 228: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/ccc-nvim/lua/ccc/init.lua:62>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 240: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/codewindow-nvim/lua/codewindow.lua:61>
+
+autocommand <Lua 290: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/highlight-undo-nvim/lua/highlight-undo.lua:122>
+
+Executing BufEnter Autocommands for "*"
+autocommand lua require'lualine.components.diff.git_diff'.update_diff_args()
+
+autocommand lua require'lualine.components.branch.git_branch'.find_git_dir()
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 343: /nix/store/9vwwvmsz0468d0ih5anwy9lwq0xsr3ic-init.lua:729>
+
+Executing BufEnter Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_buf_enter()
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 371: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-bufferline-lua/lua/bufferline.lua:141>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 379: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/smartcolumn-nvim/lua/smartcolumn.lua:50>
+
+Executing BufEnter Autocommands for "*"
+autocommand sil call s:LocalBrowse(expand("<amatch>"))
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 399: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 578: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/which-key-nvim/lua/which-key/state.lua:145>
+
+Executing BufWinEnter Autocommands for "*"
+autocommand <Lua 209: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-autopairs/lua/nvim-autopairs.lua:62>
+
+Executing BufWinEnter Autocommands for "*"
+autocommand <Lua 242: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-colorizer-lua/lua/colorizer.lua:534>
+
+Executing BufWinEnter Autocommands for "*"
+autocommand <Lua 298: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:26>
+
+Executing BufWinEnter Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing BufWinEnter Autocommands for "*"
+autocommand autocmd SafeState * ++once call s:Highlight_Matching_Pair()
+
+Executing BufWinEnter Autocommands for "<buffer=2>"
+autocommand <Lua 666: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nui-nvim/lua/nui/split/init.lua:235>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing BufNew Autocommands for "*"
+autocommand <Lua 577: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/which-key-nvim/lua/which-key/state.lua:135>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing BufNew Autocommands for "*"
+autocommand <Lua 577: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/which-key-nvim/lua/which-key/state.lua:135>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+sourcing "nvim_exec2()"
+finished sourcing nvim_exec2()
+Executing WinResized Autocommands for "*"
+autocommand <Lua 401: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing WinResized Autocommands for "*"
+autocommand <Lua 555: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:251>
+
+Error detected while processing WinResized Autocommands for "*":
+                                                                Error executing lua callback: ...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: module 'lazy.stats' not found:
+	no field package.preload['lazy.stats']
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/share/lua/5.1/lazy/stats.lua'
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/share/lua/5.1/lazy/stats/init.lua'
+	no file './lazy/stats.lua'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/share/luajit-2.1/lazy/stats.lua'
+	no file '/usr/local/share/lua/5.1/lazy/stats.lua'
+	no file '/usr/local/share/lua/5.1/lazy/stats/init.lua'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/share/lua/5.1/lazy/stats.lua'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/share/lua/5.1/lazy/stats/init.lua'
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/lib/lua/5.1/lazy/stats.so'
+	no file './lazy/stats.so'
+	no file '/usr/local/lib/lua/5.1/lazy/stats.so'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/lib/lua/5.1/lazy/stats.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/nix/store/kya882gjvpmfaa2b03cpvd5l9hgix8ka-luajit-2.1.1741730670-env/lib/lua/5.1/lazy.so'
+	no file './lazy.so'
+	no file '/usr/local/lib/lua/5.1/lazy.so'
+	no file '/nix/store/rgkl9fy5mlv0saaj0bv6hf9qhn8j4m3v-luajit-2.1.1741730670/lib/lua/5.1/lazy.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+stack traceback:
+	[C]: in function 'error'
+	...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: in function 'require'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:1070: in function <...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:1068>
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:488: in function 'resolve'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:494: in function 'resolve'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:706: in function 'update'
+	...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:254: in function <...-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:251>
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 311: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:40>
+
+Executing WinScrolled Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 382: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/smartcolumn-nvim/lua/smartcolumn.lua:50>
+
+Executing WinScrolled Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 394: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing SafeState Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing WinResized Autocommands for "*"
+autocommand <Lua 401: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing WinResized Autocommands for "*"
+autocommand <Lua 555: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:251>
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 311: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:40>
+
+Executing WinScrolled Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 382: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/smartcolumn-nvim/lua/smartcolumn.lua:50>
+
+Executing WinScrolled Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 394: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing CursorHold Autocommands for "*"
+autocommand <Lua 314: /nix/store/9vwwvmsz0468d0ih5anwy9lwq0xsr3ic-init.lua:579>
+
+Executing CursorHold Autocommands for "*"
+autocommand <Lua 356: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-scrollbar/lua/scrollbar/handlers/cursor.lua:43>
+
+not found in runtime path: "autoload/lsp.vim"
+Executing ModeChanged Autocommands for "*"
+autocommand <Lua 475: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:49>
+
+Executing ModeChanged Autocommands for "*"
+autocommand <Lua 573: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/which-key-nvim/lua/which-key/state.lua:93>
+
+
+Executing BufLeave Autocommands for "*"
+autocommand <Lua 292: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/highlight-undo-nvim/lua/highlight-undo.lua:135>
+
+Executing BufLeave Autocommands for "*"
+autocommand <Lua 432: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/precognition-nvim/lua/precognition/init.lua:331>
+
+Executing BufLeave Autocommands for "*"
+autocommand call s:Remove_Matches()
+
+Executing BufLeave Autocommands for "*"
+autocommand if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
+
+Executing BufLeave Autocommands for "*"
+autocommand <Lua 392: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing WinLeave Autocommands for "*"
+autocommand <Lua 313: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-lightbulb/lua/nvim-lightbulb/config.lua:262>
+
+Executing WinLeave Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_win_leave()
+
+Executing WinLeave Autocommands for "*"
+autocommand call s:Remove_Matches()
+
+Executing WinLeave Autocommands for "*"
+autocommand <Lua 396: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing WinClosed Autocommands for "*"
+autocommand <Lua 398: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing BufWipeout Autocommands for "<buffer=1>"
+autocommand <Lua 557: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/snacks-nvim/lua/snacks/dashboard.lua:260>
+
+Executing BufWipeout Autocommands for "<buffer=1>"
+autocommand <Lua 567: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/diagnostic.lua:395>
+
+Executing BufWipeout Autocommands for "*"
+autocommand <Lua 603: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/opt/luasnip/lua/luasnip/config.lua:116>
+
+auto-removing autocommand: BufDelete <buffer=1>
+auto-removing autocommand: BufWipeout <buffer=1>
+auto-removing autocommand: BufWipeout <buffer=1>
+auto-removing autocommand: LspAttach <buffer=1>
+Executing WinEnter Autocommands for "*"
+autocommand <Lua 241: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/codewindow-nvim/lua/codewindow.lua:61>
+
+Executing WinEnter Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_win_enter()
+
+Executing WinEnter Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing WinEnter Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing WinEnter Autocommands for "*"
+autocommand <Lua 390: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 208: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-autopairs/lua/nvim-autopairs.lua:62>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 228: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/ccc-nvim/lua/ccc/init.lua:62>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 240: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/codewindow-nvim/lua/codewindow.lua:61>
+
+autocommand <Lua 290: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/highlight-undo-nvim/lua/highlight-undo.lua:122>
+
+Executing BufEnter Autocommands for "*"
+autocommand lua require'lualine.components.diff.git_diff'.update_diff_args()
+
+autocommand lua require'lualine.components.branch.git_branch'.find_git_dir()
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 343: /nix/store/9vwwvmsz0468d0ih5anwy9lwq0xsr3ic-init.lua:729>
+
+Executing BufEnter Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_buf_enter()
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 371: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-bufferline-lua/lua/bufferline.lua:141>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 379: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/smartcolumn-nvim/lua/smartcolumn.lua:50>
+
+Executing BufEnter Autocommands for "*"
+autocommand sil call s:LocalBrowse(expand("<amatch>"))
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 399: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing BufEnter Autocommands for "*"
+autocommand <Lua 578: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/which-key-nvim/lua/which-key/state.lua:145>
+
+Executing CursorMoved Autocommands for "*"
+autocommand <Lua 296: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:26>
+
+Executing CursorMoved Autocommands for "*"
+autocommand <Lua 358: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-scrollbar/lua/scrollbar/handlers/cursor.lua:43>
+
+Executing CursorMoved Autocommands for "*"
+autocommand <Lua 380: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/smartcolumn-nvim/lua/smartcolumn.lua:50>
+
+Executing CursorMoved Autocommands for "*"
+autocommand <Lua 434: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/precognition-nvim/lua/precognition/init.lua:304>
+
+Executing CursorMoved Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing CursorMoved Autocommands for "*"
+autocommand <Lua 391: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing CursorMoved Autocommands for "*"
+autocommand <Lua 473: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:49>
+
+Executing TextChanged Autocommands for "*"
+autocommand <Lua 302: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:26>
+
+Executing TextChanged Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_text_changed()
+
+Executing TextChanged Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing TextChanged Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing TextChanged Autocommands for "*"
+autocommand <Lua 476: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:49>
+
+Executing WinResized Autocommands for "*"
+autocommand <Lua 401: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 311: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/indent-blankline-nvim/lua/ibl/autocmds.lua:40>
+
+Executing WinScrolled Autocommands for "*"
+autocommand lua require('scrollbar').on_scroll()
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 382: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/smartcolumn-nvim/lua/smartcolumn.lua:50>
+
+Executing WinScrolled Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing WinScrolled Autocommands for "*"
+autocommand <Lua 394: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing WinScrolled Autocommands for "1002"
+autocommand <Lua 647: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/noice-nvim/lua/noice/view/scrollbar.lua:51>
+
+Executing WinClosed Autocommands for "*"
+autocommand <Lua 398: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing BufWipeout Autocommands for "*"
+autocommand <Lua 603: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/opt/luasnip/lua/luasnip/config.lua:116>
+
+Executing WinClosed Autocommands for "*"
+autocommand <Lua 398: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing WinClosed Autocommands for "1006"
+autocommand <Lua 706: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/noice-nvim/lua/noice/view/scrollbar.lua:58>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing BufWipeout Autocommands for "*"
+autocommand <Lua 603: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/opt/luasnip/lua/luasnip/config.lua:116>
+
+Executing CursorHold Autocommands for "*"
+autocommand <Lua 314: /nix/store/9vwwvmsz0468d0ih5anwy9lwq0xsr3ic-init.lua:579>
+
+Executing CursorHold Autocommands for "*"
+autocommand <Lua 356: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-scrollbar/lua/scrollbar/handlers/cursor.lua:43>
+
+not found in runtime path: "autoload/lsp.vim"
+Executing OptionSet Autocommands for "*"
+autocommand <Lua 402: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:148>
+
+Executing ModeChanged Autocommands for "*"
+autocommand <Lua 475: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:49>
+
+Executing ModeChanged Autocommands for "*"
+autocommand <Lua 573: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/which-key-nvim/lua/which-key/state.lua:93>
+
+
+Executing QuitPre Autocommands for "<buffer=2>"
+autocommand <Lua 667: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nui-nvim/lua/nui/split/init.lua:224>
+
+Executing QuitPre Autocommands for "*"
+autocommand <Lua 348: vim/_editor.lua:0>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing VimLeavePre Autocommands for "*"
+autocommand <Lua 212: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/lua/vim/lsp.lua:1111>
+
+Executing VimLeavePre Autocommands for "*"
+autocommand <Lua 271: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/git-conflict-nvim/lua/git-conflict.lua:642>
+
+Executing VimLeavePre Autocommands for "*"
+autocommand lua package.loaded.neocord:handle_vim_leave_pre()
+
+Executing VimLeavePre Autocommands for "*"
+autocommand <Lua 542: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/noice-nvim/lua/noice/init.lua:58>
+
+Executing VimLeavePre Autocommands for "*"
+autocommand <Lua 673: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/opt/nvim-cmp/lua/cmp/utils/async.lua:17>
+
+Writing ShaDa file "/home/rafael/.local/state/nvf/shada/main.shada"
+Executing VimLeave Autocommands for "*"
+autocommand <Lua 480: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:103>
+
+Executing WinClosed Autocommands for "*"
+autocommand <Lua 398: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing BufWipeout Autocommands for "*"
+autocommand <Lua 603: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/opt/luasnip/lua/luasnip/config.lua:116>
+
+Executing WinClosed Autocommands for "*"
+autocommand <Lua 398: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/nvim-treesitter-context/lua/treesitter-context.lua:76>
+
+Executing WinClosed Autocommands for "1008"
+autocommand <Lua 200: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/noice-nvim/lua/noice/view/scrollbar.lua:58>
+
+Executing BufUnload Autocommands for "*"
+autocommand <Lua 478: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/start/vim-illuminate/lua/illuminate/engine.lua:85>
+
+Executing BufWipeout Autocommands for "*"
+autocommand <Lua 603: /nix/store/xmrfr00d2vjbpx21dffjwj8ws2wf3laf-neovim-pack-dir/pack/mnw/opt/luasnip/lua/luasnip/config.lua:116>
+
+Executing UILeave Autocommands for "*"
+autocommand <Lua 450: /nix/store/sn57wwslyh4vq27xwb0h0cza25b90in3-neovim-unwrapped-0.11.1/share/nvim/runtime/plugin/osc52.lua:55>

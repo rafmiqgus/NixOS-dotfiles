@@ -1,0 +1,44 @@
+[config.wallpaper]
+command = "swww"
+arguments = ["img", "--transition-type", "center"]
+set = true
+
+[templates.hyprland]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/hyprland-colors.conf'
+output_path = '/home/rafael/.dotfiles/home/programs/hypr/colors.conf'
+post_hook = 'hyprctl reload'
+
+[templates.waybar]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colors.css'
+output_path = '/home/rafael/.dotfiles/home/programs/waybar/waybar-colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.kitty]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/kitty-colors.conf'
+output_path = '/home/rafael/.dotfiles/home/programs/kitty/colors.conf'
+post_hook = "kitty @ set-colors -a -c /home/rafael/.dotfiles/home/programs/kitty/colors.conf"
+
+[templates.rofi]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/rofi-colors.rasi'
+output_path = '/home/rafael/.dotfiles/home/programs/rofi/matugen-rofi.rasi'
+
+[templates.midnight-discord]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/midnight-discord.css'
+output_path = '/home/rafael/.dotfiles/home/programs/nixcord/themes/midnight-colors.css'
+
+[templates.pywalfox-colors]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/pywalfox-colors.json'
+output_path = '/home/rafael/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+[templates.gtk3]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/gtk-colors.css'
+output_path = '/home/rafael/.dotfiles/home/programs/gtk/gtk3/colors.css'
+
+[templates.gtk4]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/gtk-colors.css'
+output_path = '/home/rafael/.dotfiles/home/programs/gtk/gtk4/colors.css'
+
+[templates.spicetify]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/spotify-colors.ini'
+output_path = '/home/rafael/.dotfiles/home/programs/spicetify/Themes/Comfy/color.ini'
