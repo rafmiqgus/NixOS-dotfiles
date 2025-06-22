@@ -7,7 +7,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      nr = "sudo nixos-rebuild switch --flake /home/rafael/.dotfiles/.";
+      nr = "sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#rafael";
       hms = "home-manager switch --flake /home/rafael/.dotfiles/.";
       ll = "ls -la";
     };
