@@ -10,6 +10,15 @@
       nr = "sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#rafael";
       hms = "home-manager switch --flake /home/rafael/.dotfiles/.";
       ll = "ls -la";
+      gc = "sudo nix-collect-garbage -d";
+      nix-deep-clean = ''
+        echo "-> verifying nix-store..." && \
+        sudo nix-store --verify --check-contents --repair && \
+        echo "-> optimizing store" && \
+        sudo nix-store --optimize && \
+        echo "-> garbage-collecting..." && \
+        sudo nix-collect-garbage -d \
+      '';
     };
 
     oh-my-zsh = {
