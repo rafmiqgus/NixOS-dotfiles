@@ -26,7 +26,7 @@ in
           "group/utility"
           "custom/playerctl#backward"
           "custom/playerctl#play"
-          "custom/playerctl#foward"
+          "custom/playerctl#forward"
           "custom/playerlabel"
         ];
         "modules-center" = [
@@ -164,7 +164,7 @@ in
           "on-scroll-up"   = "wpctl set-volume @DEFAULT_SINK@ 5%+";
           tooltip         = false;
         };
-        "custom/playerctl#foward" = {
+        "custom/playerctl#forward" = {
           format          = "󰙡 ";
           "on-click"       = "playerctl next";
           "on-scroll-down" = "wpctl set-volume @DEFAULT_SINK@ 5%-";
