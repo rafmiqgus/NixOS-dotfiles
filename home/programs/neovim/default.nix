@@ -1,4 +1,4 @@
-{ config, input, ... }:
+{ config, inputs, ... }:
 
 {
   programs.neovim = {

@@ -36,7 +36,6 @@
       pavucontrol
       playerctl
       fzf
-      neovim
       git-credential-manager
 
       # Apps
