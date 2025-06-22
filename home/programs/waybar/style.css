@@ -112,7 +112,7 @@ tooltip label {
 
 /*---------------Tray, Clock, Playerctl, Battery, Cpu, Temperature, Colorpicker, Memory, Idle_inhibitor----------------------*/
 #tray, #pulseaudio, #network, #battery, #cpu, #temperature, #custom-colorpicker, #memory, #custom-pacman, #idle_inhibitor,
-#custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward{
+#custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.forward{
     background: @surface;
     font-weight: bold;
     margin: 5px 0px;
@@ -145,11 +145,11 @@ tooltip label {
 
 
 /*-----------Playerctl-------------------*/
-#custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
+#custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.forward {
     background: @surface;
     font-size: 22px;
 }
-#custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.foward:hover{
+#custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.forward:hover{
     color: @on_surface;
 }
 #custom-playerctl.backward {
@@ -162,11 +162,11 @@ tooltip label {
     color: @on_primary_fixed_variant;
     padding: 0 5px;
 }
-#custom-playerctl.foward {
+#custom-playerctl.forward {
     color: @tertiary;
     border-radius: 0px 10px 24px 0px;
     padding-right: 12px;
-    margin-right: 7px
+    margin-right: 7px;
 }
 #custom-playerlabel {
     background: @surface;
@@ -243,7 +243,7 @@ tooltip label {
     border-radius: 0px 10px 24px 0px;
     padding-right: 12px;
     padding-left: 7px;
-    margin-right: 7px
+    margin-right: 7px;
 }
 
 /*---------------Expand---------------*/
