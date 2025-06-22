@@ -15,5 +15,6 @@
     ./matugen
     ./gtk
     ./spicetify
+    ./neovim
   ];
 }

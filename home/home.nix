@@ -37,6 +37,7 @@
       playerctl
       fzf
       neovim
+      git-credential-manager
 
       # Apps
       bitwarden-desktop
@@ -86,4 +87,11 @@
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
+
+  programs.git = {
+    extraConfig.credential.helper = "manager";
+    extraConfig.credential."https://github.com".username = "rafmiqgus";
+    extraConfig.credential.credentialStore = "cache";
+    enable = true;
+  };
 }
