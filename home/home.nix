@@ -37,6 +37,8 @@
       playerctl
       fzf
       git-credential-manager
+      lazygit
+      dwt1-shell-color-scripts
 
       # Apps
       bitwarden-desktop
@@ -77,6 +79,10 @@
       # Fonts 
       nerd-fonts.hack
       sf-mono-liga-bin
+
+      # lsp servers + formatters
+      nil
+      nixpkgs-fmt
     ];
 
     sessionVariables = {

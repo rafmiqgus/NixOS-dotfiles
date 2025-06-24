@@ -6,8 +6,8 @@
     defaultEditor = true;
   };
 
-  home.file.".config/nvim" = {
-    recursive = true;
-    source = ./.;
-  };
+  #home.file.".config/nvim" = {
+  #  recursive = true;
+  #  source = ./.;
+  #};
 }
