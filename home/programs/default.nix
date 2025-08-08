@@ -16,5 +16,6 @@
     ./gtk
     ./spicetify
     ./neovim
+    ./hyprlock
   ];
 }

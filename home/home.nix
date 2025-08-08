@@ -39,6 +39,9 @@
       git-credential-manager
       lazygit
       dwt1-shell-color-scripts
+      bear
+      cmake
+      pipx
 
       # Apps
       bitwarden-desktop
@@ -54,6 +57,8 @@
       libreoffice
       hyprlock
       pywalfox-native
+      qpdfview
+      vivaldi
 
       # System 
       vulkan-headers
@@ -83,6 +88,7 @@
       # lsp servers + formatters
       nil
       nixpkgs-fmt
+      basedpyright
     ];
 
     sessionVariables = {
