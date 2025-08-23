@@ -1,0 +1,40 @@
+{ config, inputs, lib, ... }:
+
+{
+  programs.wlogout = {
+    enable = true;
+    layout = [
+      {
+        "label" = "shutdown";
+        "action" = "systemctl poweroff";
+        "text" = "Shutdown";
+        "keybind" = "s";
+      }
+      {
+        "label" = "reboot";
+        "action" = "systemctl reboot";
+        "text" = "Reboot";
+        "keybind" = "r";
+      }
+      {
+        "label" = "logout";
+        "action" = "loginctl kill-session $XDG_SESSION_ID";
+        "text" = "Logout";
+        "keybind" = "e";
+      }
+      {
+        "label" = "sleep";
+        "action" = "loginctl lock-session && systemctl suspend";
+        "text" = "Sleep";
+        "keybind" = "h";
+      }
+      {
+        "label" = "lock";
+        "action" = "loginctl lock-session";
+        "text" = "Lock";
+        "keybind" = "l";
+      }
+    ];
+    style = ./wlogout.css;
+  };
+}
