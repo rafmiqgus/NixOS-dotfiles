@@ -48,7 +48,7 @@
 	      color = "rgba(1a1a1aee)";
 	    };
 
-      dim_inactive = false;
+      dim_inactive = true;
       dim_strength = 0.1;
       rounding = 20;
     };

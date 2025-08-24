@@ -94,7 +94,7 @@ in
         "custom/launcher" = {
           format    = "";
           tooltip   = false;
-          "on-click" = "wlogout";
+          "on-click" = "/home/rafael/.dotfiles/home/programs/wlogout/wlogout.sh";
         };
 
         # --------------------- Pacman -----------------------
