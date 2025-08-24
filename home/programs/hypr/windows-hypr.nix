@@ -23,5 +23,9 @@
       "float, class:kitty, title:^KittyNmtui$"
       "float, class:pavucontrol"
     ];
+
+    layerrule = [
+      "blur, logout_dialog"
+    ];
   };
 }

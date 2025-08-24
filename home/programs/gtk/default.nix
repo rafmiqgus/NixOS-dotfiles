@@ -6,7 +6,7 @@
 
     gtk3 = {
       extraConfig = {
-        gtk-application_prefer_dark = true;
+        gtk-application_prefer_dark-theme = true;
         gtk-button-images = true;
         gtk-cursor-theme-name = "Sweet-cursors";
         gtk-cursor-theme-size = 24;

@@ -94,7 +94,7 @@ in
         "custom/launcher" = {
           format    = "";
           tooltip   = false;
-          "on-click" = "~/.config/rofi/scripts/sidelauncher";
+          "on-click" = "wlogout";
         };
 
         # --------------------- Pacman -----------------------

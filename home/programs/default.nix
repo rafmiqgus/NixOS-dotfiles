@@ -17,5 +17,6 @@
     ./spicetify
     ./neovim
     ./hyprlock
+    ./wlogout
   ];
 }

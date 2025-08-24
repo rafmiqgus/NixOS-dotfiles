@@ -15,7 +15,7 @@
       "$mainMod, RETURN, exec, $terminal"
       "$mainMod, N, exec, kitty --session .nvim_session"
       "$mainMod, C, killactive"
-      "$mainMod, M, exit"
+      "$mainMod, M, exec, /home/rafael/.dotfiles/home/programs/wlogout/wlogout.sh"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, SPACE, togglefloating"
       "$mainMod, P, pseudo, # dwindle"

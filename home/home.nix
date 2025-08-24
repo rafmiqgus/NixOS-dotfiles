@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }:
+ {inputs, pkgs, lib, config, ... }:
 
 {
   imports = [
@@ -42,6 +42,7 @@
       bear
       cmake
       pipx
+      jq
 
       # Apps
       bitwarden-desktop
@@ -58,7 +59,8 @@
       hyprlock
       pywalfox-native
       qpdfview
-      vivaldi
+      p7zip
+      wlogout
 
       # System 
       vulkan-headers

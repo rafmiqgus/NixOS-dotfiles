@@ -8,7 +8,7 @@
 
     shellAliases = {
       nr = "sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#rafael";
-      hms = "home-manager switch --flake /home/rafael/.dotfiles/.";
+      hms = "git add -A && home-manager switch --flake /home/rafael/.dotfiles/.#rafael";
       ll = "ls -la";
       gc = "sudo nix-collect-garbage -d";
       nix-deep-clean = ''

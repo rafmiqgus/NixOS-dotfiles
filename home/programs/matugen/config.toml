@@ -13,6 +13,10 @@ input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colo
 output_path = '/home/rafael/.dotfiles/home/programs/waybar/waybar-colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
+[templates.wlogout]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colors.css'
+output_path = '/home/rafael/.config/wlogout/wlogout-colors.css'
+
 [templates.kitty]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/kitty-colors.conf'
 output_path = '/home/rafael/.dotfiles/home/programs/kitty/colors.conf'

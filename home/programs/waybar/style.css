@@ -32,8 +32,9 @@
 }
 
 /*----------Waybar Window------------*/
+
 window#waybar {
-    background: @surface-alpha;
+    background: alpha(@surface, 0.0);
 }
 
 /*-----------Tooltip--------------*/
