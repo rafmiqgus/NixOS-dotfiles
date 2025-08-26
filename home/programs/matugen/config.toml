@@ -1,17 +1,15 @@
 [config.wallpaper]
 command = "swww"
 arguments = ["img", "--transition-type", "center"]
-set = true
+set = false
 
 [templates.hyprland]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/hyprland-colors.conf'
 output_path = '/home/rafael/.dotfiles/home/programs/hypr/colors.conf'
-post_hook = 'hyprctl reload'
 
 [templates.waybar]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colors.css'
 output_path = '/home/rafael/.dotfiles/home/programs/waybar/waybar-colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.wlogout]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colors.css'
@@ -20,7 +18,6 @@ output_path = '/home/rafael/.config/wlogout/wlogout-colors.css'
 [templates.kitty]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/kitty-colors.conf'
 output_path = '/home/rafael/.dotfiles/home/programs/kitty/colors.conf'
-post_hook = "kitty @ set-colors -a -c /home/rafael/.dotfiles/home/programs/kitty/colors.conf"
 
 [templates.rofi]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/rofi-colors.rasi'
@@ -33,7 +30,6 @@ output_path = '/home/rafael/.dotfiles/home/programs/nixcord/themes/midnight-colo
 [templates.pywalfox-colors]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/pywalfox-colors.json'
 output_path = '/home/rafael/.cache/wal/colors.json'
-post_hook = 'pywalfox update'
 
 [templates.gtk3]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/gtk-colors.css'
@@ -46,3 +42,43 @@ output_path = '/home/rafael/.dotfiles/home/programs/gtk/gtk4/colors.css'
 [templates.spicetify]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/spotify-colors.ini'
 output_path = '/home/rafael/.dotfiles/home/programs/spicetify/Themes/Comfy/color.ini'
+
+[templates.btop]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.vesktop]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/midnight-discord.css'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
+
+[templates.nvim]
+input_path = '~/.config/nvim/pywal/matugen.lua'
+output_path = '~/.cache/wal/base46-dark.lua'
+
+[config.custom_colors.red]
+color = "#FF0000"
+blend = true
+
+[config.custom_colors.green]
+color = "#00FF00"
+blend = true
+
+[config.custom_colors.yellow]
+color = "#FFFF00"
+blend = true
+
+[config.custom_colors.blue]
+color = "#0000FF"
+blend = true
+
+[config.custom_colors.magenta]
+color = "#FF00FF"
+blend = true
+
+[config.custom_colors.cyan]
+color = "#00FFFF"
+blend = true
+
+[config.custom_colors.white]
+color = "#FFFFFF"
+blend = true

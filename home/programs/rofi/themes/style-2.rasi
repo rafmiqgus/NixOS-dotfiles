@@ -50,7 +50,7 @@ mainbox {
     orientation:                 vertical;
     children:                    [ "inputbar" , "listbox" ];
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/currentWalBlur.thumb", height);
+    background-image:            url("~/.config/rofi/wall", height);
 }
 
 
@@ -61,7 +61,7 @@ inputbar {
     padding:                     5em;
     children:                    [ "textbox-prompt-colon", "entry" ];
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/currentWalBlur.thumb", width);
+    background-image:            url("~/.config/rofi/wall", width);
 }
 
 textbox-prompt-colon {

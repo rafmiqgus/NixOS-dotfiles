@@ -26,10 +26,10 @@
     };
 
     general = {
-      gaps_in = 10;
-	    gaps_out = "10,20,20,20";
+      gaps_in = 8;
+	    gaps_out = "8,18,18,18";
 
-	    border_size = 3;
+	    border_size = 4;
 
 	    "col.active_border" = "$primary 0xff595959 $inverse_primary 45deg";
 	    "col.inactive_border" = "0xff595959";

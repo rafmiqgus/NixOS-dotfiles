@@ -2,7 +2,7 @@
 
 {
   programs.nixcord = {
-    enable = true;  # enable Nixcord. Also installs discord package
+    enable = false;  # enable Nixcord. Also installs discord package
     discord.enable = false;
     vesktop.enable = true;
     quickCss = builtins.readFile ./themes/midnight.css;

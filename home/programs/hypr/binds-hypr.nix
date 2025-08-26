@@ -20,7 +20,7 @@
       "$mainMod, SPACE, togglefloating"
       "$mainMod, P, pseudo, # dwindle"
       #"$mainMod, J, togglesplit, # dwindle"
-      "$mainMod, S, exec, $menu"
+      "$mainMod, S, exec, rofi -show drun"
       "$mainMod, W, exec, waypaper"
 
       # Move focus with mainMod + vim motions
@@ -33,13 +33,13 @@
       "$mainMod, ampersand, workspace, 1"
       "$mainMod, eacute, workspace, 2"
       "$mainMod, quotedbl, workspace, 3"
-      "$mainMod, ', workspace, 4"
-      "$mainMod, (, workspace, 5"
-      "$mainMod, -, workspace, 6"
-      "$mainMod, è, workspace, 7"
-      "$mainMod, _, workspace, 8"
-      "$mainMod, ç, workspace, 9"
-      "$mainMod, à, workspace, 10"
+      "$mainMod, apostrophe, workspace, 4"
+      "$mainMod, parenleft, workspace, 5"
+      "$mainMod, minus, workspace, 6"
+      "$mainMod, egrave, workspace, 7"
+      "$mainMod, underscore, workspace, 8"
+      "$mainMod, ccedilla, workspace, 9"
+      "$mainMod, agrave, workspace, 10"
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       "$mainMod SHIFT, ampersand, movetoworkspace, 1"

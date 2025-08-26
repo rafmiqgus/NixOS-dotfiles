@@ -18,5 +18,6 @@
     ./neovim
     ./hyprlock
     ./wlogout
+    ./starship
   ];
 }

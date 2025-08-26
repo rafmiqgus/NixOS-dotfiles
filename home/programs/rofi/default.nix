@@ -4,7 +4,7 @@
   programs.rofi = {
     enable = true;
 
-    theme = ./themes/style-2.rasi;
+    theme = "/home/rafael/.dotfiles/home/programs/rofi/themes/style-2.rasi";
   };
   
   home.file.".config/rofi/colors.rasi".source = ./colors.rasi;

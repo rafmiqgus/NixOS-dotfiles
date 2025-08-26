@@ -19,7 +19,7 @@
       wget
       git
       feh
-      htop
+      btop
       lshw
       neofetch
       pciutils
@@ -43,6 +43,8 @@
       cmake
       pipx
       jq
+      pywal16
+      wf-recorder
 
       # Apps
       bitwarden-desktop
@@ -61,6 +63,8 @@
       qpdfview
       p7zip
       wlogout
+      vscode
+      vesktop
 
       # System 
       vulkan-headers
@@ -68,7 +72,7 @@
       vulkan-validation-layers
       vulkan-tools
       reuse
-      nodejs_23
+      nodejs_24
       cmake
       gnumake
       pre-commit
@@ -79,7 +83,7 @@
       gettext
       libsForQt5.full
       flatpak
-      python3Full
+      #python3Full
       gtk3
       ncurses
 
@@ -91,6 +95,9 @@
       nil
       nixpkgs-fmt
       basedpyright
+
+      # Python libraries
+      (pkgs.python3Full.withPackages (ps: with ps; [ watchdog ]))
     ];
 
     sessionVariables = {

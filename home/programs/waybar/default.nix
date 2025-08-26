@@ -136,7 +136,7 @@ in
 
         # -------------------- Expand ------------------------
         "custom/expand" = {
-          format         = " ";
+          format         = "";
           tooltip        = true;
           "tooltip-format" = "Click to show utilities";
         };
@@ -172,16 +172,9 @@ in
           tooltip         = false;
         };
         "custom/playerctl#play" = {
-          exec            = ''
-            playerctl -a metadata --format '
-              {"text": "{{artist}} - {{markup_escape(title)}}",
-               "tooltip": "{{playerName}} : {{markup_escape(title)}}",
-               "alt": "{{status}}",
-               "class": "{{status}}"}
-            ' -F
-          '';
+          exec = ''playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{playerName}} : {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
           format          = "{icon}";
-          "format-icons"   = {
+          "format-icons" = {
             Paused  = "<span> </span>";
             Playing = "<span>󰏥 </span>";
             Stopped = "<span> </span>";
@@ -191,29 +184,20 @@ in
           "on-scroll-up"   = "wpctl set-volume @DEFAULT_SINK@ 5%+";
           "return-type"    = "json";
         };
-        custom = {
-          playerlabel = {
-            exec        = ''
-              playerctl -a metadata --format '
-                {"text": "{{artist}} - {{markup_escape(title)}}",
-                 "tooltip": "{{playerName}} : {{markup_escape(title)}}",
-                 "alt": "{{status}}",
-                 "class": "{{status}}"}
-              ' -F
-            '';
-            format       = "<span>󰎈 {} 󰎈</span>";
-            "max-length"  = 40;
-            on-click     = "";
-            "return-type" = "json";
-          };
-        };
+        "custom/playerlabel" = {
+		      exec = ''playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{playerName}} : {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
+		      format = "<span>󰎈 {} 󰎈</span>";
+		      max-length = 40;
+		      on-click = "";
+		      return-type = "json";
+	      };
 
         # ------------------- Battery ------------------------
         battery = {
           format            = "{icon}  {capacity}%";
           "format-alt"        = "{icon} {time}";
           "format-charging"   = "  {capacity}%";
-          "format-icons"      = [ " " " " " " " " " " ];
+          "format-icons"      = [ "  " "  " "  " "  " "  " ];
           "format-plugged"    = "  {capacity}% ";
           "format-time"       = "{H} h {m} min";
           states            = { critical = 15; good = 95; warning = 30; };
@@ -224,7 +208,7 @@ in
         # ----------------- Pulseaudio ----------------------
         pulseaudio = {
           format        = "{icon} {volume}%";
-          "format-icons" = { default = [ "󰕿" "󰖀" "󰕾" ]; };
+          "format-icons" = { default = [ "󰕿 " "󰖀 " "󰕾 " ]; };
           "format-muted" = "󰝟";
           "on-click"     = "pavucontrol";
           "scroll-step"  = 5;
@@ -232,7 +216,7 @@ in
 
         # ------------------ Network -----------------------
         network = {
-          "format-disconnected" = "󰖪 0% ";
+          "format-disconnected" = "󰖪  0% ";
           "format-ethernet"     = "󰈀   100% ";
           "format-linked"       = "{ifname} (No IP)";
           "format-wifi"         = "    {signalStrength}%";
