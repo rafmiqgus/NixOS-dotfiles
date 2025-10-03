@@ -7,7 +7,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
-    nixcord.url = "github:kaylorben/nixcord";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
@@ -15,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, nixcord, spicetify-nix, sf-mono-liga-src, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nvf, spicetify-nix, sf-mono-liga-src, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -34,10 +33,10 @@
         }) 
       ];
       pkgs = import nixpkgs {
-	      inherit system;
-	      config = {
-	        allowUnfree = true;
-	      };
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
         overlays = Overlays;
       };
       

@@ -9,7 +9,6 @@
     wl-clipboard
     clipse
     wayland-utils
-    rofi
     hyprpolkitagent
     swaynotificationcenter
     hyprlock

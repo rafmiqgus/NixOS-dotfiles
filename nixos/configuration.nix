@@ -89,7 +89,7 @@
   users.users.rafael = {
     isNormalUser = true;
     description = "Rafael Miqueles Gustafsson";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -157,7 +157,7 @@
     nvidiaSettings = true;
 
     prime = {
-      sync.enable = true;
+      sync.enable = false;
 
       nvidiaBusId = "PCI:1:0:0";
       intelBusId = "PCI:0:2:0";
@@ -174,26 +174,49 @@
       persistencedSha256 = "sha256-G1V7JtHQbfnSRfVjz/LE2fYTlh9okpCbE4dfX9oYSg8=";      
     };
   };
-
+  
   boot.kernelParams = [ 
     "nvidia-drm.modeset=1"
     "drm.vrrpoli=1"
   ];
-
 
   users.users.rafael.shell = pkgs.zsh;
 
   nix.settings.trusted-users = [ "root" "rafael" ];
 
   # virtualisation
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableKvm = true;
-  virtualisation.virtualbox.host.addNetworkInterface = false;
-  users.extraGroups.vboxusers.members = [ "rafael" ];
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-
+  virtualisation = {
+    virtualbox.host = {
+      enable = true;
+      enableKvm = true;
+      addNetworkInterface = false;
+      enableExtensionPack = true;
+    };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+      };
+    };
+    spiceUSBRedirection.enable = true;
+    docker = {
+      enable = true;
+    };
+    podman = {
+      enable = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["rafael"];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
+  users.groups.libvirtd.members = ["rafael"]; 
+
+  security.sudo.extraRules = [
+    {
+      users = ["rafael"];
+      runAs = "root";
+      commands = [
+        { command = "/home/rafael/.nix-profile/bin/vlock -an"; options = ["NOPASSWD"];}
+      ];
+    }
+  ];
 }

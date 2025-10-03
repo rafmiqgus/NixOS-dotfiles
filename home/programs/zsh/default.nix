@@ -35,8 +35,8 @@
     };
 
     shellAliases = {
-      nr = "sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#rafael";
-      hms = "git add -A && home-manager switch --flake /home/rafael/.dotfiles/.#rafael";
+      nr = "sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#BloodAndTears";
+      hms = "git add -A /home/rafael/.dotfiles && home-manager switch --flake /home/rafael/.dotfiles/.#rafael";
       ll = "ls -la";
       gc = "sudo nix-collect-garbage -d";
       nix-deep-clean = ''
@@ -47,6 +47,13 @@
         echo "-> garbage-collecting..." && \
         sudo nix-collect-garbage -d \
       '';
+      holy-update = "sudo ~/.dotfiles/nixos/holy-update.sh";
+      epitech = "distrobox enter Epitech";
+      lock = "sudo vlock -an";
+      epiclang = "~/Epitech/epiclang/epiclang";
+      epic = "nix-shell -p clang criterion";
+      epi-clone = "~/Epitech/Piscine/epi-clone.sh";
+      epi-check = "~/Epitech/Piscine/check.sh";
     };
 
     dirHashes = {
@@ -55,7 +62,7 @@
     };
 
     oh-my-zsh = {
-      enable = false;
+      enable = true;
       plugins = [];
     };
 
@@ -70,6 +77,16 @@
       #   src = ./.;
       #   file = "p10k.zsh";
       # }
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";
+          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
     ];
 
     initContent = ''
@@ -83,6 +100,8 @@
 
       eval "$(starship init zsh)"
     '';
+
+    envExtra = "NIX_BUILD_SHELL=zsh";
   };
 
   # home.file.".p10k.zsh".source = ./p10k.zsh;

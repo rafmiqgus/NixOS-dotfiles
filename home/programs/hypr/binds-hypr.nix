@@ -45,13 +45,13 @@
       "$mainMod SHIFT, ampersand, movetoworkspace, 1"
       "$mainMod SHIFT, eacute, movetoworkspace, 2"
       "$mainMod SHIFT, quotedbl, movetoworkspace, 3"
-      "$mainMod SHIFT, 4, movetoworkspace, 4"
-      "$mainMod SHIFT, 5, movetoworkspace, 5"
-      "$mainMod SHIFT, 6, movetoworkspace, 6"
-      "$mainMod SHIFT, 7, movetoworkspace, 7"
-      "$mainMod SHIFT, 8, movetoworkspace, 8"
-      "$mainMod SHIFT, 9, movetoworkspace, 9"
-      "$mainMod SHIFT, 0, movetoworkspace, 10"
+      "$mainMod SHIFT, apostrophe, movetoworkspace, 4"
+      "$mainMod SHIFT, parenleft, movetoworkspace, 5"
+      "$mainMod SHIFT, minus, movetoworkspace, 6"
+      "$mainMod SHIFT, egrave, movetoworkspace, 7"
+      "$mainMod SHIFT, underscore, movetoworkspace, 8"
+      "$mainMod SHIFT, ccedilla, movetoworkspace, 9"
+      "$mainMod SHIFT, agrave, movetoworkspace, 10"
 
       # Example special workspace (scratchpad)
       "$mainMod SHIFT, S, movetoworkspace, special:magic"
@@ -62,6 +62,9 @@
 
       # clipse
       "$mainMod, V, exec, kitty --class clipse -e 'clipse'"
+
+      # vlock
+      "$mainMod SHIFT, L, exec, sudo vlock -an"
     ];
 
     bindm = [

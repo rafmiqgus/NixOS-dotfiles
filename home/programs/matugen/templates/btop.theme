@@ -10,7 +10,7 @@
 # Use "start", "mid" and "end" for three color gradient
 
 # Main background, empty for terminal default, need to be empty if you want transparent background
-theme[main_bg]="{{colors.background.default.hex}}"
+theme[main_bg]="{{colors.surface_container_lowest.default.hex}}"
 
 # Main text color
 theme[main_fg]="{{colors.on_surface.default.hex}}"

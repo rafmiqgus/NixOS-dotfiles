@@ -27,26 +27,26 @@
 
     general = {
       gaps_in = 8;
-	    gaps_out = "8,18,18,18";
+      gaps_out = "8,18,18,18";
 
-	    border_size = 4;
+      border_size = 4;
 
-	    "col.active_border" = "$primary 0xff595959 $inverse_primary 45deg";
-	    "col.inactive_border" = "0xff595959";
+      "col.active_border" = "$primary 0xff595959 $inverse_primary 45deg";
+      "col.inactive_border" = "0xff595959";
 
-	    resize_on_border = true;
+      resize_on_border = true;
 
-	    layout = "dwindle";
+      layout = "dwindle";
     };
     
 
     decoration = {
       shadow = {
-	      enabled = true;
-	      range = 20;
-	      render_power = 3;
-	      color = "rgba(1a1a1aee)";
-	    };
+        enabled = true;
+        range = 20;
+        render_power = 3;
+        color = "rgba(1a1a1aee)";
+      };
 
       dim_inactive = true;
       dim_strength = 0.1;

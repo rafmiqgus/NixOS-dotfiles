@@ -3,7 +3,7 @@
 {
   programs.rofi = {
     enable = true;
-
+    package = pkgs.rofi;
     theme = "/home/rafael/.dotfiles/home/programs/rofi/themes/style-2.rasi";
   };
   

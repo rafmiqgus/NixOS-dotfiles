@@ -23,16 +23,18 @@
     env = [
       "XCURSOR_SIZE,24"
       "HYPRCURSOR,24"
-      "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+      "WLR_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
       "LIBVA_DRIVER_NAME,nvidia"
       "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       "GBM_BACKEND=nvidia-drm"
+      "XKB_DEFAULT_LAYOUT,fr"
     ];
 
     monitor = [
       "eDP-1, 1920x1080@144, 0x0, 1, vrr, 1"
-      "DP-1, 2560x1440@144, 1920x0, 1, vrr, 1"
-      # ", preferred, auto, 1"
+      #"DP-1, 2560x1440@144, 1920x0, 1, vrr, 1" # Maison
+      "DP-1, 1920x1080@75, 1920x0, 1, vrr, 1" #Epitech
+      ", preferred, auto, 1"
     ];
     
     
@@ -55,11 +57,9 @@
       };
     };
 
-    gestures = {
-      workspace_swipe = true;
-      workspace_swipe_fingers = 3;
-      workspace_swipe_distance = 100;
-    };
+    gesture = [
+      "3, horizontal, workspace"
+    ];
 
     device = [
       {

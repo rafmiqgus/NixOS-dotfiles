@@ -7,6 +7,10 @@ set = false
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/hyprland-colors.conf'
 output_path = '/home/rafael/.dotfiles/home/programs/hypr/colors.conf'
 
+[templates.hyprlock]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/hyprlock-colors.conf'
+output_path = '/home/rafael/.dotfiles/home/programs/hyprlock/colors.conf'
+
 [templates.waybar]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colors.css'
 output_path = '/home/rafael/.dotfiles/home/programs/waybar/waybar-colors.css'

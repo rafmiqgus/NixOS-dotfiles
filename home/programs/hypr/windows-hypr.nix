@@ -23,6 +23,7 @@
       "size 800 700, class:kitty, title:^KittyNmtui$"
       "float, class:kitty, title:^KittyNmtui$"
       "float, class:pavucontrol"
+      "opacity 0.90 0.82, class:kitty, title:nvim"
     ];
 
     layerrule = [

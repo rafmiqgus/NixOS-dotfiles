@@ -11,7 +11,6 @@
     ./waybar
     ./kitty
     ./rofi
-    ./nixcord
     ./matugen
     ./gtk
     ./spicetify

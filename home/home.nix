@@ -1,20 +1,19 @@
- {inputs, pkgs, lib, config, ... }:
+{inputs, pkgs, lib, config, ... }:
 
 {
   imports = [
     ./programs
-    inputs.nixcord.homeModules.nixcord
   ];
 
   home = {
     username = "rafael";
     homeDirectory = "/home/rafael";
 
-    stateVersion = "24.05"; # Please read the comment before changing.
+    stateVersion = "24.05"; # please read the comment before changing.
 
     packages = with pkgs; [
 
-      # Utils 
+      # utils 
       vim
       wget
       git
@@ -45,13 +44,31 @@
       jq
       pywal16
       wf-recorder
+      graphicsmagick
+      rpi-imager
+      soco-cli
+      speedtest-cli
+      distrobox
+      dive
+      podman-tui
+      docker-compose
+      podman-compose
+      tree
+      vlock
+      physlock
+      valgrind
+      criterion
+      gcovr
+      man-pages
+      man-pages-posix
+      yt-dlp
+      ffmpeg_6
 
-      # Apps
+      # apps
       bitwarden-desktop
       kitty
       notesnook
       parabolic
-      mission-center
       keypunch
       mangohud
       modrinth-app
@@ -65,8 +82,11 @@
       wlogout
       vscode
       vesktop
+      neovim
+      upscaler
+      ida-free
 
-      # System 
+      # system 
       vulkan-headers
       vulkan-loader
       vulkan-validation-layers
@@ -76,18 +96,29 @@
       cmake
       gnumake
       pre-commit
-      clang-tools
+      llvmPackages_20.clangWithLibcAndBasicRtAndLibcxx
+      llvmPackages_20.clang-unwrapped
+      llvmPackages_20.libllvm
+      llvmPackages_20.llvm
+      llvmPackages.stdenv
+      pkg-config
+      zlib
+      libxml2
+      libffi 
+      lld
       ninja
-      gcc14
       kdePackages.extra-cmake-modules
       gettext
-      libsForQt5.full
+      qt6.full
       flatpak
-      #python3Full
       gtk3
       ncurses
+      mesa
+      kdePackages.fcitx5-with-addons
+      chromium
+      llvmPackages_20.libllvm
 
-      # Fonts 
+      # fonts 
       nerd-fonts.hack
       sf-mono-liga-bin
 
@@ -95,14 +126,19 @@
       nil
       nixpkgs-fmt
       basedpyright
+      bash-language-server
 
-      # Python libraries
-      (pkgs.python3Full.withPackages (ps: with ps; [ watchdog ]))
+      # python libraries
+      (pkgs.python312.withPackages (ps: with ps; [ watchdog ]))
     ];
 
     sessionVariables = {
-      TERM = "kitty";
+      term = "kitty";
     };
+
+    sessionPath = [
+      "$HOME/"
+    ];
   };
   fonts.fontconfig.enable = true;
 
@@ -111,7 +147,13 @@
   programs.git = {
     extraConfig.credential.helper = "manager";
     extraConfig.credential."https://github.com".username = "rafmiqgus";
-    extraConfig.credential.credentialStore = "cache";
+    extraConfig.credential.credentialstore = "cache";
     enable = true;
+  };
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.fcitx5-with-addons = pkgs.kdePackages.fcitx5-with-addons;
   };
 }
