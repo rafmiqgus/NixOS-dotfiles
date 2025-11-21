@@ -15,6 +15,10 @@ output_path = '/home/rafael/.dotfiles/home/programs/hyprlock/colors.conf'
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colors.css'
 output_path = '/home/rafael/.dotfiles/home/programs/waybar/waybar-colors.css'
 
+[templates.hyprlust-waybar]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/hyprlust_waybar.css'
+output_path = '/home/rafael/.dotfiles/home/programs/waybar/hyprlust/waybar-colors.css'
+
 [templates.wlogout]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/waybar-colors.css'
 output_path = '/home/rafael/.config/wlogout/wlogout-colors.css'

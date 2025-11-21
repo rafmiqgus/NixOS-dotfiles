@@ -54,6 +54,9 @@
   services.desktopManager.plasma6.enable = true;
   programs.hyprland.enable = true;
 
+  services.seatd.enable = true;
+  services.libinput.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "fr";
@@ -89,7 +92,7 @@
   users.users.rafael = {
     isNormalUser = true;
     description = "Rafael Miqueles Gustafsson";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "seat" "input" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -99,7 +102,9 @@
 
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   hardware.enableAllFirmware = true;
   # List packages installed in system profile. To search, run:
@@ -166,12 +171,12 @@
     nvidiaPersistenced = true;
 
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "570.133.07";
-      sha256_64bit = "sha256-LUPmTFgb5e9VTemIixqpADfvbUX1QoTT2dztwI3E3CY=";
-      sha256_aarch64 = "sha256-yTovUno/1TkakemRlNpNB91U+V04ACTMwPEhDok7jI0=";
-      openSha256 = "sha256-9l8N83Spj0MccA8+8R1uqiXBS0Ag4JrLPjrU3TaXHnM=";
-      settingsSha256 = "sha256-XMk+FvTlGpMquM8aE8kgYK2PIEszUZD2+Zmj2OpYrzU=";
-      persistencedSha256 = "sha256-G1V7JtHQbfnSRfVjz/LE2fYTlh9okpCbE4dfX9oYSg8=";      
+      version = "580.65.06";
+      sha256_64bit = "sha256-BLEIZ69YXnZc+/3POe1fS9ESN1vrqwFy6qGHxqpQJP8=";
+      sha256_aarch64 = "sha256-4CrNwNINSlQapQJr/dsbm0/GvGSuOwT/nLnIknAM+cQ=";
+      openSha256 = "sha256-BKe6LQ1ZSrHUOSoV6UCksUE0+TIa0WcCHZv4lagfIgA=";
+      settingsSha256 = "sha256-9PWmj9qG/Ms8Ol5vLQD3Dlhuw4iaFtVHNC0hSyMCU24=";
+      persistencedSha256 = "sha256-ETRfj2/kPbKYX1NzE0dGr/ulMuzbICIpceXdCRDkAxA=";     
     };
   };
   
@@ -219,4 +224,10 @@
       ];
     }
   ];
+
+  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=2 card_label="EOS600D"
+  '';
 }

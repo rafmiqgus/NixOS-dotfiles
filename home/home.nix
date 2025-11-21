@@ -1,4 +1,4 @@
-{inputs, pkgs, lib, config, ... }:
+{inputs, pkgs, ... }:
 
 {
   imports = [
@@ -9,7 +9,7 @@
     username = "rafael";
     homeDirectory = "/home/rafael";
 
-    stateVersion = "24.05"; # please read the comment before changing.
+    stateVersion = "24.05";
 
     packages = with pkgs; [
 
@@ -45,7 +45,7 @@
       pywal16
       wf-recorder
       graphicsmagick
-      rpi-imager
+      # rpi-imager
       soco-cli
       speedtest-cli
       distrobox
@@ -62,7 +62,34 @@
       man-pages
       man-pages-posix
       yt-dlp
-      ffmpeg_6
+      ripgrep
+      luajitPackages.luarocks
+      ripgrep
+      inputs.copilot-cli.packages.${pkgs.system}.default
+      direnv
+      parted
+      alsa-utils
+      mpv
+      pre-commit
+      netcat-openbsd
+      nmap
+      metasploit
+      libinput
+      gphoto2
+      libgphoto2
+      v4l-utils
+      ffmpeg
+      imv
+      fd
+      ghostscript
+      tectonic
+      mermaid-cli
+      lua
+      ghidra-bin
+      ltrace
+      hashcat
+      wlr-randr
+      wl-mirror
 
       # apps
       bitwarden-desktop
@@ -71,7 +98,7 @@
       parabolic
       keypunch
       mangohud
-      modrinth-app
+      # modrinth-app
       prismlauncher
       firefox-devedition
       libreoffice
@@ -85,6 +112,12 @@
       neovim
       upscaler
       ida-free
+      jetbrains.clion
+      gitkraken
+      discord
+      lunar-client
+      mangohud
+      obs-studio
 
       # system 
       vulkan-headers
@@ -96,12 +129,12 @@
       cmake
       gnumake
       pre-commit
-      llvmPackages_20.clangWithLibcAndBasicRtAndLibcxx
-      llvmPackages_20.clang-unwrapped
-      llvmPackages_20.libllvm
-      llvmPackages_20.llvm
-      llvmPackages.stdenv
-      pkg-config
+      # llvmPackages_20.clangWithLibcAndBasicRtAndLibcxx
+      # llvmPackages_20.clang-unwrapped
+      # llvmPackages_20.libllvm
+      # llvmPackages_20.llvm
+      # llvmPackages.stdenv
+      # pkg-config
       zlib
       libxml2
       libffi 
@@ -109,7 +142,6 @@
       ninja
       kdePackages.extra-cmake-modules
       gettext
-      qt6.full
       flatpak
       gtk3
       ncurses
@@ -129,7 +161,14 @@
       bash-language-server
 
       # python libraries
-      (pkgs.python312.withPackages (ps: with ps; [ watchdog ]))
+      # python313Packages.watchdog
+      (pkgs.python313.withPackages (ps: with ps; [ watchdog ]))
+
+      # epiclang
+      (pkgs.writeShellScriptBin "epiclang" ''
+        #!/usr/bin/env bash
+        exec /home/rafael/Epitech/epiclang/epiclang "$@"
+      '')
     ];
 
     sessionVariables = {
@@ -138,16 +177,19 @@
 
     sessionPath = [
       "$HOME/"
+      "$HOME/.npm-global/bin" 
     ];
+
+    file.".npmrc".text = "prefix=/home/rafael/.npm-global\n";
   };
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
 
   programs.git = {
-    extraConfig.credential.helper = "manager";
-    extraConfig.credential."https://github.com".username = "rafmiqgus";
-    extraConfig.credential.credentialstore = "cache";
+    settings.credential.helper = "manager";
+    settings.credential."https://github.com".username = "rafmiqgus";
+    settings.credential.credentialstore = "cache";
     enable = true;
   };
 

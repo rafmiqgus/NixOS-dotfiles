@@ -32,9 +32,9 @@
 
     monitor = [
       "eDP-1, 1920x1080@144, 0x0, 1, vrr, 1"
-      #"DP-1, 2560x1440@144, 1920x0, 1, vrr, 1" # Maison
-      "DP-1, 1920x1080@75, 1920x0, 1, vrr, 1" #Epitech
-      ", preferred, auto, 1"
+      "DP-1, 2560x1440@144, 1920x0, 1, vrr, 1" # Maison
+      #"DP-1, 1920x1080@75, 1920x0, 1, vrr, 1" #Epitech
+      #", preferred, auto, 1"
     ];
     
     
@@ -53,7 +53,8 @@
       follow_mouse = 1;
 
       touchpad = {
-        natural_scroll = false;
+        tap-to-click = true;
+        natural_scroll = true;
       };
     };
 

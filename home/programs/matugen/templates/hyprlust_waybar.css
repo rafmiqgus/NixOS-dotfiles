@@ -1,0 +1,27 @@
+/* matugen → GTK CSS variables (dark scheme) */
+@define-color foreground {{colors.on_surface.dark.hex}};
+/* Make a translucent background like your wallust alpha() call.
+   This replaces the trailing alpha in the rgba string with 0.05 */
+@define-color background {{colors.surface.dark.rgba | replace:"1)","0.05)"}};
+@define-color cursor {{colors.primary.dark.hex}};
+
+/* ------- ANSI 0–15 mapping (sane defaults) ------- */
+/* 0–7  = normal; 8–15 = bright */
+@define-color color0  {{colors.surface.dark.hex}};             /* black  */
+@define-color color1  {{colors.error.dark.hex}};               /* red    */
+@define-color color2  {{colors.secondary.dark.hex}};           /* green  */
+@define-color color3  {{colors.tertiary.dark.hex}};            /* yellow */
+@define-color color4  {{colors.primary.dark.hex}};             /* blue   */
+@define-color color5  {{colors.tertiary_container.dark.hex}};  /* magenta*/
+@define-color color6  {{colors.secondary_container.dark.hex}}; /* cyan   */
+@define-color color7  {{colors.on_surface.dark.hex}};          /* white  */
+
+@define-color color8  {{colors.inverse_surface.dark.hex}};         /* br.black   */
+@define-color color9  {{colors.on_error.dark.hex}};                /* br.red     */
+@define-color color10 {{colors.on_secondary.dark.hex}};            /* br.green   */
+@define-color color11 {{colors.on_tertiary.dark.hex}};             /* br.yellow  */
+@define-color color12 {{colors.on_primary.dark.hex}};              /* br.blue    */
+@define-color color13 {{colors.outline.dark.hex}};                 /* br.magenta */
+@define-color color14 {{colors.surface_variant.dark.hex}};         /* br.cyan    */
+@define-color color15 {{colors.on_surface_variant.dark.hex}};      /* br.white   */
+

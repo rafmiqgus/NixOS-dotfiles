@@ -21,7 +21,7 @@
 
 /*------------Window--------------------*/
 #window{
-    background: @surface;
+    background: @surface_dim;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 16px;
@@ -34,12 +34,12 @@
 /*----------Waybar Window------------*/
 
 window#waybar {
-    background: alpha(@surface, 0.0);
+    background: alpha(@surface_dim, 0.0);
 }
 
 /*-----------Tooltip--------------*/
 tooltip {
-  background: @surface;
+  background: @surface_dim;
   border: 2px solid @tertiary;
   border-radius: 12px;
 }
@@ -50,7 +50,7 @@ tooltip label {
 
 /*---------Workspaces-----------------*/
 #workspaces {
-    background: @surface;
+    background: @surface_dim;
     margin: 5px 5px;
     padding: 8px 5px;
     border-radius: 16px;
@@ -99,7 +99,7 @@ tooltip label {
 /*-----------SwayNC & Weather------------*/
 #custom-swaync, #custom-weather {
     font-weight: bold;
-    background: @surface;
+    background: @surface_dim;
     margin: 5px; 
     padding: 8px 16px;
     color: @on_surface;
@@ -114,7 +114,7 @@ tooltip label {
 /*---------------Tray, Clock, Playerctl, Battery, Cpu, Temperature, Colorpicker, Memory, Idle_inhibitor----------------------*/
 #tray, #pulseaudio, #network, #battery, #cpu, #temperature, #custom-colorpicker, #memory, #custom-pacman, #idle_inhibitor,
 #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.forward{
-    background: @surface;
+    background: @surface_dim;
     font-weight: bold;
     margin: 5px 0px;
 }
@@ -126,7 +126,7 @@ tooltip label {
 }
 #clock {
     color: @on_surface;
-    background: @surface;
+    background: @surface_dim;
     border-radius: 0px 0px 0px 40px;
     padding: 10px 10px 15px 25px;
     margin-left: 7px;
@@ -147,7 +147,7 @@ tooltip label {
 
 /*-----------Playerctl-------------------*/
 #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.forward {
-    background: @surface;
+    background: @surface_dim;
     font-size: 22px;
 }
 #custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.forward:hover{
@@ -170,7 +170,7 @@ tooltip label {
     margin-right: 7px;
 }
 #custom-playerlabel {
-    background: @surface;
+    background: @surface_dim;
     color: @on_surface;
     padding: 0 20px;
     border-radius: 24px 10px 24px 10px;
@@ -189,7 +189,7 @@ tooltip label {
 /*-------------Launcher--------------*/
 #custom-launcher {
     color: @on_tertiary_container;
-    background: @surface;
+    background: @surface_dim;
     margin: 0px 5px 0px 0px;
     padding: 0px 35px 0px 15px;
     border-radius: 0px 0px 40px 0px;
@@ -198,7 +198,7 @@ tooltip label {
 
 /*--------------Cpu, Termperature, Colorpicker, Memory, Idle_inhibitor----------------*/
 #custom-colorpicker, #cpu, #temperature, #memory, #custom-pacman,#idle_inhibitor {
-    background: @surface;
+    background: @surface_dim;
     font-size: 16px;
 }
 

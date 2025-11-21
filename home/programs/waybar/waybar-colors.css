@@ -3,10 +3,10 @@
 * Generated with Matugen
 */
 
-@define-color surface-alpha rgba(25, 17, 19, 0.5);
+@define-color surface-alpha rgba(25, 18, 13, 0);
 
 
-@define-color background #191113;
+@define-color background #19120d;
 
 @define-color blue #cebdfe;
 
@@ -16,9 +16,9 @@
 
 @define-color blue_value #0000ff;
 
-@define-color cyan #82d3e2;
+@define-color cyan #84d5c4;
 
-@define-color cyan_container #004e59;
+@define-color cyan_container #005045;
 
 @define-color cyan_source #00ffff;
 
@@ -36,11 +36,11 @@
 
 @define-color green_value #00ff00;
 
-@define-color inverse_on_surface #382e30;
+@define-color inverse_on_surface #382e29;
 
-@define-color inverse_primary #8d4a5a;
+@define-color inverse_primary #8b4f24;
 
-@define-color inverse_surface #efdee0;
+@define-color inverse_surface #f0dfd7;
 
 @define-color magenta #fcb0d5;
 
@@ -50,15 +50,15 @@
 
 @define-color magenta_value #ff00ff;
 
-@define-color on_background #efdee0;
+@define-color on_background #f0dfd7;
 
 @define-color on_blue #35275e;
 
 @define-color on_blue_container #e8ddff;
 
-@define-color on_cyan #00363e;
+@define-color on_cyan #00382f;
 
-@define-color on_cyan_container #9eefff;
+@define-color on_cyan_container #9ff2e0;
 
 @define-color on_error #690005;
 
@@ -72,37 +72,37 @@
 
 @define-color on_magenta_container #ffd8e8;
 
-@define-color on_primary #551d2d;
+@define-color on_primary #512400;
 
-@define-color on_primary_container #ffd9df;
+@define-color on_primary_container #ffdbc7;
 
-@define-color on_primary_fixed #3a0718;
+@define-color on_primary_fixed #311300;
 
-@define-color on_primary_fixed_variant #713343;
+@define-color on_primary_fixed_variant #6e380f;
 
-@define-color on_red #561d22;
+@define-color on_red #552009;
 
-@define-color on_red_container #ffdada;
+@define-color on_red_container #ffdbce;
 
-@define-color on_secondary #43292f;
+@define-color on_secondary #432b1c;
 
-@define-color on_secondary_container #ffd9df;
+@define-color on_secondary_container #ffdbc7;
 
-@define-color on_secondary_fixed #2b151a;
+@define-color on_secondary_fixed #2b1709;
 
-@define-color on_secondary_fixed_variant #5b3f45;
+@define-color on_secondary_fixed_variant #5b4130;
 
-@define-color on_surface #efdee0;
+@define-color on_surface #f0dfd7;
 
-@define-color on_surface_variant #d6c2c4;
+@define-color on_surface_variant #d7c3b8;
 
-@define-color on_tertiary #462a09;
+@define-color on_tertiary #32320a;
 
-@define-color on_tertiary_container #ffdcbd;
+@define-color on_tertiary_container #e7e6ad;
 
-@define-color on_tertiary_fixed #2c1600;
+@define-color on_tertiary_fixed #1c1d00;
 
-@define-color on_tertiary_fixed_variant #60401d;
+@define-color on_tertiary_fixed_variant #48491e;
 
 @define-color on_white #00363d;
 
@@ -112,21 +112,21 @@
 
 @define-color on_yellow_container #fce186;
 
-@define-color outline #9e8c8f;
+@define-color outline #9f8d83;
 
-@define-color outline_variant #524346;
+@define-color outline_variant #52443c;
 
-@define-color primary #ffb1c1;
+@define-color primary #ffb688;
 
-@define-color primary_container #713343;
+@define-color primary_container #6e380f;
 
-@define-color primary_fixed #ffd9df;
+@define-color primary_fixed #ffdbc7;
 
-@define-color primary_fixed_dim #ffb1c1;
+@define-color primary_fixed_dim #ffb688;
 
-@define-color red #ffb3b4;
+@define-color red #ffb599;
 
-@define-color red_container #733337;
+@define-color red_container #71361d;
 
 @define-color red_source #ff0000;
 
@@ -134,45 +134,45 @@
 
 @define-color scrim #000000;
 
-@define-color secondary #e4bdc3;
+@define-color secondary #e5bfa9;
 
-@define-color secondary_container #5b3f45;
+@define-color secondary_container #5b4130;
 
-@define-color secondary_fixed #ffd9df;
+@define-color secondary_fixed #ffdbc7;
 
-@define-color secondary_fixed_dim #e4bdc3;
+@define-color secondary_fixed_dim #e5bfa9;
 
 @define-color shadow #000000;
 
-@define-color source_color #fa7b9c;
+@define-color source_color #c16212;
 
-@define-color surface #191113;
+@define-color surface #19120d;
 
-@define-color surface_bright #413738;
+@define-color surface_bright #413731;
 
-@define-color surface_container #261d1f;
+@define-color surface_container #261e19;
 
-@define-color surface_container_high #312829;
+@define-color surface_container_high #312823;
 
-@define-color surface_container_highest #3c3234;
+@define-color surface_container_highest #3d332d;
 
-@define-color surface_container_low #22191b;
+@define-color surface_container_low #221a15;
 
-@define-color surface_container_lowest #140c0e;
+@define-color surface_container_lowest #140d08;
 
-@define-color surface_dim #191113;
+@define-color surface_dim #19120d;
 
-@define-color surface_tint #ffb1c1;
+@define-color surface_tint #ffb688;
 
-@define-color surface_variant #524346;
+@define-color surface_variant #52443c;
 
-@define-color tertiary #ecbe91;
+@define-color tertiary #caca93;
 
-@define-color tertiary_container #60401d;
+@define-color tertiary_container #48491e;
 
-@define-color tertiary_fixed #ffdcbd;
+@define-color tertiary_fixed #e7e6ad;
 
-@define-color tertiary_fixed_dim #ecbe91;
+@define-color tertiary_fixed_dim #caca93;
 
 @define-color white #82d3e0;
 

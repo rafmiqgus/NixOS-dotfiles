@@ -1,0 +1,27 @@
+/* matugen → GTK CSS variables (dark scheme) */
+@define-color foreground #f0dfd7;
+/* Make a translucent background like your wallust alpha() call.
+   This replaces the trailing alpha in the rgba string with 0.05 */
+@define-color background rgba(25, 18, 13, 0.05);
+@define-color cursor #ffb688;
+
+/* ------- ANSI 0–15 mapping (sane defaults) ------- */
+/* 0–7  = normal; 8–15 = bright */
+@define-color color0  #19120d;             /* black  */
+@define-color color1  #ffb4ab;               /* red    */
+@define-color color2  #e5bfa9;           /* green  */
+@define-color color3  #caca93;            /* yellow */
+@define-color color4  #ffb688;             /* blue   */
+@define-color color5  #48491e;  /* magenta*/
+@define-color color6  #5b4130; /* cyan   */
+@define-color color7  #f0dfd7;          /* white  */
+
+@define-color color8  #f0dfd7;         /* br.black   */
+@define-color color9  #690005;                /* br.red     */
+@define-color color10 #432b1c;            /* br.green   */
+@define-color color11 #32320a;             /* br.yellow  */
+@define-color color12 #512400;              /* br.blue    */
+@define-color color13 #9f8d83;                 /* br.magenta */
+@define-color color14 #52443c;         /* br.cyan    */
+@define-color color15 #d7c3b8;      /* br.white   */
+

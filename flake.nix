@@ -12,15 +12,19 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
+    copilot-cli = {
+      url = "github:scarisey/copilot-cli-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, spicetify-nix, sf-mono-liga-src, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nvf, spicetify-nix, sf-mono-liga-src, copilot-cli, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       Overlays = [
         (final: prev: {
-          sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
+          sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation {
             pname = "sf-mono-liga-bin";
             version = "dev";
             src = inputs.sf-mono-liga-src;
@@ -43,7 +47,7 @@
 
     in {
       nixosConfigurations = {
-        BloodAndTears = lib.nixosSystem rec {
+        BloodAndTears = lib.nixosSystem {
           inherit system;
           modules = [ 
             ./nixos/configuration.nix
