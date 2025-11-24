@@ -7,7 +7,7 @@
 
 
 /*--------Importing matugen colors-----*/
-@import '~/.config/rofi/matugen-rofi.rasi'
+@import '~/.config/rofi/matugen-colors.rasi'
 
 
 /*--------Color definitions------------*/

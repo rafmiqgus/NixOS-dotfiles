@@ -29,7 +29,7 @@ output_path = '/home/rafael/.dotfiles/home/programs/kitty/colors.conf'
 
 [templates.rofi]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/rofi-colors.rasi'
-output_path = '/home/rafael/.dotfiles/home/programs/rofi/matugen-rofi.rasi'
+output_path = '/home/rafael/.config/rofi/matugen-colors.rasi'
 
 [templates.midnight-discord]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/midnight-discord.css'
