@@ -51,7 +51,6 @@
       epitech = "distrobox enter Epitech";
       lock = "sudo vlock -an";
       # epiclang = "~/Epitech/epiclang/epiclang";
-      epic = "nix-shell -p clang criterion";
       epi-clone = "~/Epitech/Piscine/epi-clone.sh";
       epi-check = "~/Epitech/Piscine/check.sh";
     };

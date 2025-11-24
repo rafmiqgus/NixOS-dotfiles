@@ -41,11 +41,15 @@ output_path = '/home/rafael/.cache/wal/colors.json'
 
 [templates.gtk3]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/gtk-colors.css'
-output_path = '/home/rafael/.dotfiles/home/programs/gtk/gtk3/colors.css'
+output_path = '/home/rafael/.config/gtk-3.0/colors.css'
 
 [templates.gtk4]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/gtk-colors.css'
-output_path = '/home/rafael/.dotfiles/home/programs/gtk/gtk4/colors.css'
+output_path = '/home/rafael/.config/gtk-4.0/colors.css'
+
+[templates.qt]
+input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/Matugen.colors'
+output_path = '/home/rafael/.local/share/color-schemes/Matugen.colors'
 
 [templates.spicetify]
 input_path = '/home/rafael/.dotfiles/home/programs/matugen/templates/spotify-colors.ini'
@@ -62,6 +66,9 @@ output_path = '~/.config/vesktop/themes/midnight-discord.css'
 [templates.nvim]
 input_path = '~/.config/nvim/pywal/matugen.lua'
 output_path = '~/.cache/wal/base46-dark.lua'
+
+[kvantum]
+apply = true
 
 [config.custom_colors.red]
 color = "#FF0000"

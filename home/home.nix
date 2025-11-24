@@ -65,7 +65,7 @@
       ripgrep
       luajitPackages.luarocks
       ripgrep
-      inputs.copilot-cli.packages.${pkgs.system}.default
+      inputs.copilot-cli.packages.${pkgs.stdenv.hostPlatform.system}.default
       direnv
       parted
       alsa-utils
@@ -90,6 +90,10 @@
       hashcat
       wlr-randr
       wl-mirror
+      brightnessctl
+      libsForQt5.qt5ct
+      kdePackages.qt6ct
+      glib
 
       # apps
       bitwarden-desktop
@@ -169,11 +173,10 @@
         #!/usr/bin/env bash
         exec /home/rafael/Epitech/epiclang/epiclang "$@"
       '')
-    ];
 
-    sessionVariables = {
-      term = "kitty";
-    };
+      # kde themes
+      adwaita-qt6
+    ];
 
     sessionPath = [
       "$HOME/"
@@ -181,6 +184,11 @@
     ];
 
     file.".npmrc".text = "prefix=/home/rafael/.npm-global\n";
+
+    sessionVariables = {
+      term = "kitty";
+      QT_QPA_PLATFORMTHEME = pkgs.lib.mkForce "qt6ct";
+    };
   };
   fonts.fontconfig.enable = true;
 

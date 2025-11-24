@@ -18,5 +18,6 @@
     ./hyprlock
     ./wlogout
     ./starship
+    ./qt
   ];
 }

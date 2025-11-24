@@ -21,7 +21,7 @@
       "$mainMod, P, pseudo, # dwindle"
       #"$mainMod, J, togglesplit, # dwindle"
       "$mainMod, S, exec, rofi -show drun"
-      "$mainMod, W, exec, waypaper"
+      "$mainMod, W, exec, GTK3_MODULES=colorreload-gtk-module GTK_THEME=adw-gtk3-dark waypaper"
 
       # Move focus with mainMod + vim motions
       "$mainMod, H, movefocus, l"
