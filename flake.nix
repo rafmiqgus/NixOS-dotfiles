@@ -16,9 +16,10 @@
       url = "github:scarisey/copilot-cli-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    textfox.url = "github:adriankarlen/textfox";
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, spicetify-nix, sf-mono-liga-src, copilot-cli, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nvf, spicetify-nix, sf-mono-liga-src, copilot-cli, textfox, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -61,6 +62,7 @@
           modules = [ 
             ./home/home.nix 
             spicetify-nix.homeManagerModules.spicetify
+            textfox.homeManagerModules.default
           ];
           extraSpecialArgs = { inherit inputs; };
         };
