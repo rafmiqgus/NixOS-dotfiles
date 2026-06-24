@@ -5,21 +5,25 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nvf.url = "github:notashelf/nvf";
-    nvf.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
-    copilot-cli = {
-      url = "github:scarisey/copilot-cli-flake";
+    ambxst = {
+      url = "git+file:///home/rafael/Ambxst-fork";
+      # url = "github:Axenide/Ambxst";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    textfox.url = "github:adriankarlen/textfox";
+    flake-utils.url = "github:numtide/flake-utils";
+    devenv.url = "github:cachix/devenv";
+    spotatui = {
+      url = "github:LargeModGames/spotatui";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, spicetify-nix, sf-mono-liga-src, copilot-cli, textfox, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, sf-mono-liga-src, ambxst, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -50,8 +54,10 @@
       nixosConfigurations = {
         BloodAndTears = lib.nixosSystem {
           inherit system;
-          modules = [ 
+          modules = [
             ./nixos/configuration.nix
+            ambxst.nixosModules.default
+            { nixpkgs.overlays = Overlays; }
           ];
         };
       };
@@ -60,11 +66,10 @@
         rafael = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ 
-            ./home/home.nix 
+            ./home/home.nix
             spicetify-nix.homeManagerModules.spicetify
-            textfox.homeManagerModules.default
           ];
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs system; };
         };
       };
   };

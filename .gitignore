@@ -1,0 +1,13 @@
+# nix build outputs
+result
+result-*
+
+# devenv / direnv caches
+.devenv/
+.direnv/
+
+# standalone sub-project (own git repo)
+/PenNix/
+
+# editor / misc
+*.swp

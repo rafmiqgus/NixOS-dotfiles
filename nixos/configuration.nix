@@ -66,6 +66,21 @@
   # Configure console keymap
   console.keyMap = "fr";
 
+  # KMS/DRM based virtual terminal
+  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+  services.kmscon = {
+    enable = true;
+    hwRender = true;
+    config = {
+      font-name = "JetBrainsMono Nerd Font Bold";
+      font-size = 14;
+      multi-monitor = "largest";
+      xkb-layout = "fr";
+      xkb-variant = "azerty";
+      login = "${pkgs.shadow}/bin/login -p -f rafael";
+    } // import ../home/config/matugen/generated/kmscon-palette.nix;
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -83,6 +98,14 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+
+    wireplumber.extraConfig."10-bluez" = {
+      "monitor.bluez.properties" = {
+        # Disable LDAC — libldac-dec 0.0.2 bug causes fatal init failure (nixpkgs regression)
+        # Falls back to aptX HD / AAC which are fully functional
+        "bluez5.codecs" = [ "sbc" "sbc_xq" "aac" "aptx" "aptx_hd" ];
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -92,14 +115,13 @@
   users.users.rafael = {
     isNormalUser = true;
     description = "Rafael Miqueles Gustafsson";
-    extraGroups = [ "networkmanager" "wheel" "docker" "seat" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "seat" "input" "vboxusers" "wireshark" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
     ];
     ignoreShellProgramCheck = true;
   };
-
 
   # Allow unfree packages
   nixpkgs.config = {
@@ -150,40 +172,42 @@
     enable = true;
     enable32Bit = true;
   };
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
 
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     powerManagement.finegrained = false;
 
-    open = false;
+    open = true;
 
     nvidiaSettings = true;
 
     prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
       sync.enable = false;
-
       nvidiaBusId = "PCI:1:0:0";
       intelBusId = "PCI:0:2:0";
     };
 
     nvidiaPersistenced = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "580.65.06";
-      sha256_64bit = "sha256-BLEIZ69YXnZc+/3POe1fS9ESN1vrqwFy6qGHxqpQJP8=";
-      sha256_aarch64 = "sha256-4CrNwNINSlQapQJr/dsbm0/GvGSuOwT/nLnIknAM+cQ=";
-      openSha256 = "sha256-BKe6LQ1ZSrHUOSoV6UCksUE0+TIa0WcCHZv4lagfIgA=";
-      settingsSha256 = "sha256-9PWmj9qG/Ms8Ol5vLQD3Dlhuw4iaFtVHNC0hSyMCU24=";
-      persistencedSha256 = "sha256-ETRfj2/kPbKYX1NzE0dGr/ulMuzbICIpceXdCRDkAxA=";     
-    };
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
   
   boot.kernelParams = [ 
     "nvidia-drm.modeset=1"
     "drm.vrrpoli=1"
   ];
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_foward" = 1;
+  };
+
+  environment.sessionVariables = {
+    # Keep globals minimal; per-session (Hyprland) vendor overrides live in home config.
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
 
   users.users.rafael.shell = pkgs.zsh;
 
@@ -226,8 +250,34 @@
   ];
 
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-  boot.kernelModules = [ "v4l2loopback" ];
+  boot.kernelModules = [ "v4l2loopback" "vboxdrv" "vboxnetflt" "vboxnetadp" ];
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=2 card_label="EOS600D"
   '';
+
+  environment.etc."jdk/21".source = pkgs.jdk21;
+  environment.etc."jdk/17".source = pkgs.jdk17;
+  environment.etc."jdk/8".source  = pkgs.jdk8;
+
+  programs.nix-ld.enable = true;
+
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Your Mouse Name]
+    MatchName=Your Mouse Name
+    ModelBouncingKeys=1
+  '';
+
+  boot.enableContainers = true;
+
+  programs.gpu-screen-recorder.enable = true;
 }
