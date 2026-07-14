@@ -2,7 +2,7 @@
 
 {
   programs.zsh = {
-    enable = true;
+    enable = false;
     enableCompletion = true;
     autosuggestion.enable = false;
     syntaxHighlighting = {
@@ -101,7 +101,6 @@
 
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
-      export SECLISTS=$(nix eval --raw nixpkgs#seclists.outPath)/share/wordlists/seclists
 
       if [[ "$(tty)" == /dev/tty* ]]; then
         export TERM=xterm-256color

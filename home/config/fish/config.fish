@@ -1,5 +1,5 @@
 starship init fish | source
-any-nix-shell fish --info-right | source
+# any-nix-shell fish --info-right | source
 
 function fish_greeting
     fastfetch
@@ -18,10 +18,14 @@ end
 set -x MANROFFOPT "-c"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
+# Dir abrv
+set -g dot ~/.dotfiles
+set -g conf ~/.dotfiles/home/config
+
 ## ------------------------------ aliases ------------------------------
-#
+
 # Replace ls with eza
-alias ls='eza -al --color=always --group-directories-first --icons=always' # preferred listing
+alias ls='eza --color=always --group-directories-first --icons=always' # preferred listing
 alias la='eza -a --color=always --group-directories-first --icons=always'  # all files and dirs
 alias ll='eza -l --color=always --group-directories-first --icons=always'  # long format
 alias lt='eza -aT --color=always --group-directories-first --icons=always' # tree listing

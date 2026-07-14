@@ -19,6 +19,7 @@
       disable_logs = false;
       enable_stdout_logs = true;
       colored_stdout_logs = true;
+      suppress_errors = false;
     };
     
     exec-once = [
@@ -86,10 +87,6 @@
 
     cursor = {
       no_hardware_cursors = true;
-    };
-
-    debug = {
-      suppress_errors = true;
     };
   };
 }

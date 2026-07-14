@@ -209,7 +209,7 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  users.users.rafael.shell = pkgs.zsh;
+  users.users.rafael.shell = pkgs.fish;
 
   nix.settings.trusted-users = [ "root" "rafael" ];
 
