@@ -43,6 +43,7 @@
     yazi
     yt-dlp
     zip
+    openvpn
 
     # ── dev & build ────────────────────────────────────────────
     cachix
@@ -105,7 +106,7 @@
     upscaler
     vesktop
     vscode
-    inputs.spotatui.packages.${pkgs.stdenv.hostPlatform.system}.default
+    telegram-desktop
 
     # ── games ──────────────────────────────────────────────────
     mangohud
