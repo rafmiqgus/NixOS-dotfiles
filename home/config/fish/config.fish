@@ -54,6 +54,10 @@ function pentest
     and cd --
 end
 
+function devenv
+    ~/.dotfiles/dev-shells/devenv-wrapper.sh $argv
+end
+
 ## ---------------------------------------------------------------------
 
 function __history_previous_command
