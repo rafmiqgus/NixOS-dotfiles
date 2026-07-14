@@ -11,16 +11,12 @@
       flake = false;
     };
     ambxst = {
-      url = "git+file:///home/rafael/Ambxst-fork";
-      # url = "github:Axenide/Ambxst";
+      # url = "git+file:///home/rafael/Ambxst-fork";
+      url = "github:Axenide/Ambxst";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
     devenv.url = "github:cachix/devenv";
-    spotatui = {
-      url = "github:LargeModGames/spotatui";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, spicetify-nix, sf-mono-liga-src, ambxst, ... }@inputs: 
