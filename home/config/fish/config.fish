@@ -2,7 +2,9 @@ starship init fish | source
 # any-nix-shell fish --info-right | source
 
 function fish_greeting
-    fastfetch
+    if not set -q PENTEST
+        fastfetch
+    end
 end
 
 # Start zellij only in a real Linux VT (ctrl+alt+Fn), not in a DM terminal like kitty.
@@ -48,10 +50,44 @@ function nix-deep-clean
 end
 
 function pentest
-    echo $PWD > /tmp/.pentest_prev_dir
-    and cd /home/rafael/.dotfiles/dev-shells/pentest
-    and devenv shell -- fish
-    and cd --
+    set -gx PENTEST 1
+    set -lx orig_dir $PWD
+    set -lx iface tun0
+
+    if set -q argv[1]
+        set iface $argv[1]
+    end
+
+    sudo iptables -D nixos-fw -i $iface -j ACCEPT 2>/dev/null
+
+    function _pentest_cleanup --on-signal SIGHUP --on-signal SIGTERM
+        echo "[*] Caught signal — restoring firewall on $iface..."
+        sudo iptables -D nixos-fw -i $iface -j ACCEPT 2>/dev/null
+        cd $orig_dir
+        set -eg PENTEST
+        functions -e _pentest_cleanup
+        return
+    end
+
+    if not sudo iptables -I nixos-fw -i $iface -j ACCEPT
+        echo "[!] Failed to open $iface (sudo/iptables) — aborting."
+        functions -e _pentest_cleanup
+        set -eg PENTEST
+        return 1
+    end
+
+    cd /home/rafael/.dotfiles/dev-shells/pentest
+    devenv shell -- fish
+
+    # Guard: signal path already ran cleanup and erased the function.
+    if functions -q _pentest_cleanup
+        echo "[*] Closing $iface..."
+        sudo iptables -D nixos-fw -i $iface -j ACCEPT 2>/dev/null
+        functions -e _pentest_cleanup
+
+        cd $orig_dir
+        set -eg PENTEST
+    end
 end
 
 function devenv
