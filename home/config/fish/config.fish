@@ -9,12 +9,12 @@ end
 
 # Start zellij only in a real Linux VT (ctrl+alt+Fn), not in a DM terminal like kitty.
 # Real VTs report /dev/tty1..N; DM terminals report /dev/pts/N, so the regex excludes them.
-if status is-interactive; and string match -qr '^/dev/tty[0-9]+$' (tty)
-    set -gx TERM xterm-256color
-    if not set -q ZELLIJ
-        exec zellij attach --create main
-    end
-end
+# if status is-interactive; and string match -qr '^/dev/tty[0-9]+$' (tty)
+#     set -gx TERM xterm-256color
+#     if not set -q ZELLIJ
+#         exec zellij attach --create main
+#     end
+# end
 
 # Format man pages
 set -x MANROFFOPT "-c"
@@ -41,11 +41,11 @@ alias epitech='distrobox enter Epitech'
 alias lock='sudo vlock -an'
 
 function nix-deep-clean
-    echo "-> verifying nix-store..."
+    echo "\n[*] verifying nix-store...\n"
     and sudo nix-store --verify --check-contents --repair
-    and echo "-> optimizing store"
+    and echo "\n[*] optimizing store\n"
     and sudo nix-store --optimize
-    and echo "-> garbage-collecting..."
+    and echo "\n[*] garbage-collecting...\n"
     and sudo nix-collect-garbage -d
 end
 

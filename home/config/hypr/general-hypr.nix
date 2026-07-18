@@ -19,7 +19,7 @@
       disable_logs = false;
       enable_stdout_logs = true;
       colored_stdout_logs = true;
-      suppress_errors = false;
+      suppress_errors = true;
     };
     
     exec-once = [

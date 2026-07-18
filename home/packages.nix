@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
 
     # ── cli tools ──────────────────────────────────────────────
+    bat
     bear
     btop
     cava
