@@ -101,11 +101,6 @@
 
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
-
-      if [[ "$(tty)" == /dev/tty* ]]; then
-        export TERM=xterm-256color
-
-        if [[ -z "$ZELLIJ" ]]
     '';
 
     envExtra = "NIX_BUILD_SHELL=zsh";

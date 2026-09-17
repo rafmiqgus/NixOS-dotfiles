@@ -1,4 +1,4 @@
-starship init fish | source
+# starship + direnv hooks are injected by home-manager (programs.starship / programs.direnv).
 # any-nix-shell fish --info-right | source
 
 function fish_greeting
@@ -24,18 +24,23 @@ set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -g dot ~/.dotfiles
 set -g conf ~/.dotfiles/home/config
 
+set -g direnv_fish_mode disable_arrow
+
 ## ------------------------------ aliases ------------------------------
 
-# Replace ls with eza
+# ls -> eza with preferred flags (eza module handles icons/git config; these
+# aliases override the module's plain `eza` aliases to keep --group-directories-first).
+# `cd` is zoxide (programs.zoxide options = --cmd cd); `cdi` for interactive.
 alias ls='eza --color=always --group-directories-first --icons=always' # preferred listing
 alias la='eza -a --color=always --group-directories-first --icons=always'  # all files and dirs
 alias ll='eza -l --color=always --group-directories-first --icons=always'  # long format
 alias lt='eza -aT --color=always --group-directories-first --icons=always' # tree listing
 alias l.="eza -a | grep -e '^\.'"                                     # show only dotfiles
 
-alias nr='sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#BloodAndTears'
-alias hms='git add -A /home/rafael/.dotfiles && home-manager switch --flake /home/rafael/.dotfiles/.#rafael'
-alias gc='sudo nix-collect-garbage -d'
+# Flake path passed explicitly so these work even when NH_FLAKE is not in the env.
+alias nr='nh os switch /home/rafael/.dotfiles'
+alias hms='git add -A /home/rafael/.dotfiles && nh home switch /home/rafael/.dotfiles'
+alias gc='nh clean all --keep 5 --keep-since 14d'
 alias holy-update='sudo ~/.dotfiles/nixos/holy-update.sh'
 alias epitech='distrobox enter Epitech'
 alias lock='sudo vlock -an'
@@ -46,7 +51,7 @@ function nix-deep-clean
     and echo "\n[*] optimizing store\n"
     and sudo nix-store --optimize
     and echo "\n[*] garbage-collecting...\n"
-    and sudo nix-collect-garbage -d
+    and nh clean all --keep 5 --keep-since 7d
 end
 
 function pentest

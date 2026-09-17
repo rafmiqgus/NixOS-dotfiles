@@ -1,23 +1,19 @@
-{ inputs, pkgs, system, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
 
     # ── cli tools ──────────────────────────────────────────────
-    bat
     bear
     btop
     cava
-    direnv
     distrobox
     dwt1-shell-color-scripts
-    eza
     fastfetch
     fd
     feh
     figlet
     fzf
-    git
     git-credential-manager
     git-lfs
     inxi
@@ -45,13 +41,18 @@
     yt-dlp
     zip
     openvpn
+    freerdp
+    hyprmoncfg
+    cloc
+    nix-tree
+    ncdu
 
     # ── dev & build ────────────────────────────────────────────
     cachix
     cmake
     gettext
     gnumake
-    inputs.devenv.packages.${system}.devenv
+    devenv
     lld
     lua
     luajitPackages.luarocks
@@ -62,7 +63,6 @@
     reuse
     tree-sitter
     claude-code
-    gemini-cli
     gh
 
     # ── containers ─────────────────────────────────────────────
@@ -83,6 +83,7 @@
     poppler-utils
     tectonic
     v4l-utils
+    kdePackages.okular
 
     # ── color / theming tools ──────────────────────────────────
     matugen
@@ -94,7 +95,6 @@
     burpsuite
     chromium
     discord
-    firefox-devedition
     keypunch
     libreoffice
     lunar-client
@@ -108,10 +108,12 @@
     vesktop
     vscode
     telegram-desktop
+    obsidian
+    upscayl
 
     # ── games ──────────────────────────────────────────────────
     mangohud
-    modrinth-app
+    # modrinth-app
     nsnake
     osu-lazer
     rebels-in-the-sky
@@ -119,12 +121,7 @@
     steam-run
     tic-80
 
-    # ── productivity ───────────────────────────────────────────
-    taskwarrior2
-    taskwarrior-tui
-
     # ── tty / console ──────────────────────────────────────────
-    kmscon
     tcsh
     xinit
 
@@ -139,13 +136,12 @@
     basedpyright
     bash-language-server
     fish-lsp
-    nil
-    nixpkgs-fmt
+    nixd
+    nixfmt-rfc-style
     rust-analyzer
 
     # ── system libs ────────────────────────────────────────────
     drm_info
-    flatpak
     glib
     gtk3
     kdePackages.extra-cmake-modules
@@ -174,5 +170,9 @@
       #!/usr/bin/env bash
       exec /home/rafael/Epitech/epiclang/epiclang "$@"
     '')
+
+    # ── Libs ───────────────────────────────────────
+
+    libsecret
   ];
 }

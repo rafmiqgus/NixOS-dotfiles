@@ -17,18 +17,19 @@
 
 
     sessionPath = [
-      "$HOME/"
-      "$HOME/.npm-global/bin" 
+      "$HOME/.npm-global/bin"
     ];
 
     file.".npmrc".text = "prefix=/home/rafael/.npm-global\n";
 
     sessionVariables = {
       term = "kitty";
-      QT_QPA_PLATFORMTHEME = pkgs.lib.mkForce "qt6ct";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
 
     pointerCursor = {
+      enable = true;
       name = "Adwaita";
       size = 24;
       package = pkgs.adwaita-icon-theme;
@@ -41,10 +42,15 @@
   programs.home-manager.enable = true;
 
   programs.git = {
-    settings.credential.helper = "manager";
-    settings.credential."https://github.com".username = "rafmiqgus";
-    settings.credential.credentialstore = "cache";
     enable = true;
+    lfs.enable = true;
+    settings = {
+      user.name = "Rafael Miqueles Gustafsson";
+      user.email = "rafael.miqueles-gustafsson@epitech.eu";
+      credential.helper = "manager";
+      credential."https://github.com".username = "rafmiqgus";
+      credential.credentialstore = "cache";
+    };
   };
 
   i18n.inputMethod = {
@@ -61,5 +67,34 @@
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  # zoxide: `cd` becomes a smart, frecency-ranked jumper (falls back to normal
+  # cd for real paths; `cdi` for the interactive picker).
+  programs.zoxide = {
+    enable = true;
+    options = [ "--cmd" "cd" ];
+  };
+
+  # eza: modern ls with icons + git status. The `ls`/`la`/`ll`/`lt` aliases in
+  # fish config.fish keep the preferred flags (--group-directories-first).
+  programs.eza = {
+    enable = true;
+    icons = "auto";
+    git = true;
+  };
+
+  # bat: cat clone with syntax highlighting (also the MANPAGER).
+  programs.bat.enable = true;
+
+  # atuin: searchable SQLite shell history (Ctrl-R). Up-arrow left to fish.
+  programs.atuin = {
+    enable = true;
+    flags = [ "--disable-up-arrow" ];
   };
 }
