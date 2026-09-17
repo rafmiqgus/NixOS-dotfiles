@@ -9,24 +9,23 @@
                                                                               
   wayland.windowManager.hyprland.settings = {
 
-    source = [ "~/.local/share/ambxst/hyprland.conf" "/home/rafael/.dotfiles/home/config/hypr/colors.conf" ];
+    # Sourced FIRST (sourceFirst = true) so matugen $vars exist before use.
+    # ambxst's conf is sourced LAST via extraConfig in default.nix so its
+    # general/decoration/animations win over the blocks defined here.
+    source = [
+      "/home/rafael/.cache/matugen/hyprland-colors.conf"
+      "/home/rafael/.config/hypr/monitors.conf"
+    ];
 
     "$terminal" = "kitty";
     "$fileManager" = "dolphin";
     "$menu" = "rofi -show drun";
 
-    debug = {
-      disable_logs = false;
-      enable_stdout_logs = true;
-      colored_stdout_logs = true;
-      suppress_errors = true;
-    };
-    
     exec-once = [
       # "swww-daemon && swww restore --transition-type center"
-      "setkbxmap fr"
       # "waybar"
       "systemctl --user start hyprpolkitagent"
+      # hyprmoncfgd runs via the systemd user service (hyprmoncfgd.service)
     ];
     
     env = [
@@ -34,19 +33,25 @@
       "XCURSOR_THEME,Adwaita"
       "HYPRCURSOR_SIZE,24"
       "HYPRCURSOR_THEME,Adwaita"
-      "WLR_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
-      "LIBVA_DRIVER_NAME,nvidia"
+      # No AQ_DRM_DEVICES pin: it is colon-separated, so by-path names
+      # (pci-0000:00:02.0-card) break it and Hyprland aborts with "no gpus".
+      # Aquamarine picks the iGPU (owns eDP) on its own; dGPU still sleeps.
+      # Launch games with `nvidia-offload <cmd>`.
+      "LIBVA_DRIVER_NAME,iHD"
       # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      "GBM_BACKEND=nvidia-drm"
+      # "GBM_BACKEND=nvidia-drm"   # was forcing the whole session onto the dGPU (kept it hot)
       "XKB_DEFAULT_LAYOUT,fr"
     ];
 
+    # Monitor layout owned by hyprmoncfg (~/.config/hypr/monitors.conf).
     monitor = [
-      "eDP-1, 1920x1080@144, 0x0, 1, vrr, 1"
-      "DP-1, 2560x1440@144, 1920x0, 1, vrr, 1" # Maison
-      "HDMI-A-2, 1920x1080@60, 1920x0, 1" # BenQ PJ
+      #"eDP-1, 1920x1080@144, 0x0, 1, vrr, 1"
+      #"DP-1, 2560x1440@144, 1920x0, 1, vrr, 1" # Maison
+      #"HDMI-A-2, 1920x1080@60, 1920x0, 1" # BenQ PJ
       #"DP-1, 1920x1080@75, 1920x0, 1, vrr, 1" #Epitech
-      #", preferred, auto, 1"
+      #"DP-4, 3440x1440@120, 0x-1440, 1"
+      #"DP-6, 1920x1080@60, -1920x-1080, 1"
+      ", preferred, auto, 1"
     ];
     
     
@@ -85,8 +90,12 @@
       }
     ];
 
-    cursor = {
-      no_hardware_cursors = true;
-    };
+    # cursor:no_hardware_cursors left at default (2 = auto): hardware cursors
+    # work on the Intel iGPU; software cursors cost a redraw per move.
+
+    # VRR only in fullscreen (games) to avoid desktop flicker; direct scanout
+    # auto skips compositing for fullscreen windows.
+    misc.vrr = 2;
+    render.direct_scanout = 2;
   };
 }

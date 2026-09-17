@@ -7,6 +7,8 @@
   #  \ \_____\  \ \_____\  \ \_____\  \ \_\ \_\  \/\_____\ 
   #   \/_____/   \/_____/   \/_____/   \/_/\/_/   \/_____/ 
 
+  # Note: ambxst's hyprland.conf is sourced last (see default.nix extraConfig)
+  # and overrides the general/decoration/animations blocks defined here.
   imports = [
     ./animations/caelestia.nix
     ./blurs/caelestia.nix
@@ -19,7 +21,7 @@
     };
 
     dwindle = {
-      pseudotile = true;
+      # pseudotile option was removed in Hyprland 0.5x; `pseudo` dispatcher still works.
       preserve_split = true;
     };
 

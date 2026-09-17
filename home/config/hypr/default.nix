@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    waybar
     awww
     hyprpaper
     waypaper
@@ -31,6 +30,15 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    sourceFirst = false;
+    # colors.conf / monitors.conf are sourced first so $primary/$inverse_primary
+    # exist before general{} uses them.
+    sourceFirst = true;
+    # Keep hyprland.conf; HM's new default for stateVersion >= 26.05 is "lua".
+    configType = "hyprlang";
+    # ambxst owns look & feel: HM appends extraConfig after all settings, so
+    # sourcing it here makes its general/decoration/animations take priority.
+    extraConfig = ''
+      source = ~/.local/share/ambxst/hyprland.conf
+    '';
   };
 }
