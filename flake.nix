@@ -16,7 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
-    devenv.url = "github:cachix/devenv";
   };
 
   outputs = { self, nixpkgs, home-manager, spicetify-nix, sf-mono-liga-src, ambxst, ... }@inputs: 
