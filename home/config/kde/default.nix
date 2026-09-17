@@ -3,6 +3,10 @@
 {
   home.packages = with pkgs; [
     kdePackages.plasma-integration
+    # Breeze QStyle + color-scheme engine: reads kdeglobals colours so KF6 apps
+    # (dolphin) follow the matugen palette. Plasma used to pull this in; it must
+    # be explicit now that plasma6 is disabled.
+    kdePackages.breeze
 
     # kde-rounded-corners
     # kdePackages.krohnkite
