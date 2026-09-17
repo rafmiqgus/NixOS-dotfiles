@@ -1,12 +1,13 @@
 { pkgs, ... }:
 
 {
-  # qt5ct/qt6ct and adwaita-qt/adwaita-qt6 are pulled in by the HM qt module
-  # from platformTheme.name / style.name. qt6ct's plugin also answers to the
-  # "qt5ct" key HM exports, so no QT_QPA_PLATFORMTHEME override is needed.
+  # KDE platform theme so KF6 apps (dolphin) read their palette from
+  # kdeglobals (KColorScheme) — matugen writes the colours there (see the qt2
+  # template's post_hook). Widget style stays Adwaita-Dark. plasma-integration
+  # (the platform plugin) is installed via home/config/kde/default.nix.
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme.name = "kde";
     style.name = "adwaita-dark";
   };
 }
