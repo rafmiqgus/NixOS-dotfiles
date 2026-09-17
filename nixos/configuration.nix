@@ -8,11 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./linuwu-sense.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # Keep the ESP (511 MiB) from filling up with kernel+initrd of every generation.
+  boot.loader.systemd-boot.configurationLimit = 10;
 
   networking.hostName = "BloodAndTears"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -46,22 +49,20 @@
   };
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  # Wayland-only session; X11 server not needed (Hyprland sets its own kb layout,
+  # console.keyMap handles the VT). services.xserver.xkb only fed X11 sessions.
+  services.xserver.enable = false;
 
-  # Enable the KDE Plasma Desktop Environment.
+  # SDDM on Wayland. Plasma is disabled (never used) to shrink the closure; the
+  # KDE apps actually used (dolphin/kate/okular/ark/gwenview) are re-added to
+  # systemPackages below. Config files under ~/.config/*kde*/plasma* are kept.
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = false;
   programs.hyprland.enable = true;
 
   services.seatd.enable = true;
   services.libinput.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "fr";
-    variant = "azerty";
-  };
 
   # Configure console keymap
   console.keyMap = "fr";
@@ -70,8 +71,8 @@
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
   services.kmscon = {
     enable = true;
-    hwRender = true;
     config = {
+      hwaccel = true;
       font-name = "JetBrainsMono Nerd Font Bold";
       font-size = 14;
       multi-monitor = "largest";
@@ -120,7 +121,6 @@
       kdePackages.kate
     #  thunderbird
     ];
-    ignoreShellProgramCheck = true;
   };
 
   # Allow unfree packages
@@ -132,7 +132,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox
+    # KDE apps kept after disabling Plasma (dolphin is Hyprland's $fileManager).
+    kdePackages.dolphin
+    kdePackages.ark
+    kdePackages.gwenview
   ];
 
 # Flatpak
@@ -171,6 +174,10 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver   # iHD VAAPI driver → Intel iGPU video decode
+      libva-utils          # vainfo, to verify HW decode
+    ];
   };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
@@ -191,27 +198,80 @@
       intelBusId = "PCI:0:2:0";
     };
 
-    nvidiaPersistenced = true;
+    nvidiaPersistenced = false;
 
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
+
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+    # Follow the EPP set by power-profiles-daemon (powersave/balanced/performance).
+    extraArgs = [ "--autopower" ];
+  };
   
-  boot.kernelParams = [ 
+  boot.kernelParams = [
     "nvidia-drm.modeset=1"
-    "drm.vrrpoli=1"
   ];
   boot.kernel.sysctl = {
-    "net.ipv4.ip_foward" = 1;
+    "vm.swappiness" = 180;
+    "vm.page-cluster" = 0;
+    "vm.watermark_scale_factor" = 150;
+    "vm.dirty_bytes" = 268435456;
+    "vm.dirty_background_bytes" = 67108864;
+  };
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+    priority = 100;
   };
 
   environment.sessionVariables = {
     # Keep globals minimal; per-session (Hyprland) vendor overrides live in home config.
-    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   users.users.rafael.shell = pkgs.fish;
+  # System-side fish: sources /etc/set-environment (NH_FLAKE, sessionVariables)
+  # and provides completions for system packages. Config itself stays in HM.
+  programs.fish.enable = true;
 
-  nix.settings.trusted-users = [ "root" "rafael" ];
+  nix = {
+    settings = {
+      max-jobs = "auto";
+      cores = 0;
+      trusted-users = [ "root" "rafael" ];
+      # Extra binary caches (keys fetched from cachix API, 2026-09-17).
+      substituters = [
+        "https://devenv.cachix.org"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+    # Weekly hard-link dedup of identical store files.
+    optimise.automatic = true;
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+    daemonIOSchedPriority = 7;
+  };
+
+  # nh: nixos-rebuild / home-manager / GC wrapper.
+  #   nh os switch | nh home switch | nh clean all
+  # clean.enable runs `nh clean all` weekly and, unlike `sudo nix-collect-garbage -d`,
+  # also prunes every user's ~/.local/state/nix/profiles generations.
+  programs.nh = {
+    enable = true;
+    flake = "/home/rafael/.dotfiles";
+    clean = {
+      enable = true;
+      dates = "weekly";
+      extraArgs = "--keep 5 --keep-since 3m";
+    };
+  };
 
   # virtualisation
   virtualisation = {
@@ -267,17 +327,16 @@
   };
 
   programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
+    enable = false;
+    # gamescopeSession (the "Steam (gamescope)" Big Picture session at the SDDM
+    # login screen) disabled; launch games from the desktop instead.
+    gamescopeSession.enable = false;
   };
-
-  environment.etc."libinput/local-overrides.quirks".text = ''
-    [Your Mouse Name]
-    MatchName=Your Mouse Name
-    ModelBouncingKeys=1
-  '';
 
   boot.enableContainers = true;
 
   programs.gpu-screen-recorder.enable = true;
+
+  # Governor stays intel_pstate "powersave" (HWP); EPP is owned by power-profiles-daemon.
+  services.power-profiles-daemon.enable = true;
 }

@@ -14,11 +14,11 @@ case "$answer" in
         printf "\nUpdating the flake...\n"
         nix flake update 
         printf "\nRebuilding system...\n"
-        nixos-rebuild switch --flake .#BloodAndTears
+        nh os switch .
         printf "\nRebuilding Home-Manager...\n"
-        sudo -u rafael -H home-manager switch --flake .#rafael
-        printf "\nGarbage Collecting\n"
-        nix-collect-garbage -d 
+        sudo -u rafael -H nh home switch .
+        printf "\nGarbage Collecting (all profiles, keep 5 / 7d)\n"
+        nh clean all --keep 5 --keep-since 7d
         printf "\nDone."
         ;;
     *)
