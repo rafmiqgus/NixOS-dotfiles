@@ -27,7 +27,6 @@
 
       "match:class ^(pavucontrol)$, float true"
 
-      "match:class ^(kitty)$, match:title .*nvim.*, opacity 0.90 0.82"
     ];
 
     layerrule = [
