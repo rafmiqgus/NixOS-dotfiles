@@ -98,9 +98,14 @@ via tmpfiles. Service `nitro-quiet-fan` sets `platform_profile=quiet` and
 
 - HM stateVersion 24.05, `programs.home-manager.enable`.
 - sessionPath adds `~/.npm-global/bin` (`.npmrc` prefix set).
-- Qt: HM `qt.platformTheme.name = "kde"` + `style.name = "adwaita-dark"` (QT_QPA_PLATFORMTHEME=kde so KF6 apps like
-  dolphin read kdeglobals colours; Adwaita widgets via QT_STYLE_OVERRIDE). matugen merges its scheme into
-  kdeglobals via the qt2 template post_hook. plasma-integration plugin from kde/default.nix. Cursor Adwaita 24 + hyprcursor.
+- Qt: HM `qt.platformTheme.name = "kde"` (QT_QPA_PLATFORMTHEME=kde so KF6 apps like dolphin read kdeglobals
+  colours; matugen merges its scheme into kdeglobals via the qt2 template post_hook) + `style.name = "kvantum"`
+  with `qt.kvantum.settings.General.theme = "matugen"` (HM owns `~/.config/Kvantum/kvantum.kvconfig`). The
+  "matugen" Kvantum theme is rendered by matugen (`kvantum_kvconfig`/`kvantum_svg` templates from
+  InioX/matugen-themes, KvAdapta/Materia-based flat look) into `~/.config/Kvantum/matugen/`. matugen does NOT
+  create missing output dirs: `mkdir -p ~/.config/Kvantum/matugen` on a fresh machine. `qt/ensure-widgetstyle.py`
+  (HM activation) keeps kdeglobals `[KDE] widgetStyle=kvantum`. adwaita-qt rejected: hardcoded palette,
+  unmaintained. plasma-integration + breeze from kde/default.nix. Cursor Adwaita 24 + hyprcursor.
 - `EDITOR`/`VISUAL` = nvim. `programs.direnv` + nix-direnv (fish hook injected by HM; do not add manual hooks).
 - Terminal HM modules (fish auto-wired): `programs.zoxide` (`--cmd cd`, so `cd` is zoxide; `cdi` interactive),
   `programs.eza` (icons/git; `ls`/`la`/`ll`/`lt` aliases in config.fish keep `--group-directories-first`),
@@ -140,7 +145,8 @@ Outputs live OUTSIDE the repo in `~/.cache/matugen/` (hyprland-colors.conf, hypr
 kitty-colors.conf, waybar-colors.css, hyprlust-waybar-colors.css, starship-palette.toml) or
 `~/.config/<app>` (rofi, gtk, qt6ct, zellij, btop, vesktop, wlogout) or `~/.cache/wal` (pywalfox).
 Consumers reference those absolute paths (Hyprland `source`, kitty `include`, hyprlock `source`,
-waybar `@import`). Only two generated files stay tracked because Nix reads them at build:
+waybar `@import`). Kvantum theme goes to `~/.config/Kvantum/matugen/` (dir must pre-exist).
+Run non-interactively with `--source-color-index 0` (waypaper's wallpaper.sh runs it interactively). Only two generated files stay tracked because Nix reads them at build:
 `spicetify/Themes/Comfy/color.ini` and `matugen/generated/kmscon-palette.nix`.
 Edit templates, never outputs. If `~/.cache/matugen` is empty (fresh machine), run matugen once
 before starting Hyprland or the `$primary` vars are undefined.

@@ -57,6 +57,17 @@ output_path = '/home/rafael/.local/share/color-schemes/Matugen.colors'
 # the fresh ones from the generated scheme.
 post_hook = '''awk 'BEGIN{k=1} /^\[(Colors:|ColorEffects:)/{k=0} /^\[/{if($0 !~ /^\[(Colors:|ColorEffects:)/)k=1} k' ~/.config/kdeglobals > /tmp/kdeglobals.base && awk '/^\[(Colors:|ColorEffects:)/{p=1} /^\[/{if($0 !~ /^\[(Colors:|ColorEffects:)/)p=0} p' ~/.local/share/color-schemes/Matugen.colors > /tmp/kdeglobals.colors && cat /tmp/kdeglobals.base /tmp/kdeglobals.colors > ~/.config/kdeglobals && rm -f /tmp/kdeglobals.base /tmp/kdeglobals.colors'''
 
+# Kvantum theme "matugen" (templates from github.com/InioX/matugen-themes, KvAdapta/
+# Materia based). Qt style = kvantum, selected via qt.kvantum.settings in HM.
+[templates.kvantum_kvconfig]
+input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/kvantum-colors.kvconfig'
+output_path = '/home/rafael/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/kvantum-colors.svg'
+output_path = '/home/rafael/.config/Kvantum/matugen/matugen.svg'
+
+
 # Stays in the repo: parsed at build time by spicetify/default.nix (customColorScheme).
 [templates.spicetify]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/spotify-colors.ini'
