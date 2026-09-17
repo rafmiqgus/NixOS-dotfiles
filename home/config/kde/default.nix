@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     kdePackages.plasma-integration
-    kdePackages.fcitx5-with-addons
 
     # kde-rounded-corners
     # kdePackages.krohnkite

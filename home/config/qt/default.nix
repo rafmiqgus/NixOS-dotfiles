@@ -1,19 +1,12 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    libsForQt5.qt5ct
-    kdePackages.qt6ct
-    adwaita-qt6
-  ];
-
+  # qt5ct/qt6ct and adwaita-qt/adwaita-qt6 are pulled in by the HM qt module
+  # from platformTheme.name / style.name. qt6ct's plugin also answers to the
+  # "qt5ct" key HM exports, so no QT_QPA_PLATFORMTHEME override is needed.
   qt = {
     enable = true;
-    platformTheme.name = "kde";
-    # Use Plasma's QQC2 style; avoids missing "breeze"/"adwaita-dark" modules in plasmashell.
-    style.name = "org.kde.desktop";
-    kde.settings = {
-      kdeglobals.General.ColorScheme = "Matugen";
-    };
+    platformTheme.name = "qtct";
+    style.name = "adwaita-dark";
   };
 }

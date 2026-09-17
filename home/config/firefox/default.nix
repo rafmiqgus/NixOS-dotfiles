@@ -1,8 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.firefox.enable = true;
-  programs.firefox.configPath = ".mozilla/firefox";
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-devedition;
+    configPath = ".mozilla/firefox";
+  };
 
   home.packages = [ pkgs.pywalfox-native ];
 }
