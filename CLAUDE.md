@@ -98,8 +98,9 @@ via tmpfiles. Service `nitro-quiet-fan` sets `platform_profile=quiet` and
 
 - HM stateVersion 24.05, `programs.home-manager.enable`.
 - sessionPath adds `~/.npm-global/bin` (`.npmrc` prefix set).
-- Qt: HM `qt.platformTheme.name = "qtct"` + `style.name = "adwaita-dark"` (module installs qt5ct/qt6ct + adwaita-qt*; qt6ct plugin
-  answers to the `qt5ct` key HM exports). Cursor Adwaita 24 + hyprcursor (`pointerCursor.enable = true`).
+- Qt: HM `qt.platformTheme.name = "kde"` + `style.name = "adwaita-dark"` (QT_QPA_PLATFORMTHEME=kde so KF6 apps like
+  dolphin read kdeglobals colours; Adwaita widgets via QT_STYLE_OVERRIDE). matugen merges its scheme into
+  kdeglobals via the qt2 template post_hook. plasma-integration plugin from kde/default.nix. Cursor Adwaita 24 + hyprcursor.
 - `EDITOR`/`VISUAL` = nvim. `programs.direnv` + nix-direnv (fish hook injected by HM; do not add manual hooks).
 - Terminal HM modules (fish auto-wired): `programs.zoxide` (`--cmd cd`, so `cd` is zoxide; `cdi` interactive),
   `programs.eza` (icons/git; `ls`/`la`/`ll`/`lt` aliases in config.fish keep `--group-directories-first`),
