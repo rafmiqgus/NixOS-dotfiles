@@ -14,7 +14,7 @@
     };
     
     extraConfig = ''
-      include /home/rafael/.dotfiles/home/config/kitty/colors.conf
+      include /home/rafael/.cache/matugen/kitty-colors.conf
       allow_remote_control yes
     '';
     font = {
@@ -22,5 +22,4 @@
       name = "LigaSFMonoNerdFont-Regular";
     };
   };
-  home.file.".config/kitty/.nvim_session".source = ./.nvim_session;
 }

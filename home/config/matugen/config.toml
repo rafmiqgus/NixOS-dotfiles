@@ -5,19 +5,19 @@ set = false
 
 [templates.hyprland]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/hyprland-colors.conf'
-output_path = '/home/rafael/.dotfiles/home/config/hypr/colors.conf'
+output_path = '/home/rafael/.cache/matugen/hyprland-colors.conf'
 
 [templates.hyprlock]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/hyprlock-colors.conf'
-output_path = '/home/rafael/.dotfiles/home/config/hyprlock/colors.conf'
+output_path = '/home/rafael/.cache/matugen/hyprlock-colors.conf'
 
 [templates.waybar]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/waybar-colors.css'
-output_path = '/home/rafael/.dotfiles/home/config/waybar/waybar-colors.css'
+output_path = '/home/rafael/.cache/matugen/waybar-colors.css'
 
 [templates.hyprlust-waybar]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/hyprlust_waybar.css'
-output_path = '/home/rafael/.dotfiles/home/config/waybar/hyprlust/waybar-colors.css'
+output_path = '/home/rafael/.cache/matugen/hyprlust-waybar-colors.css'
 
 [templates.wlogout]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/waybar-colors.css'
@@ -25,15 +25,11 @@ output_path = '/home/rafael/.config/wlogout/wlogout-colors.css'
 
 [templates.kitty]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/kitty-colors.conf'
-output_path = '/home/rafael/.dotfiles/home/config/kitty/colors.conf'
+output_path = '/home/rafael/.cache/matugen/kitty-colors.conf'
 
 [templates.rofi]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/rofi-colors.rasi'
 output_path = '/home/rafael/.config/rofi/matugen-colors.rasi'
-
-[templates.midnight-discord]
-input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/midnight-discord.css'
-output_path = '/home/rafael/.dotfiles/home/config/nixcord/themes/midnight-colors.css'
 
 [templates.pywalfox-colors]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/pywalfox-colors.json'
@@ -55,6 +51,7 @@ output_path = '/home/rafael/.config/qt6ct/colors/Matugen.conf'
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/Matugen.colors'
 output_path = '/home/rafael/.local/share/color-schemes/Matugen.colors'
 
+# Stays in the repo: parsed at build time by spicetify/default.nix (customColorScheme).
 [templates.spicetify]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/spotify-colors.ini'
 output_path = '/home/rafael/.dotfiles/home/config/spicetify/Themes/Comfy/color.ini'
@@ -64,6 +61,7 @@ input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/starship-colo
 output_path = '/home/rafael/.cache/matugen/starship-palette.toml'
 post_hook = "sed -i '/^palette = /d; /^\\[palettes\\./,$d' /home/rafael/.config/starship.toml && echo 'palette = \"matugen\"' >> /home/rafael/.config/starship.toml && cat /home/rafael/.cache/matugen/starship-palette.toml >> /home/rafael/.config/starship.toml"
 
+# Stays in the repo: imported by nixos/configuration.nix at evaluation time.
 [templates.kmscon]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/kmscon-colors.nix'
 output_path = '/home/rafael/.dotfiles/home/config/matugen/generated/kmscon-palette.nix'
