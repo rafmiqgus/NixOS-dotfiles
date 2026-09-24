@@ -93,9 +93,23 @@ in
       set -eu
       profile=/sys/firmware/acpi/platform_profile
       fan=/sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/fan_speed
+
+      # acer-wmi registers platform_profile asynchronously after the module
+      # loads and has been seen to lose the race with this unit ("Failed to
+      # register platform_profile class device with empty choices" at boot,
+      # then this service no-ops and the EC stays on its "balanced" default).
+      # Wait for the knob rather than skipping it.
+      for _ in $(seq 1 50); do
+        if [ -w "$profile" ]; then break; fi
+        sleep 0.1
+      done
+
       if [ -w "$profile" ]; then
-        echo quiet > "$profile" || true
+        echo quiet > "$profile"
+      else
+        echo "platform_profile not writable after 5s; EC left at its default" >&2
       fi
+
       # Ensure the fan controller is in auto (curve-following), not forced.
       if [ -w "$fan" ]; then
         echo "0,0" > "$fan" || true
