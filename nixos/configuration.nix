@@ -11,6 +11,17 @@
       ./linuwu-sense.nix
     ];
 
+  # Kernel: use the nixpkgs default (do NOT pin 6.12). The warm-idle / fan-on
+  # symptom is NOT a kernel-version or C-state-table regression — turbostat idle
+  # residency is identical on 6.12 and 6.18, and the E-cores reach core-C6 fine.
+  # The "C1_ACPI/C2_ACPI/C3_ACPI" state names are just ACPI _CST slot labels
+  # (C3_ACPI's MWAIT hint 0x60 is actually hardware C6); intel_idle deliberately
+  # has no dedicated table for RPL mobile and uses ACPI _CST — that's expected.
+  # Real cause of the ~6 W idle floor, measured via turbostat:
+  #   - multi-monitor scanout blocks package PC8 (0% at 3 displays -> 22% at 1)
+  #   - scx_lavd kept P-cores in shallow C1 instead of C6/C7 (removed below)
+  #   - a few PCIe devices had runtime PM off (powertop.enable below fixes it)
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -58,6 +69,10 @@
   # systemPackages below. Config files under ~/.config/*kde*/plasma* are kept.
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
+  # Disabling Plasma removed the Breeze SDDM theme (empty theme = bare fallback).
+  # sddm-astronaut ships as a systemPackage (below); it needs qtmultimedia/qtsvg.
+  services.displayManager.sddm.theme = "sddm-astronaut-theme";
+  services.displayManager.sddm.extraPackages = with pkgs.kdePackages; [ qtmultimedia qtsvg ];
   services.desktopManager.plasma6.enable = false;
   programs.hyprland.enable = true;
 
@@ -136,6 +151,8 @@
     kdePackages.dolphin
     kdePackages.ark
     kdePackages.gwenview
+    # SDDM login theme (Plasma's Breeze theme is gone).
+    sddm-astronaut
   ];
 
 # Flatpak
@@ -203,13 +220,17 @@
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
-  services.scx = {
-    enable = true;
-    scheduler = "scx_lavd";
-    # Follow the EPP set by power-profiles-daemon (powersave/balanced/performance).
-    extraArgs = [ "--autopower" ];
-  };
-  
+  # scx_lavd removed: it kept the P-cores in shallow C1 at idle instead of
+  # letting them reach C6/C7 (measured with turbostat), which raised the idle
+  # power floor and kept the fans on. lavd is latency/gaming-tuned and trades
+  # deep idle for responsiveness — not what this laptop wants at idle. Back to
+  # the in-kernel EEVDF scheduler (the default, and what ran cool pre-2026-09).
+  # services.scx = {
+  #   enable = true;
+  #   scheduler = "scx_lavd";
+  #   extraArgs = [ "--autopower" ];
+  # };
+
   boot.kernelParams = [
     "nvidia-drm.modeset=1"
   ];
@@ -339,4 +360,10 @@
 
   # Governor stays intel_pstate "powersave" (HWP); EPP is owned by power-profiles-daemon.
   services.power-profiles-daemon.enable = true;
+
+  # Enable runtime PM on PCIe devices at boot (sets power/control=auto), the
+  # declarative equivalent of `powertop --auto-tune`. Measured: the Realtek NIC
+  # and other devices sat at control=on/D0, holding the package out of deep idle.
+  # This runs the tuning once on boot; it does not keep a daemon resident.
+  powerManagement.powertop.enable = true;
 }
