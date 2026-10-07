@@ -46,6 +46,7 @@
     cloc
     nix-tree
     ncdu
+    psmisc
     herdr
 
     # ── dev & build ────────────────────────────────────────────
@@ -94,7 +95,6 @@
     ardour
     bitwarden-desktop
     burpsuite
-    chromium
     discord
     keypunch
     libreoffice
@@ -111,6 +111,10 @@
     telegram-desktop
     obsidian
     upscayl
+    microsoft-edge
+    lunatask
+    teams-for-linux
+    ungoogled-chromium
 
     # ── games ──────────────────────────────────────────────────
     mangohud
@@ -140,6 +144,7 @@
     nixd
     nixfmt-rfc-style
     rust-analyzer
+    vtsls
 
     # ── system libs ────────────────────────────────────────────
     drm_info
