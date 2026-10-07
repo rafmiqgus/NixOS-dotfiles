@@ -95,7 +95,7 @@
 
     # VRR only in fullscreen (games) to avoid desktop flicker; direct scanout
     # auto skips compositing for fullscreen windows.
-    misc.vrr = 2;
+    misc.vrr = 1;
     render.direct_scanout = 2;
   };
 }

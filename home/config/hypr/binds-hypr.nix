@@ -16,7 +16,7 @@
       # "$mainMod, N, exec, kitty --session .nvim_session"
       "$mainMod, C, killactive"
       "$mainMod, M, exec, /home/rafael/.dotfiles/home/config/wlogout/wlogout.sh"
-      "$mainMod, E, exec, $fileManager"
+      "$mainMod, E, exec, kitty -- yazi"
       # "$mainMod, SPACE, togglefloating"
       # "$mainMod, P, pseudo, # dwindle"
       # "$mainMod, J, togglesplit, # dwindle"
