@@ -79,6 +79,11 @@
   services.seatd.enable = true;
   services.libinput.enable = true;
 
+  services.xserver.xkb = {
+    layout = "fr";
+    variant = "azerty";
+  };
+
   # Configure console keymap
   console.keyMap = "fr";
 
