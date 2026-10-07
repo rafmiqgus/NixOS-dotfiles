@@ -29,7 +29,7 @@ Outputs:
 
 ```sh
 nh os switch        # alias nr   (= sudo nixos-rebuild switch, NH_FLAKE=/home/rafael/.dotfiles)
-nh home switch      # alias hms  (git add -A first)
+nh home switch      # alias hms  (nr + hms run `git add -N .` first: new files visible to flake, nothing staged)
 nh clean all --keep 5 --keep-since 7d   # alias gc; also runs weekly via nh-clean.timer
 sudo nixos/holy-update.sh   # flake update + both nh switches + nh clean (interactive y/n)
 ```

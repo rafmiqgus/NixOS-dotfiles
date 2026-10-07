@@ -38,8 +38,9 @@ alias lt='eza -aT --color=always --group-directories-first --icons=always' # tre
 alias l.="eza -a | grep -e '^\.'"                                     # show only dotfiles
 
 # Flake path passed explicitly so these work even when NH_FLAKE is not in the env.
-alias nr='nh os switch /home/rafael/.dotfiles'
-alias hms='git add -A /home/rafael/.dotfiles && nh home switch /home/rafael/.dotfiles'
+# `add -N` (intent-to-add) makes new files visible to the flake without staging their content.
+alias nr='git -C /home/rafael/.dotfiles add -N . && nh os switch /home/rafael/.dotfiles'
+alias hms='git -C /home/rafael/.dotfiles add -N . && nh home switch /home/rafael/.dotfiles'
 alias gc='nh clean all --keep 5 --keep-since 14d'
 alias holy-update='sudo ~/.dotfiles/nixos/holy-update.sh'
 alias epitech='distrobox enter Epitech'
