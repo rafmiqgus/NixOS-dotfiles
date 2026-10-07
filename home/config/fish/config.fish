@@ -45,6 +45,8 @@ alias holy-update='sudo ~/.dotfiles/nixos/holy-update.sh'
 alias epitech='distrobox enter Epitech'
 alias lock='sudo vlock -an'
 
+# alias claude='herdr'
+
 function nix-deep-clean
     echo "\n[*] verifying nix-store...\n"
     and sudo nix-store --verify --check-contents --repair
@@ -135,4 +137,25 @@ end
 
 function backup --argument filename
     cp $filename $filename.bak
+end
+
+# Herdr paints its own chrome but lets panes show the host terminal through, so
+# kitty's background_opacity makes the terminal panes transparent. Force an
+# opaque background for the duration of the session, then restore the configured
+# opacity on exit. Needs dynamic_background_opacity + allow_remote_control (both
+# set in kitty/default.nix). Outside kitty the wrapper is a plain passthrough.
+function herdr
+    if not set -q KITTY_PID
+        command herdr $argv
+        return $status
+    end
+    # kitty has no query for the current opacity, so read the configured value
+    # back from the HM-generated kitty.conf.
+    set -l saved (string match -rg '^background_opacity\s+(\S+)' < ~/.config/kitty/kitty.conf | tail -1)
+    test -z "$saved"; and set saved 1.0
+    kitten @ set-background-opacity 1.0 2>/dev/null
+    command herdr $argv
+    set -l herdr_status $status
+    kitten @ set-background-opacity $saved 2>/dev/null
+    return $herdr_status
 end

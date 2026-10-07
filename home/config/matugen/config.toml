@@ -68,6 +68,13 @@ input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/kvantum-color
 output_path = '/home/rafael/.config/Kvantum/matugen/matugen.svg'
 
 
+# Herdr: no include directive in its config.toml, so the final file is
+# base.toml (HM-owned, keys/terminal) + this generated [theme] block.
+[templates.herdr]
+input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/herdr-theme.toml'
+output_path = '/home/rafael/.cache/matugen/herdr-theme.toml'
+post_hook = "cat ~/.config/herdr/base.toml /home/rafael/.cache/matugen/herdr-theme.toml > ~/.config/herdr/config.toml && herdr server reload-config || true"
+
 # Stays in the repo: parsed at build time by spicetify/default.nix (customColorScheme).
 [templates.spicetify]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/spotify-colors.ini'

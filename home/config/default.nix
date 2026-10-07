@@ -18,5 +18,6 @@
     ./starship
     ./qt
     ./fish
+    ./herdr
   ];
 }

@@ -46,6 +46,7 @@
     cloc
     nix-tree
     ncdu
+    herdr
 
     # ── dev & build ────────────────────────────────────────────
     cachix
