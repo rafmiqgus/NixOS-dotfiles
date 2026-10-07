@@ -163,7 +163,6 @@ Tool: `inxi` (installed in home profile). Re-run `inxi -Fxxxz --no-host` to refr
 - **GPU 1**: NVIDIA RTX 4050 Laptop (AD107M, 10de:28a1), `/dev/dri/card1`, render `renderD128`, driver nvidia
   595 open, PRIME offload, runtime D3 fine-grained (sleeps when unused; any `nvidia-smi` call wakes it).
   HDMI-A-2 is wired to the dGPU.
-- **Displays**: eDP-1 AUO 15.6" 1920x1080@144 VRR; DP-3 + DP-4 iiyama PL2493H 24" 1080p (60 / 100 Hz).
 - **RAM**: 16 GiB. Swap: zram0 7.7 GiB zstd prio 100 + 16.9 GiB partition prio -2.
 - **Storage**: nvme0n1 SK Hynix HFS512GEJ9X110N 512 GB (root ext4 + boot + swap); nvme1n1 Samsung 980 1 TB.
   Intel VMD/RST controller present (driver vmd).
