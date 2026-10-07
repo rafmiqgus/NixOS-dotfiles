@@ -7,7 +7,7 @@ let
   # the theme at build time, so the runtime ~/.config/spicetify dir is never
   # read; parse the ini here and hand it over as customColorScheme instead.
   # Re-run `home-manager switch` after a matugen run to apply new colors.
-  colorIni = builtins.readFile ./Themes/Comfy/color.ini;
+  colorIni = builtins.readFile ../matugen/generated/spicetify-color.ini;
   kvRe = "^([A-Za-z0-9_-]+) *= *([0-9A-Fa-f]+) *$";
   parsed = lib.pipe colorIni [
     (lib.splitString "\n")

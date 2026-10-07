@@ -78,7 +78,7 @@ post_hook = "cat ~/.config/herdr/base.toml /home/rafael/.cache/matugen/herdr-the
 # Stays in the repo: parsed at build time by spicetify/default.nix (customColorScheme).
 [templates.spicetify]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/spotify-colors.ini'
-output_path = '/home/rafael/.dotfiles/home/config/spicetify/Themes/Comfy/color.ini'
+output_path = '/home/rafael/.dotfiles/home/config/matugen/generated/spicetify-color.ini'
 
 [templates.starship]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/starship-colors.toml'
