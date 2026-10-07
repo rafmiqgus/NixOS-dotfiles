@@ -11,6 +11,9 @@
       dynamic_background_opacity = true;
       background_blur = 1;
       confirm_os_window_close = 0;
+      # 0.49+ also restores maximized state; on Hyprland it caches a bogus
+      # "maximized" and every new window opens full size (kitty #10442).
+      remember_window_size = false;
     };
     
     extraConfig = ''
