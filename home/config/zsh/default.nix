@@ -35,8 +35,8 @@
     };
 
     shellAliases = {
-      nr = "git -C /home/rafael/.dotfiles add -N . && sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#BloodAndTears";
-      hms = "git -C /home/rafael/.dotfiles add -N . && home-manager switch --flake /home/rafael/.dotfiles/.#rafael";
+      nr = "git -C /home/rafael/.dotfiles add -N . && sudo nixos-rebuild switch --flake /home/rafael/.dotfiles#BloodAndTears --impure";
+      hms = "git -C /home/rafael/.dotfiles add -N . && home-manager switch --flake /home/rafael/.dotfiles/.#rafael --impure";
       ll = "ls -la";
       gc = "sudo nix-collect-garbage -d";
       nix-deep-clean = ''

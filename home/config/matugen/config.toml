@@ -75,20 +75,20 @@ input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/herdr-theme.t
 output_path = '/home/rafael/.cache/matugen/herdr-theme.toml'
 post_hook = "cat ~/.config/herdr/base.toml /home/rafael/.cache/matugen/herdr-theme.toml > ~/.config/herdr/config.toml && herdr server reload-config || true"
 
-# Stays in the repo: parsed at build time by spicetify/default.nix (customColorScheme).
+# Read at build time (needs --impure) by spicetify/default.nix (customColorScheme).
 [templates.spicetify]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/spotify-colors.ini'
-output_path = '/home/rafael/.dotfiles/home/config/matugen/generated/spicetify-color.ini'
+output_path = '/home/rafael/.cache/matugen/spicetify-color.ini'
 
 [templates.starship]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/starship-colors.toml'
 output_path = '/home/rafael/.cache/matugen/starship-palette.toml'
 post_hook = "sed -i '/^palette = /d; /^\\[palettes\\./,$d' /home/rafael/.config/starship.toml && echo 'palette = \"matugen\"' >> /home/rafael/.config/starship.toml && cat /home/rafael/.cache/matugen/starship-palette.toml >> /home/rafael/.config/starship.toml"
 
-# Stays in the repo: imported by nixos/configuration.nix at evaluation time.
+# Read at build time (needs --impure) by nixos/configuration.nix (kmscon palette).
 [templates.kmscon]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/kmscon-colors.nix'
-output_path = '/home/rafael/.dotfiles/home/config/matugen/generated/kmscon-palette.nix'
+output_path = '/home/rafael/.cache/matugen/kmscon-palette.nix'
 
 [templates.zellij]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/zellij-colors.kdl'

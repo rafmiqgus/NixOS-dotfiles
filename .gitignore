@@ -11,6 +11,3 @@ result-*
 
 # editor / misc
 *.swp
-
-# matugen generated templates
-/home/config/matugen/generated/*

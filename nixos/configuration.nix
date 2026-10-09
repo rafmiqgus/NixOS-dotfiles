@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -99,7 +99,10 @@
       xkb-layout = "fr";
       xkb-variant = "azerty";
       login = "${pkgs.shadow}/bin/login -p -f rafael";
-    } // import ../home/config/matugen/generated/kmscon-palette.nix;
+    # matugen palette lives outside git (~/.cache/matugen), so rebuilds need --impure.
+    # Missing file (matugen never run) = kmscon's default palette.
+    } // lib.optionalAttrs (builtins.pathExists /home/rafael/.cache/matugen/kmscon-palette.nix)
+      (import /home/rafael/.cache/matugen/kmscon-palette.nix);
   };
 
   # Enable CUPS to print documents.

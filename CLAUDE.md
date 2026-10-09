@@ -30,10 +30,11 @@ Outputs:
 ```sh
 nh os switch        # alias nr   (= sudo nixos-rebuild switch, NH_FLAKE=/home/rafael/.dotfiles)
 nh home switch      # alias hms  (nr + hms run `git add -N .` first: new files visible to flake, nothing staged)
+# ALL rebuilds need --impure (nh: `-- --impure`): Nix reads matugen colors from ~/.cache/matugen (not in git).
 nh clean all --keep 5 --keep-since 7d   # alias gc; also runs weekly via nh-clean.timer
 sudo nixos/holy-update.sh   # flake update + both nh switches + nh clean (interactive y/n)
 ```
-Plain `nixos-rebuild build --flake .#BloodAndTears` / `home-manager build --flake .#rafael` for test builds.
+Plain `nixos-rebuild build --impure --flake .#BloodAndTears` / `home-manager build --impure --flake .#rafael` for test builds.
 
 ## Repo layout
 
@@ -67,8 +68,8 @@ dev-shells/
   = false`, `plasma6.enable = false` (disabled, not removed — never used; saved ~2.5 GiB closure). KDE apps kept via
   systemPackages: dolphin (`$fileManager`)/ark/gwenview; kate in user pkgs; okular in home pkgs. seatd + libinput enabled.
 - kmscon TTY (`config.hwaccel`): JetBrainsMono Nerd Font Bold 14, autologin rafael, palette imported from
-  `home/config/matugen/generated/kmscon-palette.nix` (matugen-generated, so system rebuild
-  depends on a home-side generated file).
+  `~/.cache/matugen/kmscon-palette.nix` (matugen-generated, outside git, `--impure`; missing file = kmscon
+  default palette via `pathExists`).
 - NVIDIA: open driver, `production` package, modesetting, PRIME offload (sync off),
   kernelParams `nvidia-drm.modeset=1`. Intel VAAPI via intel-media-driver (iHD).
 - Perf: scx scheduler `scx_lavd --autopower`, zram (zstd, 50%, prio 100), aggressive swappiness
@@ -115,7 +116,7 @@ via tmpfiles. Service `nitro-quiet-fan` sets `platform_profile=quiet` and
 - git: identity + lfs + credential helper `manager` (github user `rafmiqgus`, credentialstore cache) all in
   `programs.git.settings`; no imperative `~/.gitconfig` (old one kept as `~/.gitconfig.bak`).
 - fcitx5 input method (kdePackages.fcitx5-with-addons). zellij enabled.
-- Spicetify: matugen's `spicetify/Themes/Comfy/color.ini` is parsed in `spicetify/default.nix` into
+- Spicetify: matugen's `~/.cache/matugen/spicetify-color.ini` (outside git, `--impure`, missing = theme default) is parsed in `spicetify/default.nix` into
   `programs.spicetify.customColorScheme` (build-time). Runtime `~/.config/spicetify` is not read; re-run
   `home-manager switch` after matugen to apply Spotify colors.
 - permittedInsecurePackages: quickjs, electron (update as needed).
@@ -146,8 +147,8 @@ kitty-colors.conf, waybar-colors.css, hyprlust-waybar-colors.css, starship-palet
 `~/.config/<app>` (rofi, gtk, qt6ct, zellij, btop, vesktop, wlogout) or `~/.cache/wal` (pywalfox).
 Consumers reference those absolute paths (Hyprland `source`, kitty `include`, hyprlock `source`,
 waybar `@import`). Kvantum theme goes to `~/.config/Kvantum/matugen/` (dir must pre-exist).
-Run non-interactively with `--source-color-index 0` (waypaper's wallpaper.sh runs it interactively). Only two generated files stay tracked because Nix reads them at build:
-`spicetify/Themes/Comfy/color.ini` and `matugen/generated/kmscon-palette.nix`.
+Run non-interactively with `--source-color-index 0` (waypaper's wallpaper.sh runs it interactively). No generated file is tracked (user does not want them pushed). Nix reads two at build time, hence `--impure`:
+`~/.cache/matugen/spicetify-color.ini` and `~/.cache/matugen/kmscon-palette.nix`.
 Edit templates, never outputs. If `~/.cache/matugen` is empty (fresh machine), run matugen once
 before starting Hyprland or the `$primary` vars are undefined.
 

@@ -14,9 +14,9 @@ case "$answer" in
         printf "\nUpdating the flake...\n"
         nix flake update 
         printf "\nRebuilding system...\n"
-        nh os switch .
+        nh os switch . -- --impure
         printf "\nRebuilding Home-Manager...\n"
-        sudo -u rafael -H nh home switch .
+        sudo -u rafael -H nh home switch . -- --impure
         printf "\nGarbage Collecting (all profiles, keep 5 / 7d)\n"
         nh clean all --keep 5 --keep-since 7d
         printf "\nDone."
