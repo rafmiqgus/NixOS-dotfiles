@@ -19,5 +19,6 @@
     ./qt
     ./fish
     ./herdr
+    ./opencode
   ];
 }

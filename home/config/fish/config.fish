@@ -26,6 +26,9 @@ set -g conf ~/.dotfiles/home/config
 
 set -g direnv_fish_mode disable_arrow
 
+# Open Claude Proxy
+set -g OPENAI_BASE_URL http://127.0.0.1:3456/v1
+
 ## ------------------------------ aliases ------------------------------
 
 # ls -> eza with preferred flags (eza module handles icons/git config; these
