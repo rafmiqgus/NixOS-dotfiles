@@ -278,7 +278,9 @@ in
   # ── Virtualisation ─────────────────────────────────────────────
   virtualisation = {
     virtualbox.host = {
-      enable = true;
+      # Disabled: KVM + hardening (+ unfree extpack) is never in cache.nixos.org,
+      # so every update rebuilt vbox locally (~13 min). libvirtd covers VMs.
+      enable = false;
       enableKvm = true;
       addNetworkInterface = false;
       enableExtensionPack = true;
