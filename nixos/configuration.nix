@@ -374,4 +374,16 @@
   # and other devices sat at control=on/D0, holding the package out of deep idle.
   # This runs the tuning once on boot; it does not keep a daemon resident.
   powerManagement.powertop.enable = true;
+
+  # USB keyboards drop the first keystrokes when waking from autosuspend
+  # (powertop --auto-tune sets power/control=auto). Keep any device that
+  # exposes a keyboard interface (HID class 03, subclass 01, protocol 01) always on.
+  services.udev.extraRules = ''
+    ACTION=="add|bind", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface", ATTR{bInterfaceClass}=="03", ATTR{bInterfaceSubClass}=="01", ATTR{bInterfaceProtocol}=="01", RUN+="${pkgs.runtimeShell} -c 'echo on > /sys%p/../power/control'"
+  '';
+  # powertop runs after udev at boot and resets keyboards to auto; re-apply the rule
+  powerManagement.powertop.postStart = ''
+    ${lib.getExe' config.systemd.package "udevadm"} trigger -c add -s usb \
+      -a bInterfaceClass=03 -a bInterfaceSubClass=01 -a bInterfaceProtocol=01
+  '';
 }
