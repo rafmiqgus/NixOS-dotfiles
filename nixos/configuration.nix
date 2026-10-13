@@ -1,93 +1,144 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# System configuration for BloodAndTears (Acer Nitro ANV15-51).
+# See configuration.nix(5) / `nixos-help`.
 
 { config, lib, pkgs, ... }:
 
+let
+  # matugen output lives outside git (~/.cache/matugen), so rebuilds need --impure.
+  kmsconPalette = /home/rafael/.cache/matugen/kmscon-palette.nix;
+in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./linuwu-sense.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./linuwu-sense.nix
+  ];
 
-  # Kernel: use the nixpkgs default (do NOT pin 6.12). The warm-idle / fan-on
-  # symptom is NOT a kernel-version or C-state-table regression — turbostat idle
-  # residency is identical on 6.12 and 6.18, and the E-cores reach core-C6 fine.
-  # The "C1_ACPI/C2_ACPI/C3_ACPI" state names are just ACPI _CST slot labels
-  # (C3_ACPI's MWAIT hint 0x60 is actually hardware C6); intel_idle deliberately
-  # has no dedicated table for RPL mobile and uses ACPI _CST — that's expected.
-  # Real cause of the ~6 W idle floor, measured via turbostat:
+  # ── Boot / kernel ──────────────────────────────────────────────
+  # Kernel: nixpkgs default (do NOT pin 6.12). The warm-idle / fan-on symptom is
+  # not a kernel or C-state regression: turbostat idle residency is identical on
+  # 6.12 and 6.18 and E-cores reach core-C6. "C1_ACPI/C2_ACPI/C3_ACPI" are just
+  # ACPI _CST slot labels (C3_ACPI's MWAIT hint 0x60 is hardware C6); intel_idle
+  # has no RPL-mobile table and uses _CST by design.
+  # Real causes of the ~6 W idle floor (turbostat):
   #   - multi-monitor scanout blocks package PC8 (0% at 3 displays -> 22% at 1)
-  #   - scx_lavd kept P-cores in shallow C1 instead of C6/C7 (removed below)
-  #   - a few PCIe devices had runtime PM off (powertop.enable below fixes it)
+  #   - scx_lavd kept P-cores in shallow C1 instead of C6/C7 (removed, see Power)
+  #   - some PCIe devices had runtime PM off (powertop.enable, see Power)
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      # Keep the 511 MiB ESP from filling up with every generation's kernel+initrd.
+      systemd-boot.configurationLimit = 10;
+      efi.canTouchEfiVariables = true;
+    };
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # Keep the ESP (511 MiB) from filling up with kernel+initrd of every generation.
-  boot.loader.systemd-boot.configurationLimit = 10;
+    # nvidia-drm.modeset=1 is added by hardware.nvidia (modesetting/offload).
+    # vbox modules are loaded by virtualisation.virtualbox.host (none with enableKvm).
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    extraModprobeConfig = ''
+      options v4l2loopback devices=1 video_nr=2 card_label="EOS600D"
+    '';
 
-  networking.hostName = "BloodAndTears"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    kernel.sysctl = {
+      # Tuned for zram: swap eagerly, no readahead on swap-in.
+      "vm.swappiness" = 180;
+      "vm.page-cluster" = 0;
+      "vm.watermark_scale_factor" = 150;
+      "vm.dirty_bytes" = 268435456; # 256 MiB
+      "vm.dirty_background_bytes" = 67108864; # 64 MiB
+    };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
-  # Set your time zone.
-  time.timeZone = "Europe/Paris";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
+    enableContainers = true;
   };
 
-  # Enable the X11 windowing system.
-  # Wayland-only session; X11 server not needed (Hyprland sets its own kb layout,
-  # console.keyMap handles the VT). services.xserver.xkb only fed X11 sessions.
-  services.xserver.enable = false;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+    priority = 100;
+  };
 
-  # SDDM on Wayland. Plasma is disabled (never used) to shrink the closure; the
-  # KDE apps actually used (dolphin/kate/okular/ark/gwenview) are re-added to
-  # systemPackages below. Config files under ~/.config/*kde*/plasma* are kept.
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  # Disabling Plasma removed the Breeze SDDM theme (empty theme = bare fallback).
-  # sddm-astronaut ships as a systemPackage (below); it needs qtmultimedia/qtsvg.
-  services.displayManager.sddm.theme = "sddm-astronaut-theme";
-  services.displayManager.sddm.extraPackages = with pkgs.kdePackages; [ qtmultimedia qtsvg ];
+  # ── Hardware ───────────────────────────────────────────────────
+  hardware = {
+    enableAllFirmware = true;
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = [ pkgs.intel-media-driver ]; # iHD VAAPI for the iGPU
+    };
+
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.production;
+      open = true;
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      nvidiaSettings = true;
+      prime = {
+        offload.enable = true;
+        offload.enableOffloadCmd = true; # provides `nvidia-offload`
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+  };
+
+  # ── Networking / locale ────────────────────────────────────────
+  networking = {
+    hostName = "BloodAndTears";
+    networkmanager.enable = true;
+  };
+
+  time.timeZone = "Europe/Paris";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = lib.genAttrs [
+    "LC_ADDRESS"
+    "LC_IDENTIFICATION"
+    "LC_MEASUREMENT"
+    "LC_MONETARY"
+    "LC_NAME"
+    "LC_NUMERIC"
+    "LC_PAPER"
+    "LC_TELEPHONE"
+    "LC_TIME"
+  ] (_: "fr_FR.UTF-8");
+
+  console.keyMap = "fr";
+
+  # ── Desktop ────────────────────────────────────────────────────
+  # Wayland-only: no X server. Plasma is disabled (never used) to shrink the
+  # closure; the KDE apps actually used are re-added to systemPackages.
+  services.xserver = {
+    enable = false;
+    videoDrivers = [ "nvidia" ]; # read by hardware.nvidia even without X
+    # Also the SDDM greeter's keymap.
+    xkb = {
+      layout = "fr";
+      variant = "azerty";
+    };
+  };
+
   services.desktopManager.plasma6.enable = false;
-  programs.hyprland.enable = true;
 
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    # Breeze left with Plasma; sddm-astronaut (systemPackages) needs qtmultimedia/qtsvg.
+    theme = "sddm-astronaut-theme";
+    extraPackages = with pkgs.kdePackages; [ qtmultimedia qtsvg ];
+  };
+
+  programs.hyprland.enable = true;
   services.seatd.enable = true;
   services.libinput.enable = true;
 
-  services.xserver.xkb = {
-    layout = "fr";
-    variant = "azerty";
-  };
-
-  # Configure console keymap
-  console.keyMap = "fr";
-
-  # KMS/DRM based virtual terminal
+  # KMS/DRM virtual terminal.
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
   services.kmscon = {
     enable = true;
@@ -99,16 +150,12 @@
       xkb-layout = "fr";
       xkb-variant = "azerty";
       login = "${pkgs.shadow}/bin/login -p -f rafael";
-    # matugen palette lives outside git (~/.cache/matugen), so rebuilds need --impure.
+    }
     # Missing file (matugen never run) = kmscon's default palette.
-    } // lib.optionalAttrs (builtins.pathExists /home/rafael/.cache/matugen/kmscon-palette.nix)
-      (import /home/rafael/.cache/matugen/kmscon-palette.nix);
+    // lib.optionalAttrs (builtins.pathExists kmsconPalette) (import kmsconPalette);
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
+  # ── Audio ──────────────────────────────────────────────────────
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -116,160 +163,87 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-
-    wireplumber.extraConfig."10-bluez" = {
-      "monitor.bluez.properties" = {
-        # Disable LDAC — libldac-dec 0.0.2 bug causes fatal init failure (nixpkgs regression)
-        # Falls back to aptX HD / AAC which are fully functional
-        "bluez5.codecs" = [ "sbc" "sbc_xq" "aac" "aptx" "aptx_hd" ];
-      };
-    };
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.rafael = {
-    isNormalUser = true;
-    description = "Rafael Miqueles Gustafsson";
-    extraGroups = [ "networkmanager" "wheel" "docker" "seat" "input" "vboxusers" "wireshark" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
+    # LDAC disabled: libldac-dec 0.0.2 bug causes fatal init failure (nixpkgs
+    # regression). Falls back to aptX HD / AAC.
+    wireplumber.extraConfig."10-bluez"."monitor.bluez.properties"."bluez5.codecs" = [
+      "sbc"
+      "sbc_xq"
+      "aac"
+      "aptx"
+      "aptx_hd"
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
+  # ── Services ───────────────────────────────────────────────────
+  services.printing.enable = true;
+  services.flatpak.enable = true;
+
+  # ── User ───────────────────────────────────────────────────────
+  users.users.rafael = {
+    isNormalUser = true;
+    description = "Rafael Miqueles Gustafsson";
+    shell = pkgs.fish;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "seat"
+      "input"
+      "vboxusers"
+      "wireshark"
+      "libvirtd"
+    ];
+    packages = [ pkgs.kdePackages.kate ];
   };
 
-  hardware.enableAllFirmware = true;
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # System-side fish: sources /etc/set-environment (NH_FLAKE, sessionVariables)
+  # and provides completions for system packages. Config itself stays in HM.
+  programs.fish.enable = true;
+
+  security.sudo.extraRules = [
+    {
+      users = [ "rafael" ];
+      runAs = "root";
+      commands = [
+        {
+          command = "/home/rafael/.nix-profile/bin/vlock -an";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
+  # ── Packages ───────────────────────────────────────────────────
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     # KDE apps kept after disabling Plasma (dolphin is Hyprland's $fileManager).
     kdePackages.dolphin
     kdePackages.ark
     kdePackages.gwenview
-    # SDDM login theme (Plasma's Breeze theme is gone).
-    sddm-astronaut
+    sddm-astronaut # SDDM login theme
+    libva-utils # vainfo, to verify HW decode
   ];
 
-# Flatpak
+  environment.etc = {
+    "jdk/21".source = pkgs.jdk21;
+    "jdk/17".source = pkgs.jdk17;
+    "jdk/8".source = pkgs.jdk8;
+  };
 
-  services.flatpak.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  hardware.graphics = {
+  programs.nix-ld.enable = true;
+  programs.gpu-screen-recorder.enable = true;
+  programs.wireshark = {
     enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-media-driver   # iHD VAAPI driver → Intel iGPU video decode
-      libva-utils          # vainfo, to verify HW decode
-    ];
-  };
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-
-    open = true;
-
-    nvidiaSettings = true;
-
-    prime = {
-      offload.enable = true;
-      offload.enableOffloadCmd = true;
-      sync.enable = false;
-      nvidiaBusId = "PCI:1:0:0";
-      intelBusId = "PCI:0:2:0";
-    };
-
-    nvidiaPersistenced = false;
-
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = pkgs.wireshark; # default is wireshark-cli (no GUI)
   };
 
-  # scx_lavd removed: it kept the P-cores in shallow C1 at idle instead of
-  # letting them reach C6/C7 (measured with turbostat), which raised the idle
-  # power floor and kept the fans on. lavd is latency/gaming-tuned and trades
-  # deep idle for responsiveness — not what this laptop wants at idle. Back to
-  # the in-kernel EEVDF scheduler (the default, and what ran cool pre-2026-09).
-  # services.scx = {
-  #   enable = true;
-  #   scheduler = "scx_lavd";
-  #   extraArgs = [ "--autopower" ];
-  # };
-
-  boot.kernelParams = [
-    "nvidia-drm.modeset=1"
-  ];
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 180;
-    "vm.page-cluster" = 0;
-    "vm.watermark_scale_factor" = 150;
-    "vm.dirty_bytes" = 268435456;
-    "vm.dirty_background_bytes" = 67108864;
-  };
-
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 50;
-    priority = 100;
-  };
-
-  environment.sessionVariables = {
-    # Keep globals minimal; per-session (Hyprland) vendor overrides live in home config.
-  };
-
-  users.users.rafael.shell = pkgs.fish;
-  # System-side fish: sources /etc/set-environment (NH_FLAKE, sessionVariables)
-  # and provides completions for system packages. Config itself stays in HM.
-  programs.fish.enable = true;
-
+  # ── Nix ────────────────────────────────────────────────────────
   nix = {
     settings = {
-      max-jobs = "auto";
-      cores = 0;
+      experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "rafael" ];
       # Extra binary caches (keys fetched from cachix API, 2026-09-17).
       substituters = [
@@ -281,17 +255,16 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
-    # Weekly hard-link dedup of identical store files.
-    optimise.automatic = true;
+    optimise.automatic = true; # weekly hard-link dedup of the store
+    # Builds never compete with the desktop.
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
     daemonIOSchedPriority = 7;
   };
 
   # nh: nixos-rebuild / home-manager / GC wrapper.
-  #   nh os switch | nh home switch | nh clean all
-  # clean.enable runs `nh clean all` weekly and, unlike `sudo nix-collect-garbage -d`,
-  # also prunes every user's ~/.local/state/nix/profiles generations.
+  # clean.enable runs `nh clean all` weekly; unlike `sudo nix-collect-garbage -d`
+  # it also prunes every user's ~/.local/state/nix/profiles generations.
   programs.nh = {
     enable = true;
     flake = "/home/rafael/.dotfiles";
@@ -302,7 +275,7 @@
     };
   };
 
-  # virtualisation
+  # ── Virtualisation ─────────────────────────────────────────────
   virtualisation = {
     virtualbox.host = {
       enable = true;
@@ -312,67 +285,28 @@
     };
     libvirtd = {
       enable = true;
-      qemu = {
-        swtpm.enable = true;
-      };
+      qemu.swtpm.enable = true;
     };
     spiceUSBRedirection.enable = true;
-    docker = {
-      enable = true;
-    };
+    docker.enable = true;
     podman = {
       enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
   };
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["rafael"]; 
 
-  security.sudo.extraRules = [
-    {
-      users = ["rafael"];
-      runAs = "root";
-      commands = [
-        { command = "/home/rafael/.nix-profile/bin/vlock -an"; options = ["NOPASSWD"];}
-      ];
-    }
-  ];
-
-  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-  boot.kernelModules = [ "v4l2loopback" "vboxdrv" "vboxnetflt" "vboxnetadp" ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=2 card_label="EOS600D"
-  '';
-
-  environment.etc."jdk/21".source = pkgs.jdk21;
-  environment.etc."jdk/17".source = pkgs.jdk17;
-  environment.etc."jdk/8".source  = pkgs.jdk8;
-
-  programs.nix-ld.enable = true;
-
-  programs.wireshark = {
-    enable = true;
-    package = pkgs.wireshark;
-  };
-
-  programs.steam = {
-    enable = false;
-    # gamescopeSession (the "Steam (gamescope)" Big Picture session at the SDDM
-    # login screen) disabled; launch games from the desktop instead.
-    gamescopeSession.enable = false;
-  };
-
-  boot.enableContainers = true;
-
-  programs.gpu-screen-recorder.enable = true;
-
+  # ── Power ──────────────────────────────────────────────────────
   # Governor stays intel_pstate "powersave" (HWP); EPP is owned by power-profiles-daemon.
   services.power-profiles-daemon.enable = true;
 
-  # Enable runtime PM on PCIe devices at boot (sets power/control=auto), the
-  # declarative equivalent of `powertop --auto-tune`. Measured: the Realtek NIC
-  # and other devices sat at control=on/D0, holding the package out of deep idle.
-  # This runs the tuning once on boot; it does not keep a daemon resident.
+  # scx_lavd removed: it kept P-cores in shallow C1 at idle instead of C6/C7
+  # (turbostat), raising the idle power floor and keeping the fans on. Back to
+  # the in-kernel EEVDF scheduler (what ran cool pre-2026-09).
+
+  # Runtime PM on PCIe devices at boot (power/control=auto), the declarative
+  # `powertop --auto-tune`. The Realtek NIC and others sat at control=on/D0,
+  # holding the package out of deep idle. One-shot at boot, no resident daemon.
   powerManagement.powertop.enable = true;
 
   # USB keyboards drop the first keystrokes when waking from autosuspend
@@ -386,4 +320,7 @@
     ${lib.getExe' config.systemd.package "udevadm"} trigger -c add -s usb \
       -a bInterfaceClass=03 -a bInterfaceSubClass=01 -a bInterfaceProtocol=01
   '';
+
+  # First-install release; do not change (see configuration.nix(5)).
+  system.stateVersion = "24.05";
 }

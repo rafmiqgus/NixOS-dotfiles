@@ -3,19 +3,19 @@
 # idle" behaviour by handing the EC a real thermal profile instead of letting
 # it free-run its default curve.
 #
-# This is the same driver DAMX uses on the CachyOS side, packaged declaratively
-# for NixOS (no `make install`; NixOS handles blacklist/load/perms/service).
-# Secure Boot must be OFF (it is on this machine) so the unsigned module loads.
+# Same driver DAMX uses on CachyOS, packaged declaratively (no `make install`;
+# NixOS handles blacklist/load/perms/service). Secure Boot must be OFF so the
+# unsigned module loads.
 #
-# Exposed after rebuild + reboot:
-#   /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/fan_speed
-#   /sys/firmware/acpi/platform_profile   (quiet | balanced | performance)
-#
-# fan_speed format: "CPU,GPU" — 0=auto, 1=min (discouraged), 100=max, e.g. "40,40".
+# Exposed knobs (nitroSense = /sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense):
+#   <nitroSense>/fan_speed                "CPU,GPU": 0=auto, 1=min (discouraged), 100=max
+#   /sys/firmware/acpi/platform_profile   low-power | quiet | balanced | balanced-performance
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
+  nitroSense = "/sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense";
+
   linuwu-sense = config.boot.kernelPackages.callPackage (
     { stdenv, fetchFromGitHub, kernel }:
     stdenv.mkDerivation {
@@ -56,31 +56,26 @@ let
   ) { };
 in
 {
-  # Build the module and make it available to the running kernel.
   boot.extraModulePackages = [ linuwu-sense ];
-
-  # linuwu_sense and the in-tree acer_wmi both bind the Acer WMI GUID; the
-  # stock one must lose so our patched module claims the device.
-  boot.blacklistedKernelModules = [ "acer_wmi" ];
   boot.kernelModules = [ "linuwu_sense" ];
+  # linuwu_sense and in-tree acer_wmi both bind the Acer WMI GUID; the stock
+  # one must lose so the patched module claims the device.
+  boot.blacklistedKernelModules = [ "acer_wmi" ];
 
-  # Group that owns the writable sysfs knobs (mirrors upstream Makefile).
+  # Group owning the writable sysfs knobs (mirrors upstream Makefile), so fans
+  # can be adjusted without root.
   users.groups.linuwu_sense = { };
   users.users.rafael.extraGroups = [ "linuwu_sense" ];
 
-  # Make the nitro_sense knobs group-writable so you (in the linuwu_sense group)
-  # can adjust fans without root. Paths per upstream's nitro field list.
-  systemd.tmpfiles.rules =
-    let base = "/sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense";
-    in map (f: "f ${base}/${f} 0660 root linuwu_sense - -") [
-      "fan_speed"
-      "battery_limiter"
-      "battery_calibration"
-      "usb_charging"
-    ];
+  systemd.tmpfiles.rules = map (f: "f ${nitroSense}/${f} 0660 root linuwu_sense - -") [
+    "fan_speed"
+    "battery_limiter"
+    "battery_calibration"
+    "usb_charging"
+  ];
 
-  # Hand the EC a quiet thermal profile at boot — the actual fix for idle spin-up.
-  # If the standard platform_profile isn't wired up, fall back to fan_speed=auto.
+  # Quiet thermal profile at boot (the actual fix for idle spin-up), then put
+  # the fans back in auto (curve-following) mode.
   systemd.services.nitro-quiet-fan = {
     description = "Set Acer Nitro to a quiet fan/thermal profile at boot";
     wantedBy = [ "multi-user.target" ];
@@ -92,15 +87,13 @@ in
     script = ''
       set -eu
       profile=/sys/firmware/acpi/platform_profile
-      fan=/sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense/fan_speed
+      fan=${nitroSense}/fan_speed
 
-      # acer-wmi registers platform_profile asynchronously after the module
-      # loads and has been seen to lose the race with this unit ("Failed to
-      # register platform_profile class device with empty choices" at boot,
-      # then this service no-ops and the EC stays on its "balanced" default).
-      # Wait for the knob rather than skipping it.
+      # acer-wmi registers platform_profile asynchronously after module load and
+      # has lost the race with this unit before ("Failed to register
+      # platform_profile class device with empty choices"). Wait up to 5 s.
       for _ in $(seq 1 50); do
-        if [ -w "$profile" ]; then break; fi
+        [ -w "$profile" ] && break
         sleep 0.1
       done
 
@@ -110,7 +103,6 @@ in
         echo "platform_profile not writable after 5s; EC left at its default" >&2
       fi
 
-      # Ensure the fan controller is in auto (curve-following), not forced.
       if [ -w "$fan" ]; then
         echo "0,0" > "$fan" || true
       fi

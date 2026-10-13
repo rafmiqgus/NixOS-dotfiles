@@ -16,14 +16,18 @@ flake.nix / nixos/ / home/config/hypr/ for orientation; this file summarizes the
 
 Inputs: nixpkgs (nixos-unstable), home-manager (master, follows nixpkgs), spicetify-nix,
 sf-mono-liga-src (non-flake, overlay builds `sf-mono-liga-bin` font), ambxst
-(`github:Axenide/Ambxst`, Hyprland shell; commented local fork path exists), flake-utils (unused).
+(`github:Axenide/Ambxst`, Hyprland shell; commented local fork path exists).
 `devenv` comes from nixpkgs (`pkgs.devenv`, cached on cache.nixos.org), not a flake input.
+flake-utils input removed 2026-10-13 (was unused); flake.lock still lists it until the next lock write.
 
 Outputs:
-- `nixosConfigurations.BloodAndTears` = `nixos/configuration.nix` + ambxst nixosModule
-  + overlays.
-- `homeConfigurations.rafael` = `home/home.nix` + spicetify HM module. `extraSpecialArgs = { inputs; system; }`.
-- `allowUnfree = true` in both.
+- `nixosConfigurations.BloodAndTears` = `nixos/configuration.nix` + ambxst nixosModule + `overlayModule`.
+  No `system` arg: platform comes from `nixpkgs.hostPlatform` in hardware-configuration.nix.
+- `homeConfigurations.rafael` = `home/home.nix` + spicetify HM module + `overlayModule`, base
+  `pkgs = nixpkgs.legacyPackages.x86_64-linux` (HM re-imports nixpkgs with its own config anyway).
+  `extraSpecialArgs = { inherit inputs; }` (no `system`; use `pkgs.stdenv.hostPlatform.system`).
+- `overlayModule` = `{ nixpkgs.overlays = overlays; }` (sf-mono-liga-bin), shared by both.
+- `allowUnfree = true` set in configuration.nix and home.nix (not in the flake).
 
 ## Rebuild commands
 
@@ -31,7 +35,7 @@ Outputs:
 nh os switch        # alias nr   (= sudo nixos-rebuild switch, NH_FLAKE=/home/rafael/.dotfiles)
 nh home switch      # alias hms  (nr + hms run `git add -N .` first: new files visible to flake, nothing staged)
 # ALL rebuilds need --impure (nh: `-- --impure`): Nix reads matugen colors from ~/.cache/matugen (not in git).
-nh clean all --keep 5 --keep-since 7d   # alias gc; also runs weekly via nh-clean.timer
+nh clean all --keep 5 --keep-since 3m   # alias gc; also runs weekly via nh-clean.timer
 sudo nixos/holy-update.sh   # flake update + both nh switches + nh clean (interactive y/n)
 ```
 Plain `nixos-rebuild build --impure --flake .#BloodAndTears` / `home-manager build --impure --flake .#rafael` for test builds.
@@ -70,17 +74,19 @@ dev-shells/
 - kmscon TTY (`config.hwaccel`): JetBrainsMono Nerd Font Bold 14, autologin rafael, palette imported from
   `~/.cache/matugen/kmscon-palette.nix` (matugen-generated, outside git, `--impure`; missing file = kmscon
   default palette via `pathExists`).
-- NVIDIA: open driver, `production` package, modesetting, PRIME offload (sync off),
-  kernelParams `nvidia-drm.modeset=1`. Intel VAAPI via intel-media-driver (iHD).
-- Perf: scx scheduler `scx_lavd --autopower`, zram (zstd, 50%, prio 100), aggressive swappiness
-  sysctls, power-profiles-daemon (governor left at intel_pstate `powersave`/HWP).
-- Virtualisation: virtualbox host (KVM, ext pack), libvirtd+swtpm, virt-manager, docker,
-  podman, spice USB redir, `boot.enableContainers`. kernelModules: v4l2loopback
-  (`/dev/video2` "EOS600D"), vboxdrv/netflt/netadp.
+- NVIDIA: open driver, `production` package, modesetting, PRIME offload, `powerManagement.enable`
+  (finegrained off). `nvidia-drm.modeset=1` comes from the nvidia module itself (no manual kernelParam).
+  Intel VAAPI via intel-media-driver (iHD); `libva-utils` (vainfo) in systemPackages.
+- Perf: in-kernel EEVDF scheduler (scx_lavd removed: kept P-cores in shallow C1), zram (zstd, 50%, prio 100),
+  aggressive swappiness sysctls, power-profiles-daemon (governor intel_pstate `powersave`/HWP),
+  `powerManagement.powertop.enable` (runtime PM auto-tune at boot).
+- Virtualisation: virtualbox host (KVM backend, ext pack), libvirtd+swtpm, virt-manager, docker,
+  podman, spice USB redir, `boot.enableContainers`. kernelModules: v4l2loopback (`/dev/video2` "EOS600D").
+  No manual vbox modules: with `enableKvm = true` vboxdrv/netflt/netadp are not built (were failing every boot).
 - Nix: trusted-users rafael, daemon idle CPU/IO sched, `nix.optimise.automatic` (weekly), extra substituters
   devenv.cachix.org + nix-community.cachix.org, `programs.nh` (flake path, weekly `nh clean all`),
   `systemd-boot.configurationLimit = 10`.
-- Misc: steam + gamescope, wireshark, gpu-screen-recorder, `/etc/jdk/{8,17,21}` symlinks,
+- Misc: no Steam (removed 2026-10-13), wireshark (GUI package), gpu-screen-recorder, `/etc/jdk/{8,17,21}` symlinks,
   sudo NOPASSWD for `~/.nix-profile/bin/vlock -an`.
 - User groups: networkmanager wheel docker seat input vboxusers wireshark libvirtd linuwu_sense.
 - Not done (flagged): `services.seatd` is redundant with logind for Hyprland (harmless). kmscon autologin
@@ -119,7 +125,9 @@ via tmpfiles. Service `nitro-quiet-fan` sets `platform_profile=quiet` and
 - Spicetify: matugen's `~/.cache/matugen/spicetify-color.ini` (outside git, `--impure`, missing = theme default) is parsed in `spicetify/default.nix` into
   `programs.spicetify.customColorScheme` (build-time). Runtime `~/.config/spicetify` is not read; re-run
   `home-manager switch` after matugen to apply Spotify colors.
-- permittedInsecurePackages: quickjs, electron (update as needed).
+- No `permittedInsecurePackages` (removed 2026-10-13; quickjs no longer insecure). If a build fails on
+  `electron-39.8.10` (EOL), some app still pulls `electron_39`: re-add it to `nixpkgs.config` with a comment.
+- `TERMINAL` = kitty (sessionVariables).
 
 ## Hyprland (`home/config/hypr/`)
 
@@ -162,7 +170,8 @@ Tool: `inxi` (installed in home profile). Re-run `inxi -Fxxxz --no-host` to refr
 - **GPU 0**: Intel UHD Graphics RPL-P (8086:a7a8), driver i915, `/dev/dri/card2` = `by-path/pci-0000:00:02.0-card`,
   render `renderD129`. Drives all displays. Mesa iris, VAAPI iHD.
 - **GPU 1**: NVIDIA RTX 4050 Laptop (AD107M, 10de:28a1), `/dev/dri/card1`, render `renderD128`, driver nvidia
-  595 open, PRIME offload, runtime D3 fine-grained (sleeps when unused; any `nvidia-smi` call wakes it).
+  595 open, PRIME offload, runtime D3 via driver default (NixOS `powerManagement.finegrained` is off; sleeps when
+  unused; any `nvidia-smi` call wakes it).
   HDMI-A-2 is wired to the dGPU.
 - **RAM**: 16 GiB. Swap: zram0 7.7 GiB zstd prio 100 + 16.9 GiB partition prio -2.
 - **Storage**: nvme0n1 SK Hynix HFS512GEJ9X110N 512 GB (root ext4 + boot + swap); nvme1n1 Samsung 980 1 TB.
@@ -184,7 +193,7 @@ Tool: `inxi` (installed in home profile). Re-run `inxi -Fxxxz --no-host` to refr
 - ppd's PlatformDriver is `placeholder`: it does NOT drive `/sys/firmware/acpi/platform_profile` (choices lack
   `performance`). Only linuwu-sense's `nitro-quiet-fan` touches it (writes `quiet` at boot). To change live:
   `sudo sh -c 'echo balanced > /sys/firmware/acpi/platform_profile'`.
-- scx: `scx_lavd` 1.1.2 `--autopower` (follows EPP: `powerprofilesctl set power-saver` → core compaction).
+- Scheduler: in-kernel EEVDF. scx_lavd removed (kept P-cores in shallow C1 at idle, raised idle power floor).
 - Removed 2026-09-17: auto-cpufreq input (was never enabled), invalid `cpuFreqGovernor = balanced-performance`
   (cpufreq.service failed every boot), `cpu-hwd-boost` service (hwp_dynamic_boost), bogus `drm.vrrpoli=1`.
 - Hyprland effective look = ambxst's (gaps 2/4, border 2, rounding 16, layout scrolling, blur 4/2), VRR fullscreen-only, direct scanout auto,
@@ -200,6 +209,8 @@ Tool: `inxi` (installed in home profile). Re-run `inxi -Fxxxz --no-host` to refr
 
 ## Conventions
 
+- **Always describe the plan and wait for the user's approval before editing files, building, switching or
+  committing.** Read-only inspection (reading files, `nix eval`, journal) is fine without asking.
 - Commit directly to `master`, no feature branches. No Co-Authored-By / session trailers.
 - Fish is login shell; zsh config also present (`home/config/zsh`).
 - Nix style: 2-space, `{ config, lib, pkgs, ... }:` headers, ASCII-art section banners in hypr files,
