@@ -49,6 +49,7 @@
     psmisc
     herdr
     opencode
+    lsof
 
     # ── dev & build ────────────────────────────────────────────
     cachix
