@@ -29,10 +29,12 @@
     ];
     
     env = [
-      "XCURSOR_SIZE,24"
-      "XCURSOR_THEME,Adwaita"
-      "HYPRCURSOR_SIZE,24"
-      "HYPRCURSOR_THEME,Adwaita"
+      # Cursor vars from home.pointerCursor (home.nix). HM only exports them in
+      # hm-session-vars.sh, which Hyprland (launched by SDDM) never sources.
+      "HYPRCURSOR_THEME,${config.home.pointerCursor.name}"
+      "HYPRCURSOR_SIZE,${toString config.home.pointerCursor.size}"
+      "XCURSOR_THEME,${config.home.pointerCursor.name}"
+      "XCURSOR_SIZE,${toString config.home.pointerCursor.size}"
       # No AQ_DRM_DEVICES pin: it is colon-separated, so by-path names
       # (pci-0000:00:02.0-card) break it and Hyprland aborts with "no gpus".
       # Aquamarine picks the iGPU (owns eDP) on its own; dGPU still sleeps.

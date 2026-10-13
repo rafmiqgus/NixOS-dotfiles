@@ -112,7 +112,9 @@ via tmpfiles. Service `nitro-quiet-fan` sets `platform_profile=quiet` and
   InioX/matugen-themes, KvAdapta/Materia-based flat look) into `~/.config/Kvantum/matugen/`. matugen does NOT
   create missing output dirs: `mkdir -p ~/.config/Kvantum/matugen` on a fresh machine. `qt/ensure-widgetstyle.py`
   (HM activation) keeps kdeglobals `[KDE] widgetStyle=kvantum`. adwaita-qt rejected: hardcoded palette,
-  unmaintained. plasma-integration + breeze from kde/default.nix. Cursor Adwaita 24 + hyprcursor.
+  unmaintained. plasma-integration + breeze from kde/default.nix. Cursor: Bibata-Modern-Classic 24 via `home.pointerCursor`
+  (custom derivation in home.nix merging nixpkgs `bibata-cursors` XCursor + LOSEARDES77 hyprcursor release in one
+  theme dir); cursor env vars injected into Hyprland `env` from `config.home.pointerCursor` in general-hypr.nix.
 - `EDITOR`/`VISUAL` = nvim. `programs.direnv` + nix-direnv (fish hook injected by HM; do not add manual hooks).
 - Terminal HM modules (fish auto-wired): `programs.zoxide` (`--cmd cd`, so `cd` is zoxide; `cdi` interactive),
   `programs.eza` (icons/git; `ls`/`la`/`ll`/`lt` aliases in config.fish keep `--group-directories-first`),

@@ -1,5 +1,22 @@
 { pkgs, ... }:
 
+let
+  # Bibata Modern Classic as ONE theme dir holding both formats:
+  # XCursor (cursors/, index.theme) from nixpkgs for GTK/Qt/Xwayland apps, and
+  # hyprcursor (manifest.hl, hyprcursors/) from LOSEARDES77's release for Hyprland.
+  bibata-modern-classic = pkgs.runCommand "bibata-modern-classic-hyprcursor" {
+    hyprSrc = pkgs.fetchurl {
+      url = "https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/v1.1/hypr_Bibata-Modern-Classic.tar.gz";
+      hash = "sha256-62TM34Dva021paPpBLLrfAOXXCZZM0d7IFKzGetwT24=";
+    };
+  } ''
+    dir=$out/share/icons/Bibata-Modern-Classic
+    mkdir -p $dir
+    cp -r ${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic/. $dir/
+    chmod -R u+w $dir
+    tar xzf $hyprSrc -C $dir
+  '';
+in
 {
   imports = [
     ./config
@@ -25,11 +42,11 @@
 
     pointerCursor = {
       enable = true;
-      name = "Adwaita";
-      size = 24;
-      package = pkgs.adwaita-icon-theme;
+      name = "Bibata-Modern-Classic";
+      size = 20;
+      package = bibata-modern-classic;
+      gtk.enable = true;
       hyprcursor.enable = true;
-      hyprcursor.size = 24;
     };
   };
 
