@@ -117,6 +117,7 @@
     lunatask
     teams-for-linux
     ungoogled-chromium
+    spotifast
 
     # ── games ──────────────────────────────────────────────────
     mangohud

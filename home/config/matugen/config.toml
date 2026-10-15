@@ -80,6 +80,11 @@ post_hook = "cat ~/.config/herdr/base.toml /home/rafael/.cache/matugen/herdr-the
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/spotify-colors.ini'
 output_path = '/home/rafael/.cache/matugen/spicetify-color.ini'
 
+# Spotifast custom theme: pick "Matugen" in Settings > Theme.
+[templates.spotifast]
+input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/spotifast-colors.json'
+output_path = '/home/rafael/.config/spotifast/themes/Matugen.json'
+
 [templates.starship]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/starship-colors.toml'
 output_path = '/home/rafael/.cache/matugen/starship-palette.toml'
