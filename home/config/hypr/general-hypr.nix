@@ -1,89 +1,86 @@
 { config, lib, pkgs, ... }:
 
+let
+  cursor = config.home.pointerCursor;
+in
 {
   #  ______     ______     __   __     ______     ______     ______     __        
   # /\  ___\   /\  ___\   /\ "-.\ \   /\  ___\   /\  == \   /\  __ \   /\ \       
   # \ \ \__ \  \ \  __\   \ \ \-.  \  \ \  __\   \ \  __<   \ \  __ \  \ \ \____  
   #  \ \_____\  \ \_____\  \ \_\\"\_\  \ \_____\  \ \_\ \_\  \ \_\ \_\  \ \_____\ 
   #   \/_____/   \/_____/   \/_/ \/_/   \/_____/   \/_/ /_/   \/_/\/_/   \/_____/ 
-                                                                              
+
+  # configType = "lua" (default.nix): each attribute renders as hl.<name>(...),
+  # lists give one call per element, `_args` gives a multi-argument call.
+  # hyprmoncfg's monitors.lua and ambxst's hyprland.lua are loaded LAST
+  # (default.nix extraConfig), so ambxst's general/decoration/animations win.
+  # hyprpolkitagent: started by its systemd user unit (graphical-session.target).
+
   wayland.windowManager.hyprland.settings = {
 
-    # Sourced FIRST (sourceFirst = true) so matugen $vars exist before use.
-    # ambxst's conf is sourced LAST via extraConfig in default.nix so its
-    # general/decoration/animations win over the blocks defined here.
-    source = [
-      "/home/rafael/.cache/matugen/hyprland-colors.conf"
-      "/home/rafael/.config/hypr/monitors.conf"
-    ];
-
-    "$terminal" = "kitty";
-    "$fileManager" = "dolphin";
-    "$menu" = "rofi -show drun";
-
-    exec-once = [
-      # "swww-daemon && swww restore --transition-type center"
-      # "waybar"
-      "systemctl --user start hyprpolkitagent"
-      # hyprmoncfgd runs via the systemd user service (hyprmoncfgd.service)
-    ];
-    
-    env = [
+    env = map (kv: { _args = kv; }) [
       # Cursor vars from home.pointerCursor (home.nix). HM only exports them in
       # hm-session-vars.sh, which Hyprland (launched by SDDM) never sources.
-      "HYPRCURSOR_THEME,${config.home.pointerCursor.name}"
-      "HYPRCURSOR_SIZE,${toString config.home.pointerCursor.size}"
-      "XCURSOR_THEME,${config.home.pointerCursor.name}"
-      "XCURSOR_SIZE,${toString config.home.pointerCursor.size}"
+      [ "HYPRCURSOR_THEME" cursor.name ]
+      [ "HYPRCURSOR_SIZE" (toString cursor.size) ]
+      [ "XCURSOR_THEME" cursor.name ]
+      [ "XCURSOR_SIZE" (toString cursor.size) ]
       # No AQ_DRM_DEVICES pin: it is colon-separated, so by-path names
       # (pci-0000:00:02.0-card) break it and Hyprland aborts with "no gpus".
       # Aquamarine picks the iGPU (owns eDP) on its own; dGPU still sleeps.
       # Launch games with `nvidia-offload <cmd>`.
-      "LIBVA_DRIVER_NAME,iHD"
-      # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      # "GBM_BACKEND=nvidia-drm"   # was forcing the whole session onto the dGPU (kept it hot)
-      "XKB_DEFAULT_LAYOUT,fr"
+      [ "LIBVA_DRIVER_NAME" "iHD" ]
+      # [ "GBM_BACKEND" "nvidia-drm" ]   # was forcing the whole session onto the dGPU (kept it hot)
+      [ "XKB_DEFAULT_LAYOUT" "fr" ]
     ];
 
-    # Monitor layout owned by hyprmoncfg (~/.config/hypr/monitors.conf).
-    monitor = [
-      #"eDP-1, 1920x1080@144, 0x0, 1, vrr, 1"
-      #"DP-1, 2560x1440@144, 1920x0, 1, vrr, 1" # Maison
-      #"HDMI-A-2, 1920x1080@60, 1920x0, 1" # BenQ PJ
-      #"DP-1, 1920x1080@75, 1920x0, 1, vrr, 1" #Epitech
-      #"DP-4, 3440x1440@120, 0x-1440, 1"
-      #"DP-6, 1920x1080@60, -1920x-1080, 1"
-      ", preferred, auto, 1"
-    ];
-    
-    
-    misc = {
-      force_default_wallpaper = -1;
-      disable_hyprland_logo = false;
+    # Fallback only: real layout owned by hyprmoncfg (~/.config/hypr/monitors.lua).
+    monitor = {
+      output = "";
+      mode = "preferred";
+      position = "auto";
+      scale = 1;
     };
 
-    input = {
-      kb_layout = "fr";
-      kb_variant = "";
-      kb_model = "";
-      kb_options = "";
-      kb_rules = "";
-      
-      follow_mouse = 1;
+    config = {
+      misc = {
+        force_default_wallpaper = -1;
+        disable_hyprland_logo = false;
+        # VRR only in fullscreen (games) to avoid desktop flicker.
+        vrr = 2; # 1 = always, 2 = fullscreen only
+      };
 
-      touchpad = {
-        tap-to-click = true;
-        natural_scroll = true;
+      # Direct scanout auto: skips compositing for fullscreen windows.
+      render.direct_scanout = 2;
+
+      # cursor.no_hardware_cursors left at default (2 = auto): hardware cursors
+      # work on the Intel iGPU; software cursors cost a redraw per move.
+
+      input = {
+        kb_layout = "fr";
+        kb_variant = "";
+        kb_model = "";
+        kb_options = "";
+        kb_rules = "";
+
+        follow_mouse = 1;
+
+        touchpad = {
+          tap_to_click = true;
+          natural_scroll = true;
+        };
       };
     };
 
-    gesture = [
-      "3, horizontal, workspace"
-    ];
+    gesture = {
+      fingers = 3;
+      direction = "horizontal";
+      action = "workspace";
+    };
 
     device = [
       {
-        name = "logitech-g305-1"; 
+        name = "logitech-g305-1";
         sensitivity = -1;
       }
       {
@@ -91,13 +88,5 @@
         sensitivity = -0.15;
       }
     ];
-
-    # cursor:no_hardware_cursors left at default (2 = auto): hardware cursors
-    # work on the Intel iGPU; software cursors cost a redraw per move.
-
-    # VRR only in fullscreen (games) to avoid desktop flicker; direct scanout
-    # auto skips compositing for fullscreen windows.
-    misc.vrr = 2; # 1 = always, 2 = fullscreen only
-    render.direct_scanout = 2;
   };
 }

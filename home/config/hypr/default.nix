@@ -23,22 +23,31 @@
 
   imports = [
     ./general-hypr.nix
-    ./binds-hypr.nix
     ./windows-hypr.nix
     ./looks-hypr.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # colors.conf / monitors.conf are sourced first so $primary/$inverse_primary
-    # exist before general{} uses them.
-    sourceFirst = true;
-    # Keep hyprland.conf; HM's new default for stateVersion >= 26.05 is "lua".
-    configType = "hyprlang";
-    # ambxst owns look & feel: HM appends extraConfig after all settings, so
-    # sourcing it here makes its general/decoration/animations take priority.
+    # Writes ~/.config/hypr/hyprland.lua (Hyprland Lua API, hl.*).
+    # Generated order: locals, require(extraLuaFiles), settings, extraConfig.
+    configType = "lua";
+
+    # Native Lua files, require()d before settings.
+    extraLuaFiles.binds = ./binds.lua;
+
+    # Loaded last so later hl.config() calls win: hyprmoncfg's monitor layout,
+    # then ambxst (owns look & feel: general/decoration/animations/borders).
+    # Missing files are skipped (monitors.lua is only written by hyprmoncfg once
+    # it sees hyprland.lua; ambxst's file appears after its first start).
     extraConfig = ''
-      source = ~/.local/share/ambxst/hyprland.conf
+      local function load_if_exists(path)
+        local chunk = loadfile(path)
+        if chunk then chunk() end
+      end
+
+      load_if_exists("/home/rafael/.config/hypr/monitors.lua")
+      load_if_exists("/home/rafael/.local/share/ambxst/hyprland.lua")
     '';
   };
 }

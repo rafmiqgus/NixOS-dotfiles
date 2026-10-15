@@ -9,28 +9,39 @@
 
   wayland.windowManager.hyprland.settings = {
 
-    workspace = [
-      "1"
-      "2"
-      "3"
-      "4"
+    workspace_rule = map (ws: { workspace = ws; }) [ "1" "2" "3" "4" ];
+
+    window_rule = [
+      {
+        name = "clipse";
+        match.class = "^(clipse)$";
+        float = true;
+        size = "622 652";
+      }
+      {
+        name = "waypaper";
+        match.class = "^(waypaper)$";
+        float = true;
+      }
+      {
+        name = "kitty-nmtui";
+        match = { class = "^(kitty)$"; title = "^(KittyNmtui)$"; };
+        float = true;
+        size = "800 700";
+      }
+      {
+        name = "pavucontrol";
+        match.class = "^(pavucontrol)$";
+        float = true;
+      }
     ];
 
-    windowrule = [
-      "match:class ^(clipse)$, float true"
-      "match:class ^(clipse)$, size 622 652"
-
-      "match:class ^(waypaper)$, float true"
-
-      "match:class ^(kitty)$, match:title ^(KittyNmtui)$, size 800 700"
-      "match:class ^(kitty)$, match:title ^(KittyNmtui)$, float true"
-
-      "match:class ^(pavucontrol)$, float true"
-
-    ];
-
-    layerrule = [
-      "match:namespace ^(logout_dialog)$, blur true"
+    layer_rule = [
+      {
+        name = "logout-dialog-blur";
+        match.namespace = "^(logout_dialog)$";
+        blur = true;
+      }
     ];
   };
 }

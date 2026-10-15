@@ -3,10 +3,6 @@ command = "swww"
 arguments = ["img", "--transition-type", "center"]
 set = false
 
-[templates.hyprland]
-input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/hyprland-colors.conf'
-output_path = '/home/rafael/.cache/matugen/hyprland-colors.conf'
-
 [templates.hyprlock]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/hyprlock-colors.conf'
 output_path = '/home/rafael/.cache/matugen/hyprlock-colors.conf'

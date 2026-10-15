@@ -7,8 +7,9 @@
   #  \ \_____\  \ \_____\  \ \_____\  \ \_\ \_\  \/\_____\ 
   #   \/_____/   \/_____/   \/_____/   \/_/\/_/   \/_____/ 
 
-  # Note: ambxst's hyprland.conf is sourced last (see default.nix extraConfig)
-  # and overrides the general/decoration/animations blocks defined here.
+  # Note: ambxst's hyprland.lua is loaded last (see default.nix extraConfig)
+  # and overrides the general/decoration/animations set here, including the
+  # border colours (so no matugen colours are loaded in Hyprland any more).
   # animations/caelestia.nix is NOT imported: ambxst only sets parent animations
   # (windows/fade/border/workspaces, 2.5), so caelestia's leaves (windowsMove 6,
   # fadeDim 6, ...) survived and made focus/scroll moves take 600 ms.
@@ -16,7 +17,7 @@
     ./blurs/caelestia.nix
   ];
 
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings.config = {
 
     master = {
       new_status = "master";
@@ -29,18 +30,14 @@
 
     general = {
       gaps_in = 8;
-      gaps_out = "8,18,18,18";
+      gaps_out = { top = 8; right = 18; bottom = 18; left = 18; };
 
       border_size = 4;
-
-      "col.active_border" = "$primary 0xff595959 $inverse_primary 45deg";
-      "col.inactive_border" = "0xff595959";
 
       resize_on_border = true;
 
       layout = "dwindle";
     };
-    
 
     decoration = {
       shadow = {

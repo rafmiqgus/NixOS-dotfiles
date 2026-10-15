@@ -1,7 +1,7 @@
 { config, lib, pkgs, ...}:
 
 {
-  wayland.windowManager.hyprland.settings.decoration.blur = {
+  wayland.windowManager.hyprland.settings.config.decoration.blur = {
     enabled           = true;
     xray              = false;
     special           = false;
