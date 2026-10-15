@@ -9,8 +9,10 @@
 
   # Note: ambxst's hyprland.conf is sourced last (see default.nix extraConfig)
   # and overrides the general/decoration/animations blocks defined here.
+  # animations/caelestia.nix is NOT imported: ambxst only sets parent animations
+  # (windows/fade/border/workspaces, 2.5), so caelestia's leaves (windowsMove 6,
+  # fadeDim 6, ...) survived and made focus/scroll moves take 600 ms.
   imports = [
-    ./animations/caelestia.nix
     ./blurs/caelestia.nix
   ];
 
