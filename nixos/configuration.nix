@@ -234,6 +234,14 @@ in
   };
 
   programs.nix-ld.enable = true;
+
+  # Shell mods (ambxst/Roadie) hardcode /bin/bash and /usr/bin/bash in QML Process
+  # commands (power menu, farewell, AI sidebar); NixOS only ships /bin/sh.
+  systemd.tmpfiles.rules = [
+    "L+ /bin/bash - - - - ${pkgs.bash}/bin/bash"
+    "L+ /usr/bin/bash - - - - ${pkgs.bash}/bin/bash"
+  ];
+
   programs.gpu-screen-recorder.enable = true;
   programs.wireshark = {
     enable = true;

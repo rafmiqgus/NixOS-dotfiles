@@ -85,6 +85,7 @@
     mpv
     obs-studio
     poppler-utils
+    pulseaudio # pactl only (talks to pipewire-pulse); Roadie audio routing needs it
     tectonic
     v4l-utils
     kdePackages.okular
