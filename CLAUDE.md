@@ -88,6 +88,9 @@ dev-shells/
   `systemd-boot.configurationLimit = 10`.
 - Misc: no Steam (removed 2026-10-13), wireshark (GUI package), gpu-screen-recorder, `/etc/jdk/{8,17,21}` symlinks,
   sudo NOPASSWD for `~/.nix-profile/bin/vlock -an`.
+- tmpfiles `L+ /bin/bash` and `/usr/bin/bash` -> `${pkgs.bash}` (added 2026-10-13): ambxst/Roadie QML hardcodes
+  them for the power menu (lock/reboot/poweroff), Roadie's farewell and the AI sidebar; without them every
+  power-menu action silently failed ("Process failed to start") and the farewell backed out after 20 s.
 - User groups: networkmanager wheel docker seat input vboxusers wireshark libvirtd linuwu_sense.
 - Not done (flagged): `services.seatd` is redundant with logind for Hyprland (harmless). kmscon autologin
   (`login -f rafael`) gives a passwordless shell on any VT — intentional per user.
@@ -130,24 +133,66 @@ via tmpfiles. Service `nitro-quiet-fan` sets `platform_profile=quiet` and
 - No `permittedInsecurePackages` (removed 2026-10-13; quickjs no longer insecure). If a build fails on
   `electron-39.8.10` (EOL), some app still pulls `electron_39`: re-add it to `nixpkgs.config` with a comment.
 - `TERMINAL` = kitty (sessionVariables).
+- packages.nix multimedia: `pulseaudio` for `pactl` only (talks to pipewire-pulse, no daemon); Roadie's audio
+  routing tab needs it.
 
 ## Hyprland (`home/config/hypr/`)
 
-Module split, all under `wayland.windowManager.hyprland.settings`. `sourceFirst = true` (colors.conf/monitors.conf
-first so matugen `$vars` exist), **ambxst's conf is sourced LAST via `extraConfig`** so its general/decoration/
-animations override anything in looks-hypr.nix (by design). `configType = "hyprlang"` (HM default is now lua):
+**Lua config since 2026-10-15** (`configType = "lua"`, Hyprland 0.56 Lua API `hl.*`; commit fc48d0a). HM writes
+`~/.config/hypr/hyprland.lua` + `binds.lua` + `.luarc.json` (LSP stubs from `${hyprland}/share/hypr/stubs/hl.meta.lua`).
+No hyprlang left: no `source`, no `$vars`, no `sourceFirst`. Lua can only load Lua (`dofile`/`loadfile`/`require`),
+never a hyprlang `.conf`.
+
+How HM renders `settings` in Lua mode: each attribute = `hl.<name>(...)`, list = one call per element, `_args` =
+multi-argument call (`env`), `_var` = `local`, `lib.generators.mkLuaInline` = raw Lua (avoided on purpose: anything
+needing Lua expressions goes in a native `.lua` file). Sections like general/decoration/input/misc/render go under
+`settings.config` (→ `hl.config({...})`). Key names follow the Lua API (`tap_to_click`, `gaps_out = {top,right,...}`,
+gradients `{ colors = {...}, angle = 45 }`). Generated order: `require`s (extraLuaFiles) → settings (alphabetical)
+→ HM startup/shutdown hooks → `extraConfig`. Later `hl.config` calls override earlier ones.
+
+**`extraConfig` loads, last and in order:** `~/.config/hypr/monitors.lua` (hyprmoncfg) then
+`~/.local/share/ambxst/hyprland.lua` (ambxst), through a `load_if_exists` helper (`loadfile`, silently skips a
+missing OR syntactically broken file: if ambxst's look vanishes, check its file first). Ambxst therefore overrides only
+the keys it sets itself: general/decoration values (incl. border colours) and the PARENT animations
+`windows`/`fade`/`border`/`workspaces` (2.5, `myBezier`). Any leaf animation set from Nix (`windowsMove`, `fadeDim`...)
+still wins over its parent; check `hyprctl animations` (`overridden: 1` = set explicitly).
 
 | file | content |
 |---|---|
-| `default.nix` | packages (waybar, awww, hyprpaper, waypaper, wl-clipboard, clipse, hyprpolkitagent, swaync, hyprlock, hyprpicker, wlr-randr, wl-mirror, brightnessctl, pavucontrol, playerctl), imports |
-| `general-hypr.nix` | `source` = `hypr/colors.conf`, `~/.config/hypr/monitors.conf` (ambxst conf lives in default.nix extraConfig); `$terminal=kitty`, `$fileManager=dolphin`, `$menu=rofi -show drun`; env (cursor, `LIBVA_DRIVER_NAME=iHD`, `XKB_DEFAULT_LAYOUT=fr`); exec-once hyprpolkitagent; monitor = `, preferred, auto, 1` (real layout owned by **hyprmoncfg** → `~/.config/hypr/monitors.conf`, daemon `hyprmoncfgd.service`); input fr, touchpad tap+natural scroll; 3-finger horizontal gesture = workspace; device sensitivities (logitech-g305, elan touchpad); `misc.vrr = 2` (fullscreen only), `render.direct_scanout = 2` (auto); hardware cursors at default (auto) |
-| `binds-hypr.nix` | `$mainMod=SUPER`. RETURN terminal, C kill, M wlogout script, E filemanager, HJKL focus. Workspaces 1-10 on AZERTY top row keysyms (`ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla agrave`), SHIFT variants move. SHIFT+S → special:magic. mouse_down/up scroll workspaces. bindm drag move/resize. bindel volume (wpctl) / brightness (brightnessctl). bindl playerctl |
-| `windows-hypr.nix` | workspaces 1-4 declared; windowrules (new `match:class` syntax): clipse float 622x652, waypaper float, kitty KittyNmtui float 800x700, pavucontrol float, kitty nvim title opacity 0.90/0.82; layerrule blur logout_dialog |
-| `looks-hypr.nix` | imports `animations/caelestia.nix` + `blurs/caelestia.nix` (overridden by ambxst at runtime); dwindle layout, gaps 8 / `8,18,18,18`, border 4, active border `$primary 0xff595959 $inverse_primary 45deg`, shadow, dim_inactive 0.1, rounding 20 |
-| (colors) | `~/.cache/matugen/hyprland-colors.conf`, generated by matugen, sourced first. Defines `$image` + `$background/$primary/...` vars |
+| `default.nix` | packages (waybar, awww, hyprpaper, waypaper, wl-clipboard, clipse, hyprpolkitagent, swaync, hyprlock, hyprpicker, wlr-randr, wl-mirror, brightnessctl, pavucontrol, playerctl), imports, `configType = "lua"`, `extraLuaFiles.binds = ./binds.lua`, `extraConfig` (monitors + ambxst loads) |
+| `general-hypr.nix` | `env` via `_args` (cursor from `home.pointerCursor`, `LIBVA_DRIVER_NAME=iHD`, `XKB_DEFAULT_LAYOUT=fr`); fallback `monitor` (`output = ""`, preferred/auto/1; real layout owned by **hyprmoncfg** → `~/.config/hypr/monitors.lua`, daemon `hyprmoncfgd.service`); `config.misc` (`vrr = 2` fullscreen only), `config.render.direct_scanout = 2`, `config.input` fr + touchpad `tap_to_click`/natural scroll; `gesture` 3-finger horizontal = workspace; `device` sensitivities (logitech-g305, elan touchpad). No exec-once: hyprpolkitagent is a systemd user unit (graphical-session.target) |
+| `binds.lua` | native Lua, `require("binds")`. `local mainMod = "SUPER"`. RETURN kitty, C close, M wlogout script, E `kitty -- yazi`, HJKL focus. Workspaces 1-10 on AZERTY top row keysyms (`ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla agrave`, loop), SHIFT moves window. SHIFT+S → special:magic. mouse_down/up scroll workspaces. mouse:272/273 drag/resize (`{ mouse = true }`). Volume (wpctl) / brightness (brightnessctl) `{ locked, repeating }`, playerctl `{ locked }` |
+| `windows-hypr.nix` | `workspace_rule` 1-4; `window_rule` (`match = { class, title }`): clipse float + `size "622 652"`, waypaper float, kitty KittyNmtui float 800x700, pavucontrol float; `layer_rule` blur logout_dialog |
+| `looks-hypr.nix` | `settings.config.*`; imports `blurs/caelestia.nix` only (`config.decoration.blur`). `animations/caelestia.nix` / `custom.nix` NOT imported and still hyprlang-shaped (its leaf `windowsMove 1,6` / `fadeDim 6` survived ambxst's parent `windows 2.5` and made focus/scroll moves 600 ms); dwindle layout, gaps 8 / `{8,18,18,18}`, border 4, shadow, dim_inactive 0.1, rounding 20. No border colours (ambxst sets them) |
 
 Notes: ambxst (Axenide) provides the bar/shell; waybar is installed but not autostarted
 (commented). Wallpaper via awww/hyprpaper/waypaper (swww line commented).
+VRR: `misc.vrr = 2` (fullscreen only). hyprmoncfg writes `monitors.lua` (Lua) because it detects `hyprland.lua`;
+the old hyprlang `~/.config/hypr/monitors.conf` is no longer read (check eDP `vrr` in the Lua file: hyprmoncfg may
+write `1` when a profile is saved). Its profile lists the iiyama ultrawide (DP-4, 3440x1440@60) but not the Samsung
+LC27G5 (DP-1, 2560x1440@144, falls back to the Nix `preferred, auto` monitor).
+
+**Gotcha (hit 2026-10-15):** Hyprland picks the config format (`hyprland.lua` vs `hyprland.conf`) once at startup.
+Switching hyprlang → Lua from inside a running session makes the reload find no `hyprland.conf`, so Hyprland writes
+a stub (`autogenerated = 1`, "This config is a STUB!", QWERTY defaults) and keeps recreating it. Fix: from a TTY
+`hyprctl -i 0 dispatch exit` (not `pkill`: `start-hyprland` watchdog), `rm ~/.config/hypr/hyprland.conf`, log in
+again. Log line to confirm: `[cfg] ... hyprland.lua` in `$XDG_RUNTIME_DIR/hypr/<newest>/hyprland.log`.
+
+## Ambxst / Roadie (runtime state, outside git)
+
+- Ambxst 1.3.11 (flake input). Mods via `ambxst mods ...`: state in `~/.config/ambxst/mods.json`, sources in
+  `~/.local/share/ambxst/mods/packages/`, built tree in `~/.local/share/ambxst/mods/generations/<id>/` (the QML
+  that actually runs). Installed: `drpezzer.roadie` 3.0.2 (github drpezzer/ambxst-mods, `packages/roadie`).
+- Shell config: `~/.config/ambxst/config/*.json` (theme, compositor, performance...), Roadie in `~/.config/ambxst/roadie.json`.
+  Ambxst generates `~/.local/share/ambxst/hyprland.lua` (+ `.conf`, `niri.kdl`, `mango.conf`) from `compositor.json`:
+  blur/shadow/gaps/borders must be changed in Ambxst Settings, not Nix (its `.lua` is loaded last).
+- Logs: `qs log $XDG_RUNTIME_DIR/quickshell/by-id/<id>/log.qslog` (newest dir = running shell). IPC:
+  `qs ipc --pid $(cat $XDG_RUNTIME_DIR/ambxst-qs.pid) call roadie <state|farewellPreview reboot|bootPreview|...>`.
+- Lockscreen: only option is `lockscreen.position`; animation hardcoded (blur+zoom, `animDuration*2`). Roadie does
+  not change it, it only locks after boot (`Lock after boot: Auto` skips it after an SDDM login).
+- True Matugen Icons = Settings > Theme > Tint Icons (`theme.json trueMatugenIcons`), off by default.
+- Roadie's "Bar follows the focused screen" slide (1.6 x `animDuration`, windows resize in step) is what felt
+  sluggish; "Immediate" bar slide is snappy. See perf notes below.
 
 ## Theming pipeline (matugen)
 
@@ -169,8 +214,9 @@ Tool: `inxi` (installed in home profile). Re-run `inxi -Fxxxz --no-host` to refr
 - **Machine**: Acer Nitro ANV15-51 v1.14, mobo RPL "Sportage_RTH", UEFI Insyde 1.14 (2024-06-21).
 - **CPU**: Intel i5-13420H (Raptor Lake, 8c/12t = 4P+4E), 400–4600 MHz P / 3400 E.
   L2 7 MiB, L3 12 MiB. intel_pstate active mode, HWP. RAPL PL1 55 W / PL2 115 W (EC/balanced profile).
-- **GPU 0**: Intel UHD Graphics RPL-P (8086:a7a8), driver i915, `/dev/dri/card2` = `by-path/pci-0000:00:02.0-card`,
-  render `renderD129`. Drives all displays. Mesa iris, VAAPI iHD.
+- **GPU 0**: Intel UHD Graphics RPL-P (8086:a7a8), driver i915, `by-path/pci-0000:00:02.0-card`. DRM card number is
+  NOT stable across boots (card1 on 2026-10-13, card2 on 2026-10-14): resolve via PCI address 0000:00:02.0.
+  Drives all iGPU outputs (eDP, DP-*). Mesa iris, VAAPI iHD.
 - **GPU 1**: NVIDIA RTX 4050 Laptop (AD107M, 10de:28a1), `/dev/dri/card1`, render `renderD128`, driver nvidia
   595 open, PRIME offload, runtime D3 via driver default (NixOS `powerManagement.finegrained` is off; sleeps when
   unused; any `nvidia-smi` call wakes it).
@@ -199,7 +245,14 @@ Tool: `inxi` (installed in home profile). Re-run `inxi -Fxxxz --no-host` to refr
 - Removed 2026-09-17: auto-cpufreq input (was never enabled), invalid `cpuFreqGovernor = balanced-performance`
   (cpufreq.service failed every boot), `cpu-hwd-boost` service (hwp_dynamic_boost), bogus `drm.vrrpoli=1`.
 - Hyprland effective look = ambxst's (gaps 2/4, border 2, rounding 16, layout scrolling, blur 4/2), VRR fullscreen-only, direct scanout auto,
-  logging off (debug block removed), `suppress_errors` off: check `hyprctl configerrors` after config changes. iGPU pinned at 1400 MHz max clock while compositing 3 monitors.
+  logging off (debug block removed), `suppress_errors` off: check `hyprctl configerrors` after config changes.
+- iGPU load (measured 2026-10-13/14): read without root from `/sys/class/drm/cardN/gt/gt0/rc6_residency_ms` (idle %)
+  and `gt_act_freq_mhz` (max 1400). `intel_gpu_top` needs sudo: `nix shell nixpkgs#intel-gpu-tools`.
+  On the Samsung (1440p@144) + eDP@144 the iGPU sat at 0% RC6 / 1400 MHz on an idle desktop, ~83% Render busy
+  from Hyprland itself, 99.5% with music playing. Blur off: 37% RC6 / 620 MHz. `ambxst quit`: 30% / 540 MHz.
+  blur passes 1, xray, dim_inactive off: no effect. Roadie off: no effect (stock Ambxst same). The shell itself
+  renders only ~4 fps idle (`QSG_RENDER_TIMING=1`): cost is Hyprland re-blurring Ambxst's full-screen `ambxst`
+  layers (one per monitor, `layerrule = blur on ... ^ambxst(:.*)?$` in ambxst's conf) on each damage.
 - Session: SDDM → plain `hyprland.desktop`; HM `wayland.windowManager.hyprland.systemd.enable` (default true) provides
   `hyprland-session.target` → `graphical-session.target`, so hyprpolkitagent/hyprmoncfgd run as user services. UWSM not
   used (decided 2026-09-17: no gain over HM's target; ambxst's own `exec-once = ambxst` would be unmanaged).
