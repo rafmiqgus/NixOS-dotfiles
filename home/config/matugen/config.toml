@@ -91,6 +91,11 @@ post_hook = "sed -i '/^palette = /d; /^\\[palettes\\./,$d' /home/rafael/.config/
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/kmscon-colors.nix'
 output_path = '/home/rafael/.cache/matugen/kmscon-palette.nix'
 
+# Read at build time (needs --impure) by flake.nix (SDDM Samaritan + GRUB Sidonia accent).
+[templates.boot]
+input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/boot-colors.nix'
+output_path = '/home/rafael/.cache/matugen/boot-colors.nix'
+
 [templates.zellij]
 input_path = '/home/rafael/.dotfiles/home/config/matugen/templates/zellij-colors.kdl'
 output_path = '/home/rafael/.config/zellij/themes/matugen.kdl'
