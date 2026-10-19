@@ -97,8 +97,26 @@
         "ambxst": "ambxst",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "samaritan-sddm-src": "samaritan-sddm-src",
         "sf-mono-liga-src": "sf-mono-liga-src",
+        "sidonia-src": "sidonia-src",
         "spicetify-nix": "spicetify-nix"
+      }
+    },
+    "samaritan-sddm-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786535733,
+        "narHash": "sha256-yyoF0UzLR8gAizXQmtNZZfMshbduTg86PrSyoo/n0WI=",
+        "owner": "omerwk",
+        "repo": "samaritan-sddm-theme",
+        "rev": "c1f1279cb7b90f9395171ca987ede71edebaea8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "omerwk",
+        "repo": "samaritan-sddm-theme",
+        "type": "github"
       }
     },
     "sf-mono-liga-src": {
@@ -114,6 +132,22 @@
       "original": {
         "owner": "shaunsingh",
         "repo": "SFMono-Nerd-Font-Ligaturized",
+        "type": "github"
+      }
+    },
+    "sidonia-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791947916,
+        "narHash": "sha256-kVVEI6b8DYevZbzPAZNmpjsZEA8RQ6uDuEI9HHCy4BE=",
+        "owner": "Aleph1-9012",
+        "repo": "Sidonia",
+        "rev": "d1bf3538d0b539c2f6c464780ab355fbf09be961",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aleph1-9012",
+        "repo": "Sidonia",
         "type": "github"
       }
     },
