@@ -46,8 +46,32 @@
         if chunk then chunk() end
       end
 
-      load_if_exists("/home/rafael/.config/hypr/monitors.lua")
+      -- Literal dofile() on purpose: hyprmoncfg checks the include by reading
+      -- the text and only recognises require("...") / dofile("...").
+      -- dofile (not require) so a rewritten file is re-read on every reload.
+      local monitors = io.open("/home/rafael/.config/hypr/monitors.lua", "r")
+      if monitors then
+        monitors:close()
+        dofile("/home/rafael/.config/hypr/monitors.lua")
+      end
+
       load_if_exists("/home/rafael/.local/share/ambxst/hyprland.lua")
     '';
+  };
+
+  systemd.user.services.hyprmoncfgd = {
+    Unit = {
+      Description = "Hyprland monitor profile daemon (hyprmoncfgd)";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.hyprmoncfg}/bin/hyprmoncfgd"
+        + " --hypr-config /home/rafael/.config/hypr/hyprland.lua"
+        + " --monitors-conf /home/rafael/.config/hypr/monitors.lua";
+      Restart = "on-failure";
+      RestartSec = 2;
+    };
+    Install.WantedBy = [ "hyprland-session.target" ];
   };
 }
