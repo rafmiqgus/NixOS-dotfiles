@@ -32,6 +32,11 @@
       url = "github:Axenide/Ambxst";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ocp = {
+      url = "github:dtzp555-max/ocp";
+      flake = false;
+    };
   };
 
   outputs =

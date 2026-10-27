@@ -24,6 +24,11 @@
       "type": "local",
       "command": ["mcp-nixos"],
       "enabled": true
+    },
+    "context-mode": {
+      "type": "local",
+      "command": ["npx", "-y", "context-mode"],
+      "enabled": true
     }
   },
   "plugin": ["context-mode", "@simonwjackson/opencode-direnv"]

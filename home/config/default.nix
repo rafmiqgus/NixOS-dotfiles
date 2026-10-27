@@ -20,5 +20,6 @@
     ./fish
     ./herdr
     ./opencode
+    ./ocp
   ];
 }
