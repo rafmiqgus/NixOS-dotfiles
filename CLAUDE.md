@@ -35,6 +35,8 @@ Outputs:
 nh os switch        # alias nr   (= sudo nixos-rebuild switch, NH_FLAKE=/home/rafael/.dotfiles)
 nh home switch      # alias hms  (nr + hms run `git add -N .` first: new files visible to flake, nothing staged)
 # ALL rebuilds need --impure (nh: `-- --impure`): Nix reads matugen colors from ~/.cache/matugen (not in git).
+# The fish aliases nr/hms ALREADY pass `-- --impure`: type plain `hms`. `hms -- --impure` doubles the `--`, nh
+# appends its own `nix eval ... --apply` after it, and nix fails with "unexpected argument '--apply'".
 nh clean all --keep 5 --keep-since 3m   # alias gc; also runs weekly via nh-clean.timer
 sudo nixos/holy-update.sh   # flake update + both nh switches + nh clean (interactive y/n)
 ```
@@ -151,7 +153,11 @@ gradients `{ colors = {...}, angle = 45 }`). Generated order: `require`s (extraL
 → HM startup/shutdown hooks → `extraConfig`. Later `hl.config` calls override earlier ones.
 
 **`extraConfig` loads, last and in order:** `~/.config/hypr/monitors.lua` (hyprmoncfg) then
-`~/.local/share/ambxst/hyprland.lua` (ambxst), through a `load_if_exists` helper (`loadfile`, silently skips a
+`~/.local/share/ambxst/hyprland.lua` (ambxst). monitors.lua uses an `io.open` existence guard + a LITERAL
+`dofile("/home/rafael/.config/hypr/monitors.lua")`: hyprmoncfg verifies the include by parsing hyprland.lua as text
+and only recognises literal `require("...")`/`dofile("...")` (else every apply fails "is not included by"); `dofile`
+not `require` so rewrites are re-read on reload; a broken monitors.lua shows in `hyprctl configerrors`. Ambxst goes
+through a `load_if_exists` helper (`loadfile`, silently skips a
 missing OR syntactically broken file: if ambxst's look vanishes, check its file first). Ambxst therefore overrides only
 the keys it sets itself: general/decoration values (incl. border colours) and the PARENT animations
 `windows`/`fade`/`border`/`workspaces` (2.5, `myBezier`). Any leaf animation set from Nix (`windowsMove`, `fadeDim`...)
@@ -159,7 +165,7 @@ still wins over its parent; check `hyprctl animations` (`overridden: 1` = set ex
 
 | file | content |
 |---|---|
-| `default.nix` | packages (waybar, awww, hyprpaper, waypaper, wl-clipboard, clipse, hyprpolkitagent, swaync, hyprlock, hyprpicker, wlr-randr, wl-mirror, brightnessctl, pavucontrol, playerctl), imports, `configType = "lua"`, `extraLuaFiles.binds = ./binds.lua`, `extraConfig` (monitors + ambxst loads) |
+| `default.nix` | packages (waybar, awww, hyprpaper, waypaper, wl-clipboard, clipse, hyprpolkitagent, swaync, hyprlock, hyprpicker, wlr-randr, wl-mirror, brightnessctl, pavucontrol, playerctl), imports, `configType = "lua"`, `extraLuaFiles.binds = ./binds.lua`, `extraConfig` (monitors + ambxst loads), `systemd.user.services.hyprmoncfgd` |
 | `general-hypr.nix` | `env` via `_args` (cursor from `home.pointerCursor`, `LIBVA_DRIVER_NAME=iHD`, `XKB_DEFAULT_LAYOUT=fr`); fallback `monitor` (`output = ""`, preferred/auto/1; real layout owned by **hyprmoncfg** → `~/.config/hypr/monitors.lua`, daemon `hyprmoncfgd.service`); `config.misc` (`vrr = 2` fullscreen only), `config.render.direct_scanout = 2`, `config.input` fr + touchpad `tap_to_click`/natural scroll; `gesture` 3-finger horizontal = workspace; `device` sensitivities (logitech-g305, elan touchpad). No exec-once: hyprpolkitagent is a systemd user unit (graphical-session.target) |
 | `binds.lua` | native Lua, `require("binds")`. `local mainMod = "SUPER"`. RETURN kitty, C close, M wlogout script, E `kitty -- yazi`, HJKL focus. Workspaces 1-10 on AZERTY top row keysyms (`ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla agrave`, loop), SHIFT moves window. SHIFT+S → special:magic. mouse_down/up scroll workspaces. mouse:272/273 drag/resize (`{ mouse = true }`). Volume (wpctl) / brightness (brightnessctl) `{ locked, repeating }`, playerctl `{ locked }` |
 | `windows-hypr.nix` | `workspace_rule` 1-4; `window_rule` (`match = { class, title }`): clipse float + `size "622 652"`, waypaper float, kitty KittyNmtui float 800x700, pavucontrol float; `layer_rule` blur logout_dialog |
@@ -168,8 +174,10 @@ still wins over its parent; check `hyprctl animations` (`overridden: 1` = set ex
 Notes: ambxst (Axenide) provides the bar/shell; waybar is installed but not autostarted
 (commented). Wallpaper via awww/hyprpaper/waypaper (swww line commented).
 VRR: `misc.vrr = 2` (fullscreen only). hyprmoncfg writes `monitors.lua` (Lua) because it detects `hyprland.lua`;
-the old hyprlang `~/.config/hypr/monitors.conf` is no longer read (check eDP `vrr` in the Lua file: hyprmoncfg may
-write `1` when a profile is saved). Its profile lists the iiyama ultrawide (DP-4, 3440x1440@60) but not the Samsung
+the old hyprlang `monitors.conf` was deleted 2026-10-20 (check eDP `vrr` in the Lua file: hyprmoncfg may
+write `1` when a profile is saved). `hyprmoncfgd` is declared in `default.nix` (`systemd.user.services.hyprmoncfgd`,
+WantedBy `hyprland-session.target`, explicit `--hypr-config`/`--monitors-conf`). Before 2026-10-20 it was a hand-made
+symlink into the package's store path; GC deleted that path after the 1.8.0 -> 1.9.1 bump and the unit went `bad`. Its profile lists the iiyama ultrawide (DP-4, 3440x1440@60) but not the Samsung
 LC27G5 (DP-1, 2560x1440@144, falls back to the Nix `preferred, auto` monitor).
 
 **Gotcha (hit 2026-10-15):** Hyprland picks the config format (`hyprland.lua` vs `hyprland.conf`) once at startup.
