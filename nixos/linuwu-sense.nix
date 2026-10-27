@@ -17,7 +17,7 @@ let
   nitroSense = "/sys/module/linuwu_sense/drivers/platform:acer-wmi/acer-wmi/nitro_sense";
 
   linuwu-sense = config.boot.kernelPackages.callPackage (
-    { stdenv, fetchFromGitHub, kernel }:
+    { stdenv, fetchFromGitHub, kernel, kernelModuleMakeFlags }:
     stdenv.mkDerivation {
       pname = "linuwu-sense";
       version = "0-unstable-2026-07-30";
@@ -32,17 +32,23 @@ let
       nativeBuildInputs = kernel.moduleBuildDependencies;
 
       # Upstream Makefile's `all` target is just the kbuild invocation.
+      # kernelModuleMakeFlags carries the kmodigest signing rule, which emits the
+      # per-module .ko.cer that the kernel modules tree now requires.
       buildPhase = ''
         runHook preBuild
         make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
+          ${lib.escapeShellArgs kernelModuleMakeFlags} \
           M=$(pwd) modules
         runHook postBuild
       '';
 
       installPhase = ''
         runHook preInstall
-        install -D src/linuwu_sense.ko \
-          "$out/lib/modules/${kernel.modDirVersion}/kernel/drivers/platform/x86/linuwu_sense.ko"
+        make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
+          ${lib.escapeShellArgs kernelModuleMakeFlags} \
+          M=$(pwd) INSTALL_MOD_PATH=$out modules_install
+        # depmod index files would collide with the kernel's in the modules buildEnv
+        find $out/lib/modules -maxdepth 2 -name 'modules.*' -delete
         runHook postInstall
       '';
 
