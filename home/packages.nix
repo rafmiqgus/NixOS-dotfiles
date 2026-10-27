@@ -50,6 +50,7 @@
     herdr
     opencode
     lsof
+    dmidecode
 
     # ── dev & build ────────────────────────────────────────────
     cachix
@@ -64,7 +65,9 @@
     nix-fast-build
     nodejs_24
     pre-commit
-    reuse
+    # reuse  # disabled 2026-10-21: nixpkgs 02c087f3 sphinx-hook.sh reads structuredAttrs
+    #        # sphinxBuilders as a string -> only "html" runs, `man` output missing, build fails.
+    #        # Use `nix run nixpkgs#reuse -- lint` meanwhile; re-enable once fixed upstream.
     tree-sitter
     claude-code
     gh
@@ -92,7 +95,9 @@
 
     # ── color / theming tools ──────────────────────────────────
     matugen
-    pywal16
+    # pywal16  # disabled 2026-10-21: since nixpkgs #571813 (python __structuredAttrs = true),
+    #          # makeWrapperArgs "--prefix PATH : ..." is passed as one arg -> makeWrapper dies.
+    #          # Fix pending in NixOS/nixpkgs#575801; re-enable once it reaches nixos-unstable.
 
     # ── apps ───────────────────────────────────────────────────
     ardour
@@ -101,7 +106,6 @@
     discord
     keypunch
     libreoffice
-    lunar-client
     ncspot
     neovim
     okteta
@@ -124,7 +128,6 @@
     mangohud
     # modrinth-app
     nsnake
-    osu-lazer
     rebels-in-the-sky
     roccat-tools
     steam-run
@@ -173,7 +176,10 @@
     vulkan-validation-layers
 
     # ── python & scripts ───────────────────────────────────────
-    (pkgs.python313.withPackages (ps: with ps; [ watchdog pdftotext ]))
+    (pkgs.python313.withPackages (ps: with ps; [
+      watchdog 
+      pdftotext 
+    ]))
 
     # epiclang wrapper
     (pkgs.writeShellScriptBin "epiclang" ''
