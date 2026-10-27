@@ -46,11 +46,6 @@ in
 
     # nvidia-drm.modeset=1 is added by hardware.nvidia (modesetting/offload).
     # vbox modules are loaded by virtualisation.virtualbox.host (none with enableKvm).
-    kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-    extraModprobeConfig = ''
-      options v4l2loopback devices=1 video_nr=2 card_label="EOS600D"
-    '';
 
     kernel.sysctl = {
       # Tuned for zram: swap eagerly, no readahead on swap-in.
@@ -147,6 +142,9 @@ in
     theme = "samaritan";
   };
 
+  # Plain Hyprland session; the uwsm one is broken here (wayland-session-bindpid unit missing).
+  services.displayManager.defaultSession = "hyprland";
+
   # Replaces the theme's scripts/update-system-info.sh: the theme's utils/SystemInfo.js
   # is a symlink to this file, regenerated at every boot before SDDM starts.
   systemd.services.samaritan-sysinfo = {
@@ -173,7 +171,10 @@ in
     '';
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = false;
+  };
   services.seatd.enable = true;
   services.libinput.enable = true;
 
@@ -276,7 +277,12 @@ in
     "jdk/8".source = pkgs.jdk8;
   };
 
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      dbus 
+    ];
+  };
 
   # Shell mods (ambxst/Roadie) hardcode /bin/bash and /usr/bin/bash in QML Process
   # commands (power menu, farewell, AI sidebar); NixOS only ships /bin/sh.
@@ -360,7 +366,8 @@ in
   # Runtime PM on PCIe devices at boot (power/control=auto), the declarative
   # `powertop --auto-tune`. The Realtek NIC and others sat at control=on/D0,
   # holding the package out of deep idle. One-shot at boot, no resident daemon.
-  powerManagement.powertop.enable = true;
+  # Disabled: boot hangs at "Powertop tunings" (display wake issue), to investigate.
+  powerManagement.powertop.enable = false;
 
   # USB keyboards drop the first keystrokes when waking from autosuspend
   # (powertop --auto-tune sets power/control=auto). Keep any device that
@@ -376,4 +383,7 @@ in
 
   # First-install release; do not change (see configuration.nix(5)).
   system.stateVersion = "24.05";
+
+  # system keychain
+  services.gnome.gnome-keyring.enable = true;
 }
