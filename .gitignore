@@ -11,3 +11,8 @@ result-*
 
 # editor / misc
 *.swp
+
+# ambxst mods nix-store symlinks
+home/config/ambxst/mods/aspect-mods
+home/config/ambxst/mods/drpezzer-mods
+home/config/ambxst/mods/faceid

@@ -6,6 +6,7 @@
 let
   # matugen output lives outside git (~/.cache/matugen), so rebuilds need --impure.
   kmsconPalette = /home/rafael/.cache/matugen/kmscon-palette.nix;
+  pam_faceid_lib = pkgs.callPackage ../home/config/ambxst/mods/linux-faceid/pam_faceid.nix { inherit inputs; };
 in
 {
   imports = [
@@ -386,4 +387,17 @@ in
 
   # system keychain
   services.gnome.gnome-keyring.enable = true;
+
+  # Pam FaceId lib from linux-faceid ambxst mod
+  # Use `rules` (adds to the generated stack); `text` would replace the whole file.
+  security.pam.services.sudo.rules.auth.faceid = {
+    order = config.security.pam.services.sudo.rules.auth.unix.order - 10;
+    control = "sufficient";
+    modulePath = "${pam_faceid_lib}/lib/pam_faceid.so";
+  };
+  security.pam.services.sddm.rules.auth.faceid = {
+    order = config.security.pam.services.sddm.rules.auth.login.order - 10;
+    control = "sufficient";
+    modulePath = "${pam_faceid_lib}/lib/pam_faceid.so";
+  };
 }

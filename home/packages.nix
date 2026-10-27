@@ -92,12 +92,14 @@
     tectonic
     v4l-utils
     kdePackages.okular
+    imagemagick
 
     # ── color / theming tools ──────────────────────────────────
     matugen
     # pywal16  # disabled 2026-10-21: since nixpkgs #571813 (python __structuredAttrs = true),
     #          # makeWrapperArgs "--prefix PATH : ..." is passed as one arg -> makeWrapper dies.
     #          # Fix pending in NixOS/nixpkgs#575801; re-enable once it reaches nixos-unstable.
+    inputs.skwd-wall.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # ── apps ───────────────────────────────────────────────────
     ardour
@@ -166,6 +168,7 @@
     mesa-demos
     ncurses
     zlib
+    pam
 
     # graphics / gpu
     lsfg-vk

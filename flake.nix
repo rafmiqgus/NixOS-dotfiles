@@ -33,14 +33,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    skwd-wall = {
+      url = "github:liixini/skwd-wall/nix";
+    };
+
     ocp = {
       url = "github:dtzp555-max/ocp";
       flake = false;
     };
+
+    # Ambxst mods
+    ambxst-faceid-mod.url = "github:ihatenosebleedz/linux-faceid";
+    ambxst-faceid-mod.flake = false;
+    drpezzer-mods.url = "github:drpezzer/ambxst-mods";
+    drpezzer-mods.flake = false;
+    aspect-mods.url = "github:AspectHeat/ambxst-mods";
+    aspect-mods.flake = false;
   };
 
   outputs =
-    { nixpkgs, home-manager, spicetify-nix, ambxst, ... }@inputs:
+    { nixpkgs, home-manager, spicetify-nix, ambxst, skwd-wall, ambxst-faceid-mod, ... }@inputs:
     let
       system = "x86_64-linux";
 
